@@ -1,4 +1,4 @@
-package com.example.focusandstudy.ui.home;
+package com.example.focusandstudy.ui.calendar;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,20 +10,22 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.focusandstudy.databinding.FragmentHomeBinding;
+import com.example.focusandstudy.databinding.FragmentCalendarBinding;
 
-public class HomeFragment extends Fragment {
+public class CalendarFragment extends Fragment {
 
-    private FragmentHomeBinding binding;
+    private FragmentCalendarBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        HomeViewModel homeViewModel =
-                new ViewModelProvider(this).get(HomeViewModel.class);
+        CalendarViewModel dashboardViewModel =
+                new ViewModelProvider(this).get(CalendarViewModel.class);
 
-        binding = FragmentHomeBinding.inflate(inflater, container, false);
+        binding = FragmentCalendarBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
+        final TextView textView = binding.textDashboard;
+        dashboardViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 

@@ -1,16 +1,16 @@
-package com.example.focusandstudy.ui.dashboard;
+package com.example.focusandstudy.ui.parameters;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class DashboardViewModel extends ViewModel {
+public class ParametersViewModel extends ViewModel {
 
     private final MutableLiveData<String> mText;
 
-    public DashboardViewModel() {
+    public ParametersViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is dashboard fragment");
+        mText.setValue("This is parameters fragment");
     }
 
     public LiveData<String> getText() {
