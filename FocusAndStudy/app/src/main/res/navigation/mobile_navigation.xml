@@ -16,8 +16,6 @@
         android:name="com.example.focusandstudy.ui.calendar.CalendarFragment"
         android:label="@string/title_calendar"
         tools:layout="@layout/fragment_calendar" />
-
-
     <fragment
         android:id="@+id/navigation_profile"
         android:name="com.example.focusandstudy.ui.profile.ProfileFragment"

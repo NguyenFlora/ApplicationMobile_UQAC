@@ -1,4 +1,4 @@
-package com.example.focusandstudy.ui.calendar;
+package com.example.focusandstudy.ui.settings;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,24 +10,22 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.focusandstudy.databinding.FragmentCalendarBinding;
+import com.example.focusandstudy.databinding.FragmentSettingsBinding;
 
-public class CalendarFragment extends Fragment {
+public class SettingsFragment extends Fragment {
 
-    private FragmentCalendarBinding binding;
+    private FragmentSettingsBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
+        SettingsViewModel settingsViewModel =
+                new ViewModelProvider(this).get(SettingsViewModel.class);
 
-        CalendarViewModel calendarViewModel =
-                new ViewModelProvider(this).get(CalendarViewModel.class);
-
-        binding = FragmentCalendarBinding.inflate(inflater, container, false);
+        binding = FragmentSettingsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textCalendar;
-        calendarViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
-        
+        final TextView textView = binding.textSettings;
+        settingsViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 
