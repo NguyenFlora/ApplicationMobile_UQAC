@@ -16,10 +16,15 @@
         android:name="com.example.focusandstudy.ui.calendar.CalendarFragment"
         android:label="@string/title_calendar"
         tools:layout="@layout/fragment_calendar" />
+    <fragment
+        android:id="@+id/navigation_profile"
+        android:name="com.example.focusandstudy.ui.profile.ProfileFragment"
+        android:label="@string/title_profile"
+        tools:layout="@layout/fragment_profile" />
 
     <fragment
-        android:id="@+id/navigation_settings"
-        android:name="com.example.focusandstudy.ui.settings.SettingsFragment"
-        android:label="@string/title_settings"
-        tools:layout="@layout/fragment_settings" />
+        android:id="@+id/navigation_parameters"
+        android:name="com.example.focusandstudy.ui.parameters.ParametersFragment"
+        android:label="@string/title_parameters"
+        tools:layout="@layout/fragment_parametres" />
 </navigation>
