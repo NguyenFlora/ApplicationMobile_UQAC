@@ -3,7 +3,7 @@
     <string name="title_home">Sessions de travail</string>
     <string name="title_calendar">Calendrier</string>
     <string name="title_profile">Profil</string>
-    <string name="title_parameters">Paramètres</string>
+    <string name="title_settings">Paramètres</string>
     <string name="de_travail_aujourd_hui">De travail aujourd\'hui</string>
     <string name="pomodoro">Découvrir le cycle Pomodoro</string>
     <string name="session">Commencer une nouvelle session</string>
