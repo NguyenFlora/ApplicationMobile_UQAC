@@ -14,5 +14,3 @@ dependencyResolutionManagement {
 }
 rootProject.name = "FocusAndStudy"
 include ':app'
-include ':android-iconify'
-

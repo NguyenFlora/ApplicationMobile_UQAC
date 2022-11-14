@@ -1,28 +1,6 @@
 <resources>
-    <string name="app_name">Focus &amp; Study</string>
-    <string name="title_home">Sessions de travail</string>
-    <string name="title_calendar">Calendrier</string>
-    <string name="title_profile">Profil</string>
-    <string name="title_settings">Paramètres</string>
-    <string name="de_travail_aujourd_hui">De travail aujourd\'hui</string>
-    <string name="pomodoro">Découvrir le cycle Pomodoro</string>
-    <string name="session">Commencer une nouvelle session</string>
-    <string name="semaine">De travail cette semaine</string>
-    <string name="prompt_email">E-mail</string>
-    <string name="prompt_password">Mot de passe</string>
-    <string name="wrongMail">Les mails ne sont pas les mêmes</string>
-    <string name="wrongPassword">Les mots de passe ne sont pas les mêmes</string>
-    <string name="newThemeCreation">Un nouveau thème a été crée</string>
-    <string name="ensureInput">Assurez-vous que tous les champs soient remplis !</string>
-    <string name="ensureUsername">Le pseudo doit tenir entre 3 et 20 caractères.</string>
-    <string name="ensureMail">Les mails ne correspondent pas !</string>
-    <string name="ensurePassword">Les mots de passe ne correspondent pas !</string>
-    <string name="ensurePasswordLength">Le mot de passe doit être entre 4 et 30 caractères !</string>
-    <string name="ensurePasswordRequirements">Le mot de passe doit avoir au moins une majuscule, une minuscule, un chiffre et un caractère spécial.</string>
-    <string name="ensureMailRequirements">Insérez un format d\'adresse mail valide !</string>
-    <string name="invalidCredentials">Informations d\'identification invalides</string>
-    <string name="accountCreatedToast">Félicitations ! Vous venez de créer votre compte, vous pouvez désormais vous connecter.</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-
+    <string name="app_name">FocusAndStudy</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
 </resources>
