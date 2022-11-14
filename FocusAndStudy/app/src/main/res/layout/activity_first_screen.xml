@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:background="#5DB075">
+
+
+    <Button
+        android:id="@+id/FirstScreen_Button_Inscription"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:text="Inscription"
+        android:textAllCaps="false"
+        android:textColor="#4B9460"
+        app:backgroundTint="#FFFFFF"
+        app:cornerRadius="32dp"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="166dp"></Button>
+
+    <Button
+        android:id="@+id/FirstScreen_Button_Connexion"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:text="Connexion"
+        android:textAllCaps="false"
+        android:textColor="#4B9460"
+        app:backgroundTint="#FFFFFF"
+        app:cornerRadius="32dp"></Button>
+
+</LinearLayout>
