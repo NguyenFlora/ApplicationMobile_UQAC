@@ -12,11 +12,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.focusandstudy.databinding.FragmentCalendarMonthlyBinding;
 
-<<<<<<< HEAD:FocusAndStudy/app/src/main/java/com/example/focusandstudy/ui/calendar/CalendarFragment.java
-public class CalendarFragment extends Fragment {
-=======
 public class CalendarMonthlyFragment extends Fragment{
->>>>>>> 4573de3 (Merge pull request #9 from NguyenFlora/feat/set_up_next_activities):FocusAndStudy/app/src/main/java/com/example/focusandstudy/ui/calendar/CalendarMonthlyFragment.java
 
     private FragmentCalendarMonthlyBinding binding;
 

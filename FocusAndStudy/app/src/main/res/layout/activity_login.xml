@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_gravity="top">
+
+        <ImageView
+            android:id="@+id/LogIn_Image_Croix"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@android:drawable/ic_menu_close_clear_cancel"
+            android:layout_gravity="left"></ImageView>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.8"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/LogIn_Text_Conexion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Connexion"
+            android:textColor="#000000"
+            android:textSize="38dp"
+            android:textStyle="bold"
+            android:layout_gravity="center"></TextView>
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.3"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <EditText
+            android:id="@+id/LogIn_EditText_Email"
+            android:layout_width="300dp"
+            android:layout_height="60dp"
+            android:hint="Email"></EditText>
+
+        <EditText
+            android:id="@+id/LogIn_EditText_MotDePasse"
+            android:layout_width="300dp"
+            android:layout_height="60dp"
+            android:hint="Mot de passe"
+            android:inputType="textPassword"></EditText>
+
+        <TextView
+            android:id="@+id/LogIn_Text_Afficher"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#5DB075"
+            android:text="Afficher"></TextView>
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.3"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+
+        <Button
+            android:id="@+id/LogIn_Button_SeConnecter"
+            android:layout_width="300dp"
+            android:layout_height="60dp"
+            android:text="Se connecter"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            app:backgroundTint="#5DB075"
+            app:cornerRadius="32dp"></Button>
+
+        <TextView
+            android:id="@+id/LogIn_Text_MdpOublie"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#5DB075"
+            android:text="Mot de passe oublié ?"></TextView>
+
+    </LinearLayout>
+
+</LinearLayout>

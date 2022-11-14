@@ -38,6 +38,15 @@
         <activity android:name=".controller.FirstScreenActivity" />
         <activity android:name=".controller.SignUpActivity" />
         <activity android:name=".controller.MainActivity" />
+        <activity
+            android:name=".controller.LoginActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
         <meta-data
             android:name="preloaded_fonts"
