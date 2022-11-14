@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_pomodoro">
+
+
+    <ImageView
+        android:id="@+id/Pomodoro_Image_Arbre4"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        app:srcCompat="@drawable/free_tree_growth_vector_04"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="55dp"
+        tools:layout_editor_absoluteY="107dp" />
+
+    <TextView
+        android:id="@+id/Pomodoro_Text_Cycle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cycles"
+        android:textColor="#3B744B"
+        android:textSize="20dp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="73dp"></TextView>
+
+    <ImageView
+        android:id="@+id/Pomodoro_Image_goutte1"
+        android:layout_width="48dp"
+        android:layout_height="50dp"
+        app:srcCompat="@drawable/icons8_water_96"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="92dp"
+        tools:layout_editor_absoluteY="64dp" />
+
+    <ImageView
+        android:id="@+id/Pomodoro_Image_goutte2"
+        android:layout_width="48dp"
+        android:layout_height="50dp"
+        app:srcCompat="@drawable/icons8_water_96"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="142dp"
+        tools:layout_editor_absoluteY="64dp" />
+
+    <ImageView
+        android:id="@+id/Pomodoro_Image_goutte3"
+        android:layout_width="48dp"
+        android:layout_height="50dp"
+        app:srcCompat="@drawable/icons8_water_96"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="190dp"
+        tools:layout_editor_absoluteY="64dp" />
+
+    <ImageView
+        android:id="@+id/Pomodoro_Image_goutte4"
+        android:layout_width="48dp"
+        android:layout_height="50dp"
+        app:srcCompat="@drawable/icons8_water_96"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="238dp"
+        tools:layout_editor_absoluteY="64dp" />
+
+    <ImageView
+        android:id="@+id/Pomodoro_Image_Arbre1"
+        android:layout_width="78dp"
+        android:layout_height="78dp"
+        app:srcCompat="@drawable/free_tree_growth_vector_01"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="166dp"
+        tools:layout_editor_absoluteY="313dp" />
+
+    <ImageView
+        android:id="@+id/Pomodoro_Image_Arbre2"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        app:srcCompat="@drawable/free_tree_growth_vector_02"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="140dp"
+        tools:layout_editor_absoluteY="270dp" />
+
+    <ImageView
+        android:id="@+id/Pomodoro_Image_Arbre3"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        app:srcCompat="@drawable/free_tree_growth_vector_03"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="80dp"
+        tools:layout_editor_absoluteY="150dp" />
+
+    <Button
+        android:id="@+id/Pomodoro_Button_Musique"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/icons8_musical_notes_96"
+        app:backgroundTint="#FFFFFF"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="66dp"
+        tools:layout_editor_absoluteY="639dp" />
+
+    <TextView
+        android:id="@+id/Pomodoro_Text_Musique"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Changer la musique"
+        android:textColor="#FCFFFFFF"
+        android:textSize="18dp"
+        app:layout_constraintEnd_toEndOf="@+id/Pomodoro_Button_Musique"
+        app:layout_constraintStart_toStartOf="@+id/Pomodoro_Button_Musique"
+        app:layout_constraintTop_toBottomOf="@+id/Pomodoro_Button_Musique"
+        tools:ignore="MissingConstraints"></TextView>
+
+    <Button
+        android:id="@+id/Pomodoro_Button_Quitter"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/icons8_export_96"
+        app:backgroundTint="#FFFFFF"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="305dp"
+        tools:layout_editor_absoluteY="639dp" />
+
+    <TextView
+        android:id="@+id/Pomodoro_Text_Quitter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Quitter"
+        android:textColor="#FCFFFFFF"
+        android:textSize="18dp"
+        app:layout_constraintEnd_toEndOf="@+id/Pomodoro_Button_Quitter"
+        app:layout_constraintStart_toStartOf="@+id/Pomodoro_Button_Quitter"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="691dp"></TextView>
+
+    <ImageView
+        android:id="@+id/Pomodoro_Image_Cercle"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        app:srcCompat="@drawable/circle_time_pomodoro"
+        tools:layout_editor_absoluteX="80dp"
+        tools:layout_editor_absoluteY="407dp"
+        tools:ignore="MissingConstraints" />
+
+    <ProgressBar
+        android:id="@+id/Pomodoro_ProgressBar_Temps"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="358dp"
+        android:layout_height="358dp"
+        android:indeterminateOnly="false"
+        android:scaleX="-1"
+        android:progressDrawable="@drawable/custom_progress_bar"
+        app:layout_constraintBottom_toBottomOf="@+id/Pomodoro_Image_Cercle"
+        app:layout_constraintEnd_toEndOf="@+id/Pomodoro_Image_Cercle"
+        app:layout_constraintStart_toStartOf="@+id/Pomodoro_Image_Cercle"
+        app:layout_constraintTop_toBottomOf="@+id/Pomodoro_Image_Arbre4"
+        tools:ignore="MissingConstraints"
+        tools:progress="40" />
+
+    <EditText
+        android:id="@+id/editTextTime"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:background="#00FFFFFF"
+        android:ems="10"
+        android:gravity="center_horizontal"
+        android:inputType="time"
+        tools:text="10:00"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="40dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/Pomodoro_ProgressBar_Temps"
+        app:layout_constraintEnd_toEndOf="@+id/Pomodoro_ProgressBar_Temps"
+        app:layout_constraintStart_toStartOf="@+id/Pomodoro_ProgressBar_Temps"
+        app:layout_constraintTop_toTopOf="@+id/Pomodoro_ProgressBar_Temps"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/Pomodoro_Text_Pause"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Temps de pause"
+        android:textColor="#FCFFFFFF"
+        android:textSize="20dp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="131dp"
+        tools:layout_editor_absoluteY="473dp"></TextView>
+
+    <Button
+        android:id="@+id/Pomodoro_Button_Pause"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:background="@drawable/icons8_pause_96"
+        app:backgroundTint="#FFFFFF"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="170dp"
+        tools:layout_editor_absoluteY="553dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
