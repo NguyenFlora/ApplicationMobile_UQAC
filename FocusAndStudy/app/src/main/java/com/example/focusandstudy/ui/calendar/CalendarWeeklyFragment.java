@@ -9,25 +9,24 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.navigation.fragment.NavHostFragment;
 
-import com.example.focusandstudy.databinding.FragmentCalendarBinding;
+import com.example.focusandstudy.databinding.FragmentCalendarWeeklyBinding;
 
-public class CalendarFragment extends NavHostFragment {
+public class CalendarWeeklyFragment extends Fragment{
 
-    private FragmentCalendarBinding binding;
+    private FragmentCalendarWeeklyBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
-        CalendarViewModel calendarViewModel =
-                new ViewModelProvider(this).get(CalendarViewModel.class);
+        CalendarWeeklyViewModel calendarWeeklyViewModel =
+                new ViewModelProvider(this).get(CalendarWeeklyViewModel.class);
 
-        binding = FragmentCalendarBinding.inflate(inflater, container, false);
+        binding = FragmentCalendarWeeklyBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textCalendar;
-        calendarViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        final TextView textView = binding.textCalendarWeekly;
+        calendarWeeklyViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         
         return root;
     }

@@ -13,7 +13,7 @@ import androidx.navigation.fragment.NavHostFragment;
 
 import com.example.focusandstudy.databinding.FragmentSettingsBinding;
 
-public class SettingsFragment extends NavHostFragment {
+public class SettingsFragment extends Fragment{
 
     private FragmentSettingsBinding binding;
 
