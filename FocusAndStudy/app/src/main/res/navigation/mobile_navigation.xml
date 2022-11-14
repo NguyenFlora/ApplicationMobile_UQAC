@@ -12,10 +12,10 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/navigation_calendar"
-        android:name="com.example.focusandstudy.ui.calendar.CalendarFragment"
+        android:id="@+id/navigation_calendar_weekly"
+        android:name="com.example.focusandstudy.ui.calendar.CalendarWeeklyFragment"
         android:label="@string/title_calendar"
-        tools:layout="@layout/fragment_calendar" />
+        tools:layout="@layout/fragment_calendar_weekly" />
     <fragment
         android:id="@+id/navigation_profile"
         android:name="com.example.focusandstudy.ui.profile.ProfileFragment"

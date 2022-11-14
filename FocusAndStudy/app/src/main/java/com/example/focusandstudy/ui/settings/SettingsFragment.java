@@ -12,7 +12,11 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.focusandstudy.databinding.FragmentSettingsBinding;
 
+<<<<<<< HEAD
 public class SettingsFragment extends Fragment {
+=======
+public class SettingsFragment extends Fragment{
+>>>>>>> 4573de3 (Merge pull request #9 from NguyenFlora/feat/set_up_next_activities)
 
     private FragmentSettingsBinding binding;
 
