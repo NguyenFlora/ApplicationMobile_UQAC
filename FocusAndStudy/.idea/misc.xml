@@ -3,38 +3,6 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Flora/Desktop/ApplicationMobile_UQAC/FocusAndStudy/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1" />
-        <entry key="..\:/Users/Flora/Desktop/ApplicationMobile_UQAC/FocusAndStudy/app/src/main/res/drawable/box.xml" value="0.1605" />
-        <entry key="..\:/Users/Flora/Desktop/ApplicationMobile_UQAC/FocusAndStudy/app/src/main/res/drawable/day.xml" value="0.107" />
-        <entry key="..\:/Users/Flora/Desktop/ApplicationMobile_UQAC/FocusAndStudy/app/src/main/res/drawable/days.xml" value="0.1" />
-        <entry key="..\:/Users/Flora/Desktop/ApplicationMobile_UQAC/FocusAndStudy/app/src/main/res/drawable/ic_dashboard_black_24dp.xml" value="0.1875" />
-        <entry key="..\:/Users/Flora/Desktop/ApplicationMobile_UQAC/FocusAndStudy/app/src/main/res/drawable/ic_home_black_24dp.xml" value="0.1" />
-        <entry key="..\:/Users/Flora/Desktop/ApplicationMobile_UQAC/FocusAndStudy/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1875" />
-        <entry key="..\:/Users/Flora/Desktop/ApplicationMobile_UQAC/FocusAndStudy/app/src/main/res/drawable/ic_notifications_black_24dp.xml" value="0.1" />
-        <entry key="..\:/Users/Flora/Desktop/ApplicationMobile_UQAC/FocusAndStudy/app/src/main/res/drawable/pomodorobox.xml" value="0.536" />
-        <entry key="..\:/Users/Flora/Desktop/ApplicationMobile_UQAC/FocusAndStudy/app/src/main/res/drawable/roundedbutton.xml" value="0.164" />
-        <entry key="..\:/Users/Flora/Desktop/ApplicationMobile_UQAC/FocusAndStudy/app/src/main/res/font/montserrat.xml" value="0.1" />
-        <entry key="..\:/Users/Flora/Desktop/ApplicationMobile_UQAC/FocusAndStudy/app/src/main/res/layout/activity_main.xml" value="0.264" />
-        <entry key="..\:/Users/Flora/Desktop/ApplicationMobile_UQAC/FocusAndStudy/app/src/main/res/layout/fragment_calendar.xml" value="0.2" />
-        <entry key="..\:/Users/Flora/Desktop/ApplicationMobile_UQAC/FocusAndStudy/app/src/main/res/layout/fragment_dashboard.xml" value="0.2" />
-        <entry key="..\:/Users/Flora/Desktop/ApplicationMobile_UQAC/FocusAndStudy/app/src/main/res/layout/fragment_home.xml" value="0.21810699588477367" />
-        <entry key="..\:/Users/Flora/Desktop/ApplicationMobile_UQAC/FocusAndStudy/app/src/main/res/layout/fragment_notifications.xml" value="0.1" />
-        <entry key="..\:/Users/Flora/Desktop/ApplicationMobile_UQAC/FocusAndStudy/app/src/main/res/layout/fragment_parametres.xml" value="0.1" />
-        <entry key="..\:/Users/Flora/Desktop/ApplicationMobile_UQAC/FocusAndStudy/app/src/main/res/layout/fragment_profil.xml" value="0.1" />
-        <entry key="..\:/Users/Flora/Desktop/ApplicationMobile_UQAC/FocusAndStudy/app/src/main/res/layout/fragment_profile.xml" value="0.1" />
-        <entry key="..\:/Users/Flora/Desktop/ApplicationMobile_UQAC/FocusAndStudy/app/src/main/res/menu/bottom_nav_menu.xml" value="0.264" />
-        <entry key="..\:/Users/Flora/Desktop/ApplicationMobile_UQAC/FocusAndStudy/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />
-        <entry key="..\:/documents/e5_UQAC/android/ApplicationMobile_UQAC/FocusAndStudy/app/src/main/res/layout/activity_first_screen.xml" value="0.1" />
-        <entry key="..\:/documents/e5_UQAC/android/ApplicationMobile_UQAC/FocusAndStudy/app/src/main/res/layout/activity_login.xml" value="0.176" />
-        <entry key="..\:/documents/e5_UQAC/android/ApplicationMobile_UQAC/FocusAndStudy/app/src/main/res/layout/activity_main.xml" value="0.4" />
-        <entry key="..\:/documents/e5_UQAC/android/ApplicationMobile_UQAC/FocusAndStudy/app/src/main/res/layout/activity_sign_up.xml" value="0.1" />
-        <entry key="..\:/documents/e5_UQAC/android/ApplicationMobile_UQAC/FocusAndStudy/app/src/main/res/layout/fragment_calendar_monthly.xml" value="0.175" />
-        <entry key="..\:/documents/e5_UQAC/android/ApplicationMobile_UQAC/FocusAndStudy/app/src/main/res/layout/fragment_cycle_pomodoro.xml" value="0.14402173913043478" />
-        <entry key="..\:/documents/e5_UQAC/android/ApplicationMobile_UQAC/FocusAndStudy/app/src/main/res/layout/fragment_home.xml" value="0.1" />
-        <entry key="..\:/documents/e5_UQAC/android/ApplicationMobile_UQAC/FocusAndStudy/app/src/main/res/layout/fragment_profil.xml" value="0.14719202898550723" />
-        <entry key="..\:/documents/e5_UQAC/android/ApplicationMobile_UQAC/FocusAndStudy/app/src/main/res/layout/fragment_profile.xml" value="0.25416666666666665" />
-        <entry key="..\:/documents/e5_UQAC/android/ApplicationMobile_UQAC/FocusAndStudy/app/src/main/res/layout/fragment_settings.xml" value="0.1" />
-        <entry key="..\:/documents/e5_UQAC/android/ApplicationMobile_UQAC/FocusAndStudy/app/src/main/res/menu/bottom_nav_menu.xml" value="0.175" />
         <entry key="..\:/documents/e5_UQAC/android/FocusAndStudy/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
         <entry key="..\:/documents/e5_UQAC/android/FocusAndStudy/app/src/main/res/layout/fragment_dashboard.xml" value="0.25416666666666665" />
         <entry key="..\:/documents/e5_UQAC/android/FocusAndStudy/app/src/main/res/layout/fragment_home.xml" value="0.25416666666666665" />
