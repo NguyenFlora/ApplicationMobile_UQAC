@@ -9,10 +9,11 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.fragment.NavHostFragment;
 
 import com.example.focusandstudy.databinding.FragmentCalendarBinding;
 
-public class CalendarFragment extends Fragment {
+public class CalendarFragment extends NavHostFragment {
 
     private FragmentCalendarBinding binding;
 
