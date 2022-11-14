@@ -9,11 +9,10 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.navigation.fragment.NavHostFragment;
 
 import com.example.focusandstudy.databinding.FragmentProfileBinding;
 
-public class ProfileFragment extends NavHostFragment {
+public class ProfileFragment extends Fragment{
 
     private FragmentProfileBinding binding;
 
