@@ -30,6 +30,16 @@
     <string name="description5">🪴 Prends une pause de cinq minutes après la première période de 25 minutes.</string>
     <string name="description6">🌳 Après la quatrième période de 25 minutes de travail, accorde-toi une pause plus longue, soit de 15 à 30 minutes.</string>
     <string name="description7">🍊 Continue ainsi jusqu’à finir tes tâches.</string>
+    <string name="congratulations">Félicitations !</string>
+    <string name="congratulations_text">La session de travail est terminée. Vous avez assuré !</string>
+    <string name="xp_earned1">+</string>
+    <string name="xp_earned2">15</string>
+    <string name="xp_earned3">XP</string>
+    <string name="end_the_session">Terminer la session</string>
+    <string name="relaunch_the_session">Relancer la session</string>
+
+
+
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

@@ -86,9 +86,9 @@
             android:layout_height="60dp"
             android:text="Se connecter"
             android:textAllCaps="false"
-            android:textColor="#FFFFFF"
-            app:backgroundTint="#5DB075"
-            app:cornerRadius="32dp"></Button>
+            android:textColor="@color/white"
+            android:background="@drawable/box2"
+            ></Button>
 
         <TextView
             android:id="@+id/LogIn_Text_MdpOublie"
