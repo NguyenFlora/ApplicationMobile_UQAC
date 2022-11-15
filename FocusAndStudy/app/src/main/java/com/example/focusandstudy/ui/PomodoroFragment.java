@@ -1,4 +1,4 @@
-package com.example.focusandstudy.controller;
+package com.example.focusandstudy.ui;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

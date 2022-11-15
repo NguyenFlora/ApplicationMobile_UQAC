@@ -1,25 +1,26 @@
 package com.example.focusandstudy.controller;
 
-import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
-import android.widget.Toast;
+import android.widget.ImageView;
 
 import com.example.focusandstudy.R;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.example.focusandstudy.ui.PomodoroFragment;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
-import androidx.navigation.fragment.NavHostFragment;
-import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.example.focusandstudy.databinding.ActivityMainBinding;
+import com.example.focusandstudy.ui.PresentationFragment;
+import com.example.focusandstudy.ui.home.HomeFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -46,6 +47,19 @@ public class MainActivity extends AppCompatActivity {
                 transaction.commit();
             }
         });
+
+        ImageView pomodoroPresentation = (ImageView) findViewById(R.id.discover_the_pomodoro_cycle);
+        pomodoroPresentation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Fragment fragment= new PresentationFragment();
+                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                transaction.replace(R.id.container, fragment);
+                transaction.addToBackStack(null);
+                transaction.commit();
+            }
+        });
+
     }
 
 }
