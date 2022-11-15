@@ -22,6 +22,15 @@
     <string name="ensureMailRequirements">Insérez un format d\'adresse mail valide !</string>
     <string name="invalidCredentials">Informations d\'identification invalides</string>
     <string name="accountCreatedToast">Félicitations ! Vous venez de créer votre compte, vous pouvez désormais vous connecter.</string>
+    <string name="what_is_the_pomodoro_cycle">Qu\'est-ce que le cycle Pomodoro ?</string>
+    <string name="description1">La technique Pomodoro est une technique de gestion du temps qui se base sur l\'usage d\'un minuteur permettant de respecter des périodes de 25 minutes. Elle favorise la concentration sur une tâche en la segmentant en courtes périodes permettant ainsi d’atteindre avec satisfaction des résultats concrets rapidement.</string>
+    <string name="description2">La méthode a pour principale prétention que des pauses régulières favorisent l\'agilité intellectuelle. Certains bénéfices des temps de repos sur la consolidation de la mémoire peuvent être observés expérimentalement.</string>
+    <string name="description3">🌱 Choisis la tâche sur laquelle tu veux travailler.</string>
+    <string name="description4">🍀 Travaille sur la première tâche sans interruption jusqu’à la sonnerie du minuteur, soit 25 minutes. Durant cette période, on s\'efforce de ne pas se laisser distraire afin de rester concentré uniquement sur la tâche ciblée.</string>
+    <string name="description5">🪴 Prends une pause de cinq minutes après la première période de 25 minutes.</string>
+    <string name="description6">🌳 Après la quatrième période de 25 minutes de travail, accorde-toi une pause plus longue, soit de 15 à 30 minutes.</string>
+    <string name="description7">🍊 Continue ainsi jusqu’à finir tes tâches.</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
