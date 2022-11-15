@@ -2,6 +2,7 @@ package com.example.focusandstudy.controller;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Window;
 import android.widget.Toast;
 
 import com.example.focusandstudy.R;
@@ -24,16 +25,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
+        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(binding.getRoot());
 
-        BottomNavigationView navView = findViewById(R.id.nav_view);
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.navigation_home, R.id.navigation_calendar_weekly, R.id.navigation_profile, R.id.navigation_settings )
-                .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
-        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
     }
 
