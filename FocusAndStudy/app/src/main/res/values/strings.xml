@@ -37,6 +37,10 @@
     <string name="xp_earned3">XP</string>
     <string name="end_the_session">Terminer la session</string>
     <string name="relaunch_the_session">Relancer la session</string>
+    <string name="finished_session_text1">Vous avez lancé la session pour :</string>
+    <string name="finished_session_text2">La tâche est-elle terminée ?</string>
+    <string name="finished_session_no">Non, je la finirai plus tard</string>
+    <string name="finished_session_yes">Oui</string>
 
 
 
