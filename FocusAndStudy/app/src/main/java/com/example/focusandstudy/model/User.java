@@ -8,24 +8,16 @@ public class User implements Parcelable {
     private String mUsername;
     private String mEmail;
     private String mPassword;
+    private Statistics mStatistics;
 
-    /**
-     * Constructeur vide
-     */
     public User() {
     }
 
-    /**
-     * Constructeur
-     *
-     * @param username : est le nom de l'utilisateur
-     * @param email    : est l'email de l'utilisateur
-     * @param password : est le mot de passe de l'utilisateur
-     */
-    public User(String username, String email, String password) {
+    public User(String username, String email, String password, Statistics statistics) {
         mUsername = username;
         mEmail = email;
         mPassword = password;
+        mStatistics = statistics;
     }
 
     protected User(Parcel in) {
@@ -82,4 +74,7 @@ public class User implements Parcelable {
         mPassword = password;
     }
 
+    public Statistics getStatistics() { return mStatistics; }
+
+    public void setStatistics(Statistics statistics) { mStatistics = statistics; }
 }

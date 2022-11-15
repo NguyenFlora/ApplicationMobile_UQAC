@@ -10,7 +10,9 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.focusandstudy.R;
+import com.example.focusandstudy.model.Statistics;
 import com.example.focusandstudy.model.User;
+import com.example.focusandstudy.model.database.StatisticsDB;
 import com.example.focusandstudy.model.database.UserDB;
 
 import java.util.regex.Matcher;
@@ -50,12 +52,15 @@ public class SignUpActivity extends AppCompatActivity {
                     Toast.makeText(SignUpActivity.this, getString(R.string.ensurePasswordRequirements), Toast.LENGTH_SHORT).show();
                 } else {*/
                     // Create user account with infos
-                    User mUser = new User(username, email, password);
+                    Statistics statistics = new Statistics();
+                    User mUser = new User(username, email, password, statistics);
+                    StatisticsDB statisticsDB = new StatisticsDB(SignUpActivity.this);
+                    boolean success1 = statisticsDB.updateDB(statistics);
                     UserDB userDB = new UserDB(SignUpActivity.this);
-                    boolean success = userDB.updateDB(mUser);
-                    System.out.println(mUser);
-                    System.out.println(success);
-                    if(success) goToFirstScreenActivity();
+                    boolean success2 = userDB.updateUserCredentialsDB(mUser);
+                    System.out.println(success1);
+                    System.out.println(success2);
+                    if(success1 && success2) goToFirstScreenActivity();
                 }
             //}
         });
