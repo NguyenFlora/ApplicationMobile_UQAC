@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Focus &amp; Study</string>
-    <string name="title_home">Sessions de travail</string>
+    <string name="title_home">Accueil</string>
     <string name="title_calendar">Calendrier</string>
     <string name="title_profile">Profil</string>
     <string name="title_settings">Paramètres</string>
