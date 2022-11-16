@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
@@ -12,8 +11,9 @@
         android:id="@+id/sign_up_close"
         android:layout_width="30dp"
         android:layout_height="wrap_content"
+        android:contentDescription="@string/close"
         app:srcCompat="@android:drawable/ic_menu_close_clear_cancel"
-        android:layout_gravity="left"></ImageView>
+        android:layout_gravity="start"/>
 
 
     <TextView
@@ -24,7 +24,7 @@
         android:layout_marginTop="50dp"
         android:text="@string/registration"
         android:textColor="#000000"
-        android:textSize="28dp"></TextView>
+        android:textSize="28sp"/>
 
 
     <LinearLayout
@@ -44,8 +44,10 @@
             android:textColorHint="@color/gray4"
             android:padding="10dp"
             android:fontFamily="@font/montserrat"
-            android:textSize="16dp"
-            android:hint="@string/name"></EditText>
+            android:textSize="16sp"
+            android:autofillHints="name"
+            android:inputType="textPersonName"
+            android:hint="@string/name"/>
 
         <EditText
             android:id="@+id/sign_up_edit_text_email"
@@ -56,8 +58,10 @@
             android:textColorHint="@color/gray4"
             android:padding="10dp"
             android:fontFamily="@font/montserrat"
-            android:textSize="16dp"
-            android:hint="@string/email"></EditText>
+            android:textSize="16sp"
+            android:autofillHints="emailAddress"
+            android:inputType="textEmailAddress"
+            android:hint="@string/email"/>
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -75,7 +79,8 @@
                 android:inputType="textPassword"
                 android:padding="10dp"
                 android:textColorHint="@color/gray4"
-                android:textSize="16dp"></EditText>
+                android:autofillHints="password"
+                android:textSize="16sp"/>
 
             <TextView
                 android:id="@+id/sign_up_text_display"
@@ -86,7 +91,7 @@
                 android:layout_alignEnd="@id/sign_up_edit_text_password"
                 android:gravity="center"
                 android:textColor="#5DB075"
-                android:text="@string/display"></TextView>
+                android:text="@string/display"/>
 
         </RelativeLayout>
 
@@ -109,7 +114,7 @@
             android:text="@string/register"
             android:textAllCaps="false"
             android:textColor="@color/white"
-            android:background="@drawable/box2"></Button>
+            android:background="@drawable/box2"/>
 
     </LinearLayout>
 
