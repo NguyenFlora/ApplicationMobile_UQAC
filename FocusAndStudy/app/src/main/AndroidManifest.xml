@@ -35,7 +35,6 @@
             android:name=".controller.CycleExplainationActivity"
             android:exported="false" />
 
-        <activity android:name=".controller.FirstScreenActivity" />
         <activity android:name=".controller.SignUpActivity" />
         <activity android:name=".controller.MainActivity" />
         <activity

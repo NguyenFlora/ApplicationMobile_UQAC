@@ -7,14 +7,15 @@
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/nav_view"
+        app:labelVisibilityMode="labeled"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:itemIconTint="@color/black"
-        app:labelVisibilityMode="labeled"
+        app:itemIconTint="@drawable/menu_item_selector"
+        app:itemTextColor="@drawable/menu_item_selector"
         app:menu="@menu/bottom_nav_menu" />
 
     <fragment
