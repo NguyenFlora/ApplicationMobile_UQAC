@@ -7,10 +7,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.focusandstudy.R;
-import com.example.focusandstudy.model.User;
 import com.example.focusandstudy.model.database.UserDB;
 
 import java.util.ArrayList;
@@ -18,35 +19,33 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class LoginActivity extends AppCompatActivity {
-    private EditText mLogIn_EditText_Email;
-    private EditText mLogIn_EditText_MotDePasse;
-    private Button mLogIn_Button_SeConnecter;
+    private EditText m_log_in_edit_text_email;
+    private EditText m_log_in_edit_text_password;
+    private Button m_log_in_button;
+    private TextView m_registration_link;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        Boolean isFirstRun = getSharedPreferences("PREFERENCE", MODE_PRIVATE).getBoolean("isFirstRun", true);
-
-        if (isFirstRun) {
-            //show start activity
-            getSharedPreferences("PREFERENCE", MODE_PRIVATE).edit().putBoolean("isFirstRun", false).commit();
-            startActivity(new Intent(LoginActivity.this, FirstScreenActivity.class));
-        }
-
         setContentView(R.layout.activity_login);
 
-        mLogIn_EditText_Email = (EditText) findViewById(R.id.LogIn_EditText_Email);
-        mLogIn_EditText_MotDePasse = (EditText) findViewById(R.id.LogIn_EditText_MotDePasse);
-        mLogIn_Button_SeConnecter = (Button) findViewById(R.id.LogIn_Button_SeConnecter);
+        m_log_in_edit_text_email = (EditText) findViewById(R.id.log_in_edit_text_email);
+        m_log_in_edit_text_password = (EditText) findViewById(R.id.log_in_edit_text_password);
+        m_log_in_button = (Button) findViewById(R.id.log_in_button);
+        m_registration_link = (TextView) findViewById(R.id.registration_link);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
 
         UserDB userDB = new UserDB(LoginActivity.this);
 
-        mLogIn_Button_SeConnecter.setOnClickListener(new View.OnClickListener() {
+        m_log_in_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String email = mLogIn_EditText_Email.getText().toString();
-                String password = mLogIn_EditText_MotDePasse.getText().toString();
+                String email = m_log_in_edit_text_email.getText().toString();
+                String password = m_log_in_edit_text_password.getText().toString();
 
                 if (email.isEmpty() || password.isEmpty()) {
                     Toast.makeText(LoginActivity.this, getString(R.string.ensureInput), Toast.LENGTH_SHORT).show();
@@ -60,7 +59,6 @@ public class LoginActivity extends AppCompatActivity {
                     Toast.makeText(LoginActivity.this, getString(R.string.ensurePasswordRequirements), Toast.LENGTH_SHORT).show();
                     return;
                 }*/
-
                 else {
                     System.out.println("vla");
                     ArrayList<String> allMails = userDB.getMails();
@@ -70,6 +68,17 @@ public class LoginActivity extends AppCompatActivity {
                         goToMainActivity();
                     }
                 }
+            }
+        });
+
+        m_registration_link.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v)
+            {
+                Intent signUpActivity = new Intent(LoginActivity.this, SignUpActivity.class);
+                //setResult(Activity.RESULT_CANCELED,mainActivity);
+                startActivity(signUpActivity);
+                finish();
+                System.out.println("incriotion");
             }
         });
     }

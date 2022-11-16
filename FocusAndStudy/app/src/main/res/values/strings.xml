@@ -41,8 +41,16 @@
     <string name="finished_session_text2">La tâche est-elle terminée ?</string>
     <string name="finished_session_no">Non, je la finirai plus tard</string>
     <string name="finished_session_yes">Oui</string>
-
-
+    <string name="register">S\'inscrire</string>
+    <string name="new_user">Nouvel utilisateur ?</string>
+    <string name="forgot_your_password">Mot de passe oublié ?</string>
+    <string name="log_in">Se connecter</string>
+    <string name="display">Afficher</string>
+    <string name="email">Email</string>
+    <string name="password">Mot de passe</string>
+    <string name="separation">____________</string>
+    <string name="name">Nom</string>
+    <string name="registration">Inscription</string>
 
 
     <!-- TODO: Remove or change this placeholder text -->

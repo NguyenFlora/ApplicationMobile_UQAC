@@ -13,9 +13,9 @@
             android:layout_width="wrap_content"
             android:layout_height="150dp"
             android:layout_centerHorizontal="true"
+            android:layout_marginTop="100dp"
             android:contentDescription="@string/app_name"
             android:src="@drawable/finishedsession"
-            android:layout_marginTop="100dp"
 
             />
 
@@ -61,16 +61,15 @@
             android:id="@+id/finished_session_yes"
             android:layout_width="300dp"
             android:layout_height="40dp"
-            android:text="@string/finished_session_yes"
-            android:fontFamily="@font/montserrat"
-            android:textSize="14sp"
+            android:layout_below="@id/finished_session_text2"
+            android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
+            android:background="@drawable/box2"
+            android:fontFamily="@font/montserrat"
+            android:text="@string/finished_session_yes"
             android:textAllCaps="false"
             android:textColor="@color/white"
-            android:background="@drawable/box2"
-            android:layout_centerHorizontal="true"
-            android:layout_below="@id/finished_session_text2"
-            ></Button>
+            android:textSize="14sp"></Button>
 
         <Button
             android:id="@+id/finished_session_no"
