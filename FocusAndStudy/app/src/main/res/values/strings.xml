@@ -64,7 +64,11 @@
         <item>FR</item>
         <item>EN</item>
     </string-array>
-
+    <string name="accomplished_badges">Badges accomplis</string>
+    <string name="consecutive_days">Jours d\'affilés</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="statistics">Statistiques</string>
+    <string name="badges">Badges</string>
+    <string name="work_time_this_week">Temps de travail cette semaine</string>
 </resources>
