@@ -8,16 +8,14 @@ public class User implements Parcelable {
     private String mUsername;
     private String mEmail;
     private String mPassword;
-    private Statistics mStatistics;
 
     public User() {
     }
 
-    public User(String username, String email, String password, Statistics statistics) {
+    public User(String username, String email, String password) {
         mUsername = username;
         mEmail = email;
         mPassword = password;
-        mStatistics = statistics;
     }
 
     protected User(Parcel in) {
@@ -74,7 +72,4 @@ public class User implements Parcelable {
         mPassword = password;
     }
 
-    public Statistics getStatistics() { return mStatistics; }
-
-    public void setStatistics(Statistics statistics) { mStatistics = statistics; }
 }

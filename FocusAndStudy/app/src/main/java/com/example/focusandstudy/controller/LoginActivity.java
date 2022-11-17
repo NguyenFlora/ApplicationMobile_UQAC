@@ -11,7 +11,7 @@ import android.widget.Toast;
 
 import com.example.focusandstudy.R;
 import com.example.focusandstudy.model.User;
-import com.example.focusandstudy.model.database.UserDB;
+import com.example.focusandstudy.model.database.DBHandler;
 
 import java.util.ArrayList;
 import java.util.regex.Matcher;
@@ -40,7 +40,7 @@ public class LoginActivity extends AppCompatActivity {
         mLogIn_EditText_MotDePasse = (EditText) findViewById(R.id.LogIn_EditText_MotDePasse);
         mLogIn_Button_SeConnecter = (Button) findViewById(R.id.LogIn_Button_SeConnecter);
 
-        UserDB userDB = new UserDB(LoginActivity.this);
+        DBHandler dbHandler = new DBHandler(LoginActivity.this);
 
         mLogIn_Button_SeConnecter.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,10 +62,9 @@ public class LoginActivity extends AppCompatActivity {
                 }*/
 
                 else {
-                    System.out.println("vla");
-                    ArrayList<String> allMails = userDB.getMails();
+                    ArrayList<String> allMails = dbHandler.getMails();
                     System.out.println(allMails);
-                    if (allMails.contains(email) && userDB.getPasswordForEmail(email).equals(password)){
+                    if (allMails.contains(email) && dbHandler.getPasswordForEmail(email).equals(password)){
                         System.out.println("connexion");
                         goToMainActivity();
                     }

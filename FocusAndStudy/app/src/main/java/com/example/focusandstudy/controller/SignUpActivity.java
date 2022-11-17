@@ -7,13 +7,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.example.focusandstudy.R;
-import com.example.focusandstudy.model.Statistics;
 import com.example.focusandstudy.model.User;
-import com.example.focusandstudy.model.database.StatisticsDB;
-import com.example.focusandstudy.model.database.UserDB;
+import com.example.focusandstudy.model.database.DBHandler;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -52,15 +49,11 @@ public class SignUpActivity extends AppCompatActivity {
                     Toast.makeText(SignUpActivity.this, getString(R.string.ensurePasswordRequirements), Toast.LENGTH_SHORT).show();
                 } else {*/
                     // Create user account with infos
-                    Statistics statistics = new Statistics();
-                    User mUser = new User(username, email, password, statistics);
-                    StatisticsDB statisticsDB = new StatisticsDB(SignUpActivity.this);
-                    boolean success1 = statisticsDB.updateDB(statistics);
-                    UserDB userDB = new UserDB(SignUpActivity.this);
-                    boolean success2 = userDB.updateUserCredentialsDB(mUser);
-                    System.out.println(success1);
-                    System.out.println(success2);
-                    if(success1 && success2) goToFirstScreenActivity();
+                    User mUser = new User(username, email, password);
+                    DBHandler userDB = new DBHandler(SignUpActivity.this);
+                    boolean ifAccountCreated = userDB.updateUserCredentialsDB(mUser);
+                    System.out.println(ifAccountCreated);
+                    if(ifAccountCreated) goToFirstScreenActivity();
                 }
             //}
         });
