@@ -21,7 +21,7 @@
     <string name="ensurePasswordRequirements">Le mot de passe doit avoir au moins une majuscule, une minuscule, un chiffre et un caractère spécial.</string>
     <string name="ensureMailRequirements">Insérez un format d\'adresse mail valide !</string>
     <string name="invalidCredentials">Informations d\'identification invalides</string>
-    <string name="accountCreatedToast">Félicitations ! Vous venez de créer votre compte, vous pouvez désormais vous connecter.</string>
+    <string name="accountCreatedToast">Vous venez de créer votre compte, vous pouvez désormais vous connecter.</string>
     <string name="what_is_the_pomodoro_cycle">Qu\'est-ce que le cycle Pomodoro ?</string>
     <string name="description1">La technique Pomodoro est une technique de gestion du temps qui se base sur l\'usage d\'un minuteur permettant de respecter des périodes de 25 minutes. Elle favorise la concentration sur une tâche en la segmentant en courtes périodes permettant ainsi d’atteindre avec satisfaction des résultats concrets rapidement.</string>
     <string name="description2">La méthode a pour principale prétention que des pauses régulières favorisent l\'agilité intellectuelle. Certains bénéfices des temps de repos sur la consolidation de la mémoire peuvent être observés expérimentalement.</string>

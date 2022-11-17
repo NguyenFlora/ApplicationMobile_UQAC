@@ -81,62 +81,49 @@ public class DBHandler extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public boolean updateUserCredentialsDB(User mUser){
+    public boolean addNewUser(String username,String email , String password){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
 
-        cv.put(COLUMN_USERNAME,mUser.getUsername());
-        cv.put(COLUMN_EMAIL,mUser.getEmail());
-        cv.put(COLUMN_PASSWORD, mUser.getPassword());
+        cv.put(COLUMN_USERNAME,username);
+        cv.put(COLUMN_EMAIL,email);
+        cv.put(COLUMN_PASSWORD, password);
         long insert = db.insert(USER_TABLE, null, cv);
+        db.close();
         return insert != -1;
     }
 
-    public ArrayList<String> getMails()
-    {
+    public User login(String email, String password) {
         try{
             SQLiteDatabase db = this.getReadableDatabase();
-            String[] vColumns ={COLUMN_EMAIL};
-            ArrayList<String> allMails = new ArrayList<String>();
-            int i =0;
-            Cursor vCursor = db.query(USER_TABLE, vColumns, null, null, null, null, null, null);
 
-            /*vCursor.moveToFirst();
+            Cursor cursorUsers = db.rawQuery(
+                    "SELECT * FROM " + USER_TABLE + " WHERE " +
+                            COLUMN_EMAIL + " = \'" + email + "\' AND " +
+                            COLUMN_PASSWORD + " = \'" + password + "\'", null);
 
-            for(vCursor.moveToFirst(); !vCursor.isAfterLast(); vCursor.moveToNext()) {
-                i++;
-                // The Cursor is now set to the right position
-                allMails.add(vCursor.getString(i));
-            }*/
-            if (vCursor.moveToFirst()) {
-                allMails.add(vCursor.getString(i));
+            ArrayList<User> userArrayList = new ArrayList<>();
+
+            if (cursorUsers.moveToFirst()) {
                 do {
-                    i++;
-                    allMails.add(vCursor.getString(0));
-                } while (vCursor.moveToNext());
+                    userArrayList.add(new User(
+                            cursorUsers.getInt(0),
+                            cursorUsers.getString(1),
+                            cursorUsers.getString(2),
+                            cursorUsers.getString(3),
+                            cursorUsers.getInt(4),
+                            cursorUsers.getInt(5),
+                            cursorUsers.getInt(6),
+                            cursorUsers.getInt(7),
+                            cursorUsers.getInt(8)));
+                } while (cursorUsers.moveToNext());
             }
-            System.out.println(allMails);
-            return allMails;
+            cursorUsers.close();
+            return userArrayList.get(0);
         }catch(SQLiteException | IndexOutOfBoundsException exception){
             System.out.println(exception.getMessage());
         }
         return null;
-    }
-
-    public String getPasswordForEmail(String email)
-    {
-        String password = null;
-        SQLiteDatabase db = this.getReadableDatabase();
-        String vWhereClause = null;
-        String[] vWhereArgs = {COLUMN_EMAIL+"="+email};
-        String[] vColumns ={COLUMN_PASSWORD};
-        Cursor vCursor = db.query(USER_TABLE, vColumns, null, null, null, null, null, null);
-        vCursor.moveToFirst();
-
-        password = vCursor.getString(0);
-
-        return password;
-
     }
 
     public String getUsernameFromId(int user_id){
@@ -154,10 +141,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
             } while (vCursor.moveToNext());
         }
-
-
         vCursor.close();
         return username;
     }
-
 }

@@ -4,12 +4,17 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.focusandstudy.R;
-import com.example.focusandstudy.model.User;
 import com.example.focusandstudy.model.database.DBHandler;
 
 import java.util.regex.Matcher;
@@ -21,7 +26,10 @@ public class SignUpActivity extends AppCompatActivity {
     private EditText m_sign_up_edit_text_password;
     private Button m_sign_up_button;
     private ImageView m_sign_up_close;
+    private TextView m_sign_up_text_display;
     private static final String ACCOUNT_CREATED = "ACCOUNT_CREATED";
+
+    DBHandler dbHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +41,9 @@ public class SignUpActivity extends AppCompatActivity {
         m_sign_up_edit_text_password = (EditText) findViewById(R.id.sign_up_edit_text_password);
         m_sign_up_button = (Button) findViewById(R.id.sign_up_button);
         m_sign_up_close = (ImageView) findViewById(R.id.sign_up_close);
+        m_sign_up_text_display = (TextView) findViewById(R.id.sign_up_text_display);
+
+        dbHandler = new DBHandler(SignUpActivity.this);
 
         m_sign_up_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,11 +62,10 @@ public class SignUpActivity extends AppCompatActivity {
                     Toast.makeText(SignUpActivity.this, getString(R.string.ensurePasswordRequirements), Toast.LENGTH_SHORT).show();
                 } else {*/
                     // Create user account with infos
-                    User mUser = new User(username, email, password);
-                    DBHandler userDB = new DBHandler(SignUpActivity.this);
-                    boolean ifAccountCreated = userDB.updateUserCredentialsDB(mUser);
+                    boolean ifAccountCreated = dbHandler.addNewUser(username, email, password);
                     System.out.println(ifAccountCreated);
-                    if(ifAccountCreated) goToFirstScreenActivity();
+                    Toast.makeText(SignUpActivity.this, getString(R.string.accountCreatedToast), Toast.LENGTH_SHORT).show();
+                    if(ifAccountCreated) goToLoginActivity();
                 }
             //}
         });
@@ -63,16 +73,29 @@ public class SignUpActivity extends AppCompatActivity {
         m_sign_up_close.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v)
             {
-                Intent signUpActivity = new Intent(SignUpActivity.this, LoginActivity.class);
+                Intent signUpActivity = new Intent(SignUpActivity.this, LogInActivity.class);
                 //setResult(Activity.RESULT_CANCELED,mainActivity);
                 startActivity(signUpActivity);
                 finish();
             }
         });
+
+        m_sign_up_text_display.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v)
+            {
+                m_sign_up_edit_text_password.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    public void run() {
+                        m_sign_up_edit_text_password.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                    }
+                }, 3000);   //3 seconds
+            }
+        });
     }
 
     private void goToLoginActivity() {
-        Intent loginActivity = new Intent(SignUpActivity.this, LoginActivity.class);
+        Intent loginActivity = new Intent(SignUpActivity.this, LogInActivity.class);
         loginActivity.putExtra(ACCOUNT_CREATED, true);
         startActivity(loginActivity);
         finish();

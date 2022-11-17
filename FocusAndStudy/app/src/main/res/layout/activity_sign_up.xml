@@ -86,12 +86,12 @@
                 android:id="@+id/sign_up_text_display"
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
+                android:layout_alignEnd="@id/sign_up_edit_text_password"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="10dp"
-                android:layout_alignEnd="@id/sign_up_edit_text_password"
                 android:gravity="center"
-                android:textColor="#5DB075"
-                android:text="@string/display"/>
+                android:text="@string/display"
+                android:textColor="#5DB075" />
 
         </RelativeLayout>
 

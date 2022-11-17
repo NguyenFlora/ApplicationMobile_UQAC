@@ -46,25 +46,25 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="10dp"
+                android:autofillHints="password"
                 android:background="@drawable/box4"
                 android:fontFamily="@font/montserrat"
                 android:hint="@string/password"
                 android:inputType="textPassword"
                 android:padding="10dp"
                 android:textColorHint="@color/gray4"
-                android:autofillHints="password"
-                android:textSize="16sp"/>
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/log_in_text_display"
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
+                android:layout_alignEnd="@id/log_in_edit_text_password"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="10dp"
-                android:layout_alignEnd="@id/log_in_edit_text_password"
                 android:gravity="center"
-                android:textColor="#5DB075"
-                android:text="@string/display"/>
+                android:text="@string/display"
+                android:textColor="#5DB075" />
 
         </RelativeLayout>
 
