@@ -16,10 +16,11 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class SignUpActivity extends AppCompatActivity {
-    private EditText mSignUp_EditText_Nom;
-    private EditText mSignUp_EditText_Email;
-    private EditText mSignUp_EditText_MotDePasse;
-    private Button mSignUp_Button_Sinscrire;
+    private EditText m_sign_up_edit_text_name;
+    private EditText m_sign_up_edit_text_email;
+    private EditText m_sign_up_edit_text_password;
+    private Button m_sign_up_button;
+    private ImageView m_sign_up_close;
     private static final String ACCOUNT_CREATED = "ACCOUNT_CREATED";
 
     @Override
@@ -27,17 +28,18 @@ public class SignUpActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
-        mSignUp_EditText_Nom = (EditText) findViewById(R.id.SignUp_EditText_Nom);
-        mSignUp_EditText_Email = (EditText) findViewById(R.id.SignUp_EditText_Email);
-        mSignUp_EditText_MotDePasse = (EditText) findViewById(R.id.SignUp_EditText_MotDePasse);
-        mSignUp_Button_Sinscrire = (Button) findViewById(R.id.SignUp_Button_Sinscrire);
+        m_sign_up_edit_text_name = (EditText) findViewById(R.id.sign_up_edit_text_name);
+        m_sign_up_edit_text_email = (EditText) findViewById(R.id.sign_up_edit_text_email);
+        m_sign_up_edit_text_password = (EditText) findViewById(R.id.sign_up_edit_text_password);
+        m_sign_up_button = (Button) findViewById(R.id.sign_up_button);
+        m_sign_up_close = (ImageView) findViewById(R.id.sign_up_close);
 
-        mSignUp_Button_Sinscrire.setOnClickListener(new View.OnClickListener() {
+        m_sign_up_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String username = mSignUp_EditText_Nom.getText().toString();
-                String email = mSignUp_EditText_Email.getText().toString();
-                String password = mSignUp_EditText_MotDePasse.getText().toString();
+                String username = m_sign_up_edit_text_name.getText().toString();
+                String email = m_sign_up_edit_text_email.getText().toString();
+                String password = m_sign_up_edit_text_password.getText().toString();
 
                 /*if (username.length() == 0 || email.length() == 0 || password.length() == 0) {
                     Toast.makeText(SignUpActivity.this, getString(R.string.ensureInput), Toast.LENGTH_SHORT).show();
@@ -57,12 +59,22 @@ public class SignUpActivity extends AppCompatActivity {
                 }
             //}
         });
+
+        m_sign_up_close.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v)
+            {
+                Intent signUpActivity = new Intent(SignUpActivity.this, LoginActivity.class);
+                //setResult(Activity.RESULT_CANCELED,mainActivity);
+                startActivity(signUpActivity);
+                finish();
+            }
+        });
     }
 
-    private void goToFirstScreenActivity() {
-        Intent firstScreenActivity = new Intent(SignUpActivity.this, FirstScreenActivity.class);
-        firstScreenActivity.putExtra(ACCOUNT_CREATED, true);
-        startActivity(firstScreenActivity);
+    private void goToLoginActivity() {
+        Intent loginActivity = new Intent(SignUpActivity.this, LoginActivity.class);
+        loginActivity.putExtra(ACCOUNT_CREATED, true);
+        startActivity(loginActivity);
         finish();
     }
 

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="20dp">
+
+        <ImageView
+            android:id="@+id/finished_session"
+            android:layout_width="wrap_content"
+            android:layout_height="150dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="100dp"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/finishedsession"
+
+            />
+
+        <TextView
+            android:id="@+id/finished_session_text1"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="@font/montserrat"
+            android:text="@string/finished_session_text1"
+            android:textAlignment="center"
+            android:textColor="@color/gray"
+            android:layout_marginTop="50dp"
+            android:layout_below="@id/finished_session"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/finished_session_task"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="@font/montserrat"
+            android:text="Devoir de mathématiques"
+            android:textAlignment="center"
+            android:textColor="@color/gray"
+            android:layout_below="@+id/finished_session_text1"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/finished_session_text2"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="@font/montserrat"
+            android:text="@string/finished_session_text2"
+            android:textAlignment="center"
+            android:textColor="@color/gray"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/finished_session_task"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/finished_session_yes"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:layout_below="@id/finished_session_text2"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/box2"
+            android:fontFamily="@font/montserrat"
+            android:text="@string/finished_session_yes"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="14sp"></Button>
+
+        <Button
+            android:id="@+id/finished_session_no"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:text="@string/finished_session_no"
+            android:fontFamily="@font/montserrat"
+            android:textSize="14sp"
+            android:layout_marginTop="10dp"
+            android:textAllCaps="false"
+            android:textColor="@color/green1"
+            android:background="@color/white"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/finished_session_yes"
+            style="?android:attr/borderlessButtonStyle"
+            ></Button>
+
+
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

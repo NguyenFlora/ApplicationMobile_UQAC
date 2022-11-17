@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Focus &amp; Study</string>
-    <string name="title_home">Sessions de travail</string>
+    <string name="title_home">Accueil</string>
     <string name="title_calendar">Calendrier</string>
     <string name="title_profile">Profil</string>
     <string name="title_settings">Paramètres</string>
@@ -22,7 +22,49 @@
     <string name="ensureMailRequirements">Insérez un format d\'adresse mail valide !</string>
     <string name="invalidCredentials">Informations d\'identification invalides</string>
     <string name="accountCreatedToast">Félicitations ! Vous venez de créer votre compte, vous pouvez désormais vous connecter.</string>
+    <string name="what_is_the_pomodoro_cycle">Qu\'est-ce que le cycle Pomodoro ?</string>
+    <string name="description1">La technique Pomodoro est une technique de gestion du temps qui se base sur l\'usage d\'un minuteur permettant de respecter des périodes de 25 minutes. Elle favorise la concentration sur une tâche en la segmentant en courtes périodes permettant ainsi d’atteindre avec satisfaction des résultats concrets rapidement.</string>
+    <string name="description2">La méthode a pour principale prétention que des pauses régulières favorisent l\'agilité intellectuelle. Certains bénéfices des temps de repos sur la consolidation de la mémoire peuvent être observés expérimentalement.</string>
+    <string name="description3">🌱 Choisis la tâche sur laquelle tu veux travailler.</string>
+    <string name="description4">🍀 Travaille sur la première tâche sans interruption jusqu’à la sonnerie du minuteur, soit 25 minutes. Durant cette période, on s\'efforce de ne pas se laisser distraire afin de rester concentré uniquement sur la tâche ciblée.</string>
+    <string name="description5">🪴 Prends une pause de cinq minutes après la première période de 25 minutes.</string>
+    <string name="description6">🌳 Après la quatrième période de 25 minutes de travail, accorde-toi une pause plus longue, soit de 15 à 30 minutes.</string>
+    <string name="description7">🍊 Continue ainsi jusqu’à finir tes tâches.</string>
+    <string name="congratulations">Félicitations !</string>
+    <string name="congratulations_text">La session de travail est terminée. Vous avez assuré !</string>
+    <string name="xp_earned1">+</string>
+    <string name="xp_earned2">15</string>
+    <string name="xp_earned3">XP</string>
+    <string name="end_the_session">Terminer la session</string>
+    <string name="relaunch_the_session">Relancer la session</string>
+    <string name="finished_session_text1">Vous avez lancé la session pour :</string>
+    <string name="finished_session_text2">La tâche est-elle terminée ?</string>
+    <string name="finished_session_no">Non, je la finirai plus tard</string>
+    <string name="finished_session_yes">Oui</string>
+    <string name="register">S\'inscrire</string>
+    <string name="new_user">Nouvel utilisateur ?</string>
+    <string name="forgot_your_password">Mot de passe oublié ?</string>
+    <string name="log_in">Se connecter</string>
+    <string name="display">Afficher</string>
+    <string name="email">Email</string>
+    <string name="password">Mot de passe</string>
+    <string name="separation">____________</string>
+    <string name="name">Nom</string>
+    <string name="registration">Inscription</string>
+    <string name="close">Fermer</string>
+    <string name="settings">Paramètres</string>
+    <string name="terms_of_use">Conditions d\'utilisation</string>
+    <string name="sign_out">Se déconnecter</string>
+    <string name="turn_off_notifications">Désactiver les notifications</string>
+    <string name="turn_off_sound">Désactiver le son</string>
+    <string name="block_apps">Bloquer les applications</string>
+    <string name="sleep_mode">Activation du mode veille</string>
+    <string name="change_language">Changer la langue</string>
+    <string-array name="languages">
+        <item>FR</item>
+        <item>EN</item>
+    </string-array>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-
 </resources>

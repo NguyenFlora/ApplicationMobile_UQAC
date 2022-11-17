@@ -12,7 +12,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.focusandstudy.databinding.FragmentProfileBinding;
 
-public class ProfileFragment extends Fragment{
+public class ProfileFragment extends Fragment {
 
     private FragmentProfileBinding binding;
 

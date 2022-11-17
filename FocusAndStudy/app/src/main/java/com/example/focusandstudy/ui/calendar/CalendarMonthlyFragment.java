@@ -25,8 +25,7 @@ public class CalendarMonthlyFragment extends Fragment{
         binding = FragmentCalendarMonthlyBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textCalendarMonthly;
-        calendarWeeklyViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+
         
         return root;
     }

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="20dp">
+        <TextView
+            android:id="@+id/congratulations"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="@font/montserrat"
+            android:text="@string/congratulations"
+            android:textAlignment="center"
+            android:textColor="@color/green2"
+            android:layout_marginTop="100dp"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/congratulations_text"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="@font/montserrat"
+            android:text="@string/congratulations_text"
+            android:textAlignment="center"
+            android:textColor="@color/gray"
+            android:layout_below="@id/congratulations"
+            android:layout_marginTop="100dp"
+            android:textSize="16sp" />
+
+
+        <LinearLayout
+            android:id="@+id/score"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="80dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:layout_below="@id/congratulations_text">
+
+
+
+            <TextView
+                android:id="@+id/xp_earned1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat"
+                android:text="@string/xp_earned1"
+                android:textAlignment="center"
+                android:textColor="@color/gray"
+                android:textSize="16sp" />
+            <TextView
+                android:id="@+id/xp_earned2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat"
+                android:text="@string/xp_earned2"
+                android:padding="5dp"
+                android:textAlignment="center"
+                android:textColor="@color/gray"
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/xp_earned3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat"
+                android:text="@string/xp_earned3"
+                android:textAlignment="center"
+                android:textColor="@color/gray"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/orange"
+                />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/end_the_session"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:text="@string/end_the_session"
+            android:fontFamily="@font/montserrat"
+            android:textSize="14sp"
+            android:layout_marginTop="20dp"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:background="@drawable/box2"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/score"
+            ></Button>
+
+        <Button
+            android:id="@+id/relaunch_the_session"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:text="@string/relaunch_the_session"
+            android:fontFamily="@font/montserrat"
+            android:textSize="14sp"
+            android:layout_marginTop="10dp"
+            android:textAllCaps="false"
+            android:textColor="@color/green1"
+            android:background="@drawable/box3"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/end_the_session"
+            ></Button>
+
+
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
