@@ -9,19 +9,9 @@ public class User implements Parcelable {
     private String mEmail;
     private String mPassword;
 
-    /**
-     * Constructeur vide
-     */
     public User() {
     }
 
-    /**
-     * Constructeur
-     *
-     * @param username : est le nom de l'utilisateur
-     * @param email    : est l'email de l'utilisateur
-     * @param password : est le mot de passe de l'utilisateur
-     */
     public User(String username, String email, String password) {
         mUsername = username;
         mEmail = email;

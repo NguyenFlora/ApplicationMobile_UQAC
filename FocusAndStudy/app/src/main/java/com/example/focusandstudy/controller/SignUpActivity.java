@@ -7,11 +7,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 
 import com.example.focusandstudy.R;
 import com.example.focusandstudy.model.User;
-import com.example.focusandstudy.model.database.UserDB;
+import com.example.focusandstudy.model.database.DBHandler;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -53,11 +52,10 @@ public class SignUpActivity extends AppCompatActivity {
                 } else {*/
                     // Create user account with infos
                     User mUser = new User(username, email, password);
-                    UserDB userDB = new UserDB(SignUpActivity.this);
-                    boolean success = userDB.updateDB(mUser);
-                    System.out.println(mUser);
-                    System.out.println(success);
-                    if(success) goToLoginActivity();
+                    DBHandler userDB = new DBHandler(SignUpActivity.this);
+                    boolean ifAccountCreated = userDB.updateUserCredentialsDB(mUser);
+                    System.out.println(ifAccountCreated);
+                    if(ifAccountCreated) goToFirstScreenActivity();
                 }
             //}
         });
