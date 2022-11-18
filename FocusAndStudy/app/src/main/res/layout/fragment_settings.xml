@@ -125,8 +125,6 @@
                     android:textColor="@color/green1"
                     android:textSize="16sp" />
 
-
-
             </TableRow>
 
         </TableLayout>
