@@ -14,6 +14,10 @@ public class User implements Parcelable {
     private int mNbBadges;
     private int mXP;
 
+    public User(){
+
+    }
+
     public User(int id, String username, String email, String password, int dailyTime, int weeklyTime, int dayStreak, int nbBadges, int XP) {
         mId = id;
         mUsername = username;
