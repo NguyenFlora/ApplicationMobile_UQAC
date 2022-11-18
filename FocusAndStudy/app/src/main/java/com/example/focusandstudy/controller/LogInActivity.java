@@ -54,8 +54,6 @@ public class LogInActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
-        DBHandler dbHandler = new DBHandler(LogInActivity.this);
-
         m_log_in_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -36,17 +36,6 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
         NavigationUI.setupWithNavController(binding.navView, navController);
 
-        Button newSession = (Button)findViewById(R.id.start_a_new_session);
-        newSession.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Fragment fragment= new PomodoroFragment();
-                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                transaction.replace(R.id.container, fragment);
-                transaction.addToBackStack(null);
-                transaction.commit();
-            }
-        });
 
         ImageView pomodoroPresentation = (ImageView) findViewById(R.id.discover_the_pomodoro_cycle);
         pomodoroPresentation.setOnClickListener(new View.OnClickListener() {

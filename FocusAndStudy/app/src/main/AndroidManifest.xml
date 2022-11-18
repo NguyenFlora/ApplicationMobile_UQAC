@@ -28,17 +28,16 @@
         <activity
             android:name=".controller.SessionActivity"
             android:exported="false" />
-        <activity
-            android:name=".controller.NewSessionActivity"
-            android:exported="false" />
+        <!--<activity
+            android:name=".controller.PomodoroActivity"
+            android:exported="false" />-->
         <activity
             android:name=".controller.CycleExplainationActivity"
             android:exported="false" />
-        <activity android:name=".controller.FirstScreenActivity" />
-        <activity android:name=".controller.LoginActivity" />
+        <activity android:name=".controller.SignUpActivity" />
         <activity android:name=".controller.MainActivity" />
         <activity
-            android:name=".controller.SignUpActivity"
+            android:name=".controller.PomodoroActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
