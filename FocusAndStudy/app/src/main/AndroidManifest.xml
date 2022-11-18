@@ -28,16 +28,16 @@
         <activity
             android:name=".controller.SessionActivity"
             android:exported="false" />
-        <!--<activity
+        <activity
             android:name=".controller.PomodoroActivity"
-            android:exported="false" />-->
+            android:exported="false" />
         <activity
             android:name=".controller.CycleExplainationActivity"
             android:exported="false" />
         <activity android:name=".controller.SignUpActivity" />
         <activity android:name=".controller.MainActivity" />
         <activity
-            android:name=".controller.PomodoroActivity"
+            android:name=".controller.LogInActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

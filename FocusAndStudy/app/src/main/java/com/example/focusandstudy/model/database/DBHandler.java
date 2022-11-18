@@ -126,22 +126,29 @@ public class DBHandler extends SQLiteOpenHelper {
         return null;
     }
 
-    public String getUsernameFromId(int user_id){
+    public User getUserFromId(int user_id){
         SQLiteDatabase db = this.getReadableDatabase();
 
-        String[] vWhereArgs = {COLUMN_EMAIL+"="+user_id};
-        String[] vColumns ={COLUMN_PASSWORD};
+        String[] vWhereArgs = {COLUMN_USER_ID+"="+user_id};
+        String[] vColumns ={"*"};
         Cursor vCursor = db.query(USER_TABLE, vColumns, null, null, null, null, null, null);
         vCursor.moveToFirst();
-        String username = "";
+        User user = new User();
 
         if (vCursor.moveToFirst()) {
             do {
-                username = vCursor.getString(1);
-
+                user.setId(vCursor.getInt(0));
+                user.setUsername(vCursor.getString(1));
+                user.setEmail(vCursor.getString(2));
+                user.setPassword(vCursor.getString(3));
+                user.setDailyTime(vCursor.getInt(4));
+                user.setWeeklyTime(vCursor.getInt(5));
+                user.setDayStreak(vCursor.getInt(6));
+                user.setNbBadges(vCursor.getInt(7));
+                user.setXP(vCursor.getInt(8));
             } while (vCursor.moveToNext());
         }
         vCursor.close();
-        return username;
+        return user;
     }
 }
