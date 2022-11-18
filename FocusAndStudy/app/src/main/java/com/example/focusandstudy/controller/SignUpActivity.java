@@ -74,7 +74,6 @@ public class SignUpActivity extends AppCompatActivity {
             public void onClick(View v)
             {
                 Intent signUpActivity = new Intent(SignUpActivity.this, LogInActivity.class);
-                //setResult(Activity.RESULT_CANCELED,mainActivity);
                 startActivity(signUpActivity);
                 finish();
             }
