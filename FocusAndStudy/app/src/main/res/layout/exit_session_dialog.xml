@@ -5,7 +5,8 @@
     android:layout_height="150dp"
     android:layout_gravity="center_horizontal"
     android:orientation="vertical"
-    android:gravity="center">
+    android:gravity="center"
+    android:background="@color/white">
 
     <TextView
         android:id="@+id/exitsessiondialog_text_exit"
@@ -16,6 +17,7 @@
         android:fontFamily="@font/montserrat"
         android:textFontWeight="400"
         android:textSize="16dp"
+        android:textColor="#666666"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="15dp"/>
 

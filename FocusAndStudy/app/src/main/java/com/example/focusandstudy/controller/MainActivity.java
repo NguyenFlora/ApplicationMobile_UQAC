@@ -36,8 +36,7 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
         NavigationUI.setupWithNavController(binding.navView, navController);
 
-
-        ImageView pomodoroPresentation = (ImageView) findViewById(R.id.discover_the_pomodoro_cycle);
+        /*ImageView pomodoroPresentation = (ImageView) findViewById(R.id.discover_the_pomodoro_cycle);
         pomodoroPresentation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -47,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
                 transaction.addToBackStack(null);
                 transaction.commit();
             }
-        });
+        });*/
 
     }
 
