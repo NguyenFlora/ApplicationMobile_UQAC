@@ -28,6 +28,7 @@
 
         <RadioButton
             android:id="@+id/changemusicdialog_radiobutton_whitenoise"
+            android:tag="whitenoise"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -46,6 +47,7 @@
 
         <RadioButton
             android:id="@+id/changemusicdialog_radiobutton_water"
+            android:tag="water"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:text="@string/water"
@@ -64,6 +66,7 @@
 
         <RadioButton
             android:id="@+id/changemusicdialog_radiobutton_rain"
+            android:tag="rain"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:text="@string/rain"
@@ -82,6 +85,7 @@
 
         <RadioButton
             android:id="@+id/changemusicdialog_radiobutton_waves"
+            android:tag="waves"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:text="@string/wave"
@@ -100,6 +104,7 @@
 
         <RadioButton
             android:id="@+id/changemusicdialog_radiobutton_none"
+            android:tag="none"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:text="@string/none"
@@ -112,7 +117,7 @@
     </RadioGroup>
 
     <Button
-        android:id="@+id/chnagemusicdialog_button_confirm"
+        android:id="@+id/changemusicdialog_button_confirm"
         android:layout_width="300dp"
         android:layout_height="60dp"
         android:fontFamily="@font/montserrat"

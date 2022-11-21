@@ -1,21 +1,26 @@
 package com.example.focusandstudy.controller;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
 import android.text.format.DateUtils;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.example.focusandstudy.R;
 import com.example.focusandstudy.model.User;
 import com.example.focusandstudy.model.database.DBHandler;
+import com.example.focusandstudy.ui.ViewMusicDialog;
 
 public class PomodoroActivity extends AppCompatActivity {
     private ImageView m_pomodoro_image_dropblue1;
@@ -34,9 +39,12 @@ public class PomodoroActivity extends AppCompatActivity {
     private ProgressBar m_pomodoro_progressbar_time;
     private TextView m_pomodoro_text_time;
     private Button m_pomodoro_button_break;
+    private Button m_pomodoro_button_play;
     private TextView m_pomodoro_text_break;
     private Button m_pomodoro_button_music;
     private Button m_pomodoro_button_exit;
+    private RadioGroup m_changemusicdialog_radiogroup;
+    private Button m_changemusicdialog_button_confirm;
     CountDownTimer timer;
     long milliLeft;
     long fullTime;
@@ -45,6 +53,8 @@ public class PomodoroActivity extends AppCompatActivity {
     boolean isPaused;
     int i = 0;
     DBHandler dbHandler;
+    AlertDialog.Builder builder;
+    LayoutInflater inflater;
     User currentUser;
 
     @Override
@@ -68,12 +78,15 @@ public class PomodoroActivity extends AppCompatActivity {
         m_pomodoro_progressbar_time = (ProgressBar) findViewById(R.id.pomodoro_progressbar_time);
         m_pomodoro_text_time = (TextView) findViewById(R.id.pomodoro_text_time);
         m_pomodoro_button_break = (Button) findViewById(R.id.pomodoro_button_break);
+        m_pomodoro_button_play = (Button) findViewById(R.id.pomodoro_button_play);
         m_pomodoro_text_break = (TextView) findViewById(R.id.pomodoro_text_break);
         m_pomodoro_button_music = (Button) findViewById(R.id.pomodoro_button_music);
         m_pomodoro_button_exit = (Button) findViewById(R.id.pomodoro_button_exit);
-
+        m_changemusicdialog_button_confirm = (Button) findViewById(R.id.changemusicdialog_button_confirm);
         isPaused = false;
         dbHandler = new DBHandler(PomodoroActivity.this);
+        builder = new AlertDialog.Builder(this);
+        inflater = this.getLayoutInflater();
     }
 
     @Override
@@ -97,15 +110,51 @@ public class PomodoroActivity extends AppCompatActivity {
 
         m_pomodoro_button_music.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                /*builder.setView(inflater.inflate(R.layout.change_music_dialog, null));
 
+                // add a button
+                builder.setPositiveButton(R.string.confirm, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        m_changemusicdialog_radiogroup = (RadioGroup) findViewById(R.id.changemusicdialog_radiogroup);
+                        String musicValue = String.valueOf(m_changemusicdialog_radiogroup.getCheckedRadioButtonId());
+                        System.out.printf(musicValue);
+                    }
+                });*/
+
+
+                /*builder.setTitle(R.string.title_sounds);
+                String[] sounds = {String.valueOf(R.string.white_noise), String.valueOf(R.string.water), String.valueOf(R.string.wave), String.valueOf(R.string.rain), String.valueOf(R.string.none)};
+                builder.setItems(sounds, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        switch (which) {
+                            case 0:
+
+                            case 1:
+                            case 2:
+                            case 3:
+                            case 4:
+                        }
+                    }
+                });*/
+
+                // create and show the alert dialog
+                /*AlertDialog dialog = builder.create();
+                dialog.show();*/
+                ViewMusicDialog vmd =new ViewMusicDialog(PomodoroActivity.this);
+                vmd.show();
             }
         });
+
+
 
         m_pomodoro_button_exit.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
             }
         });
+
     }
 
     public void newCycle(){
@@ -199,10 +248,14 @@ public class PomodoroActivity extends AppCompatActivity {
     }
     public void timerPause() {
         timer.cancel();
+        m_pomodoro_button_break.setVisibility(View.INVISIBLE);
+        m_pomodoro_button_play.setVisibility(View.VISIBLE);
         System.out.println("timer paused");
     }
 
     private void timerResume() {
+        m_pomodoro_button_break.setVisibility(View.VISIBLE);
+        m_pomodoro_button_play.setVisibility(View.INVISIBLE);
         timerStart(milliLeft, fullTime, typeCounter);
         System.out.println("timer restart");
     }
