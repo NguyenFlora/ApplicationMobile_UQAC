@@ -37,6 +37,7 @@ public class PomodoroActivity extends AppCompatActivity {
     private TextView m_pomodoro_text_break;
     private Button m_pomodoro_button_music;
     private Button m_pomodoro_button_exit;
+    private Button m_pomodoro_button_end_break_time;
     CountDownTimer timer;
     long milliLeft;
     long fullTime;
@@ -71,6 +72,7 @@ public class PomodoroActivity extends AppCompatActivity {
         m_pomodoro_text_break = (TextView) findViewById(R.id.pomodoro_text_break);
         m_pomodoro_button_music = (Button) findViewById(R.id.pomodoro_button_music);
         m_pomodoro_button_exit = (Button) findViewById(R.id.pomodoro_button_exit);
+        m_pomodoro_button_end_break_time = (Button) findViewById(R.id.pomodoro_button_end_break_time);
 
         isPaused = false;
         dbHandler = new DBHandler(PomodoroActivity.this);
@@ -140,12 +142,6 @@ public class PomodoroActivity extends AppCompatActivity {
                 }
                 if(counterReason.equals("work")) {
 
-                    if(milliTillFinish==fullTime) {
-                        m_pomodoro_image_tree1.setVisibility(View.VISIBLE);
-                        m_pomodoro_image_treebreak.setVisibility(View.INVISIBLE);
-                        m_pomodoro_text_break.setVisibility(View.INVISIBLE);
-                    }
-
                     if(milliTillFinish<(fullTime*0.75) && milliTillFinish>(fullTime*0.5)) {
                         m_pomodoro_image_tree1.setVisibility(View.INVISIBLE);
                         m_pomodoro_image_tree2.setVisibility(View.VISIBLE);
@@ -163,6 +159,7 @@ public class PomodoroActivity extends AppCompatActivity {
                     m_pomodoro_image_tree4.setVisibility(View.INVISIBLE);
                     m_pomodoro_image_treebreak.setVisibility(View.VISIBLE);
                     m_pomodoro_text_break.setVisibility(View.VISIBLE);
+                    m_pomodoro_button_end_break_time.setVisibility(View.VISIBLE);
                 }
             }
 
@@ -176,6 +173,10 @@ public class PomodoroActivity extends AppCompatActivity {
                     System.out.println("nouveau cycle");
                     i++;
                     System.out.println("i : " + i);
+                    m_pomodoro_image_tree1.setVisibility(View.VISIBLE);
+                    m_pomodoro_image_treebreak.setVisibility(View.INVISIBLE);
+                    m_pomodoro_text_break.setVisibility(View.INVISIBLE);
+                    m_pomodoro_button_end_break_time.setVisibility(View.INVISIBLE);
                     switch(i) {
                         case 1:
                             m_pomodoro_image_dropblue2.setVisibility(View.VISIBLE);
