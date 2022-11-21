@@ -139,9 +139,12 @@ public class PomodoroActivity extends AppCompatActivity {
                     m_pomodoro_progressbar_time.setProgress(0);
                 }
                 if(counterReason.equals("work")) {
-                    m_pomodoro_image_tree1.setVisibility(View.VISIBLE);
-                    m_pomodoro_image_treebreak.setVisibility(View.INVISIBLE);
-                    m_pomodoro_text_break.setVisibility(View.INVISIBLE);
+
+                    if(milliTillFinish==fullTime) {
+                        m_pomodoro_image_tree1.setVisibility(View.VISIBLE);
+                        m_pomodoro_image_treebreak.setVisibility(View.INVISIBLE);
+                        m_pomodoro_text_break.setVisibility(View.INVISIBLE);
+                    }
 
                     if(milliTillFinish<(fullTime*0.75) && milliTillFinish>(fullTime*0.5)) {
                         m_pomodoro_image_tree1.setVisibility(View.INVISIBLE);

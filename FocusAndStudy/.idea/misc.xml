@@ -14,6 +14,8 @@
         <entry key="..\:/Users/Flora/Desktop/ApplicationMobile_UQAC/FocusAndStudy/app/src/main/res/drawable/custom_checkbox.xml" value="0.198" />
         <entry key="..\:/Users/Flora/Desktop/ApplicationMobile_UQAC/FocusAndStudy/app/src/main/res/drawable/day.xml" value="0.107" />
         <entry key="..\:/Users/Flora/Desktop/ApplicationMobile_UQAC/FocusAndStudy/app/src/main/res/drawable/days.xml" value="0.1" />
+        <entry key="..\:/Users/Flora/Desktop/ApplicationMobile_UQAC/FocusAndStudy/app/src/main/res/drawable/goutte_blanche.xml" value="0.1665" />
+        <entry key="..\:/Users/Flora/Desktop/ApplicationMobile_UQAC/FocusAndStudy/app/src/main/res/drawable/goutte_bleu.xml" value="0.1" />
         <entry key="..\:/Users/Flora/Desktop/ApplicationMobile_UQAC/FocusAndStudy/app/src/main/res/drawable/ic_dashboard_black_24dp.xml" value="0.1875" />
         <entry key="..\:/Users/Flora/Desktop/ApplicationMobile_UQAC/FocusAndStudy/app/src/main/res/drawable/ic_home_black_24dp.xml" value="0.1" />
         <entry key="..\:/Users/Flora/Desktop/ApplicationMobile_UQAC/FocusAndStudy/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1875" />
@@ -29,6 +31,7 @@
         <entry key="..\:/Users/Flora/Desktop/ApplicationMobile_UQAC/FocusAndStudy/app/src/main/res/layout/activity_first_screen.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Flora/Desktop/ApplicationMobile_UQAC/FocusAndStudy/app/src/main/res/layout/activity_login.xml" value="0.2463768115942029" />
         <entry key="..\:/Users/Flora/Desktop/ApplicationMobile_UQAC/FocusAndStudy/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/Users/Flora/Desktop/ApplicationMobile_UQAC/FocusAndStudy/app/src/main/res/layout/activity_pomodoro.xml" value="0.136" />
         <entry key="..\:/Users/Flora/Desktop/ApplicationMobile_UQAC/FocusAndStudy/app/src/main/res/layout/activity_sign_up.xml" value="0.1" />
         <entry key="..\:/Users/Flora/Desktop/ApplicationMobile_UQAC/FocusAndStudy/app/src/main/res/layout/fragment_calendar.xml" value="0.2" />
         <entry key="..\:/Users/Flora/Desktop/ApplicationMobile_UQAC/FocusAndStudy/app/src/main/res/layout/fragment_calendar_monthly.xml" value="0.2" />
@@ -39,7 +42,7 @@
         <entry key="..\:/Users/Flora/Desktop/ApplicationMobile_UQAC/FocusAndStudy/app/src/main/res/layout/fragment_home.xml" value="0.264" />
         <entry key="..\:/Users/Flora/Desktop/ApplicationMobile_UQAC/FocusAndStudy/app/src/main/res/layout/fragment_notifications.xml" value="0.1" />
         <entry key="..\:/Users/Flora/Desktop/ApplicationMobile_UQAC/FocusAndStudy/app/src/main/res/layout/fragment_parametres.xml" value="0.1" />
-        <entry key="..\:/Users/Flora/Desktop/ApplicationMobile_UQAC/FocusAndStudy/app/src/main/res/layout/fragment_pomodoro.xml" value="0.18931159420289856" />
+        <entry key="..\:/Users/Flora/Desktop/ApplicationMobile_UQAC/FocusAndStudy/app/src/main/res/layout/fragment_pomodoro.xml" value="0.2" />
         <entry key="..\:/Users/Flora/Desktop/ApplicationMobile_UQAC/FocusAndStudy/app/src/main/res/layout/fragment_presentation.xml" value="0.264" />
         <entry key="..\:/Users/Flora/Desktop/ApplicationMobile_UQAC/FocusAndStudy/app/src/main/res/layout/fragment_profil.xml" value="0.1" />
         <entry key="..\:/Users/Flora/Desktop/ApplicationMobile_UQAC/FocusAndStudy/app/src/main/res/layout/fragment_profile.xml" value="0.264" />
