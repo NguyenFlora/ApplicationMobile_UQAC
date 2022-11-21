@@ -86,31 +86,29 @@
             android:id="@+id/end_the_session"
             android:layout_width="300dp"
             android:layout_height="40dp"
-            android:text="@string/end_the_session"
-            android:fontFamily="@font/montserrat"
-            android:textSize="14sp"
+            android:layout_below="@id/score"
+            android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
+            android:background="@drawable/box2"
+            android:fontFamily="@font/montserrat"
+            android:text="@string/end_the_session"
             android:textAllCaps="false"
             android:textColor="@color/white"
-            android:background="@drawable/box2"
-            android:layout_centerHorizontal="true"
-            android:layout_below="@id/score"
-            ></Button>
+            android:textSize="14sp"></Button>
 
         <Button
             android:id="@+id/relaunch_the_session"
             android:layout_width="300dp"
             android:layout_height="40dp"
-            android:text="@string/relaunch_the_session"
-            android:fontFamily="@font/montserrat"
-            android:textSize="14sp"
+            android:layout_below="@id/end_the_session"
+            android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
+            android:background="@drawable/box3"
+            android:fontFamily="@font/montserrat"
+            android:text="@string/relaunch_the_session"
             android:textAllCaps="false"
             android:textColor="@color/green1"
-            android:background="@drawable/box3"
-            android:layout_centerHorizontal="true"
-            android:layout_below="@id/end_the_session"
-            ></Button>
+            android:textSize="14sp"></Button>
 
 
     </RelativeLayout>

@@ -1,23 +1,27 @@
 package com.example.focusandstudy.ui.home;
 
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import androidx.fragment.app.Fragment;
 
 import com.example.focusandstudy.R;
 import com.example.focusandstudy.controller.PomodoroActivity;
+import com.example.focusandstudy.controller.PresentationActivity;
 import com.example.focusandstudy.databinding.FragmentHomeBinding;
 import com.example.focusandstudy.ui.PresentationFragment;
 
 public class HomeFragment extends Fragment  implements View.OnClickListener{
 
     private FragmentHomeBinding binding;
-
+    private Button m_start_a_new_session;
+    private ImageView m_discover_the_pomodoro_cycle;
     public HomeFragment(){
 
     }
@@ -27,8 +31,10 @@ public class HomeFragment extends Fragment  implements View.OnClickListener{
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
-        Button newSession = (Button) view.findViewById(R.id.start_a_new_session);
-        newSession.setOnClickListener(new View.OnClickListener() {
+        m_start_a_new_session = (Button) view.findViewById(R.id.start_a_new_session);
+        m_discover_the_pomodoro_cycle = (ImageView) view.findViewById(R.id.discover_the_pomodoro_cycle);
+
+        m_start_a_new_session.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent newSessionActivity = new Intent(getActivity(), PomodoroActivity.class);
@@ -37,6 +43,14 @@ public class HomeFragment extends Fragment  implements View.OnClickListener{
             }
         });
 
+        m_discover_the_pomodoro_cycle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent presentationActivity = new Intent(getActivity(), PresentationActivity.class);
+                startActivity(presentationActivity);
+                System.out.println("presentation pomodoro");
+            }
+        });
         return view;
     }
 
