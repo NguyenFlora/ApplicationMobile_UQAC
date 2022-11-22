@@ -170,7 +170,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="-60dp"
+        android:layout_marginTop="-100dp"
         android:layout_marginBottom="-50dp">
 
         <ImageView
@@ -190,8 +190,7 @@
             android:layout_centerHorizontal="true"
             android:indeterminateOnly="false"
             android:progressDrawable="@drawable/custom_progress_bar"
-            android:rotation="360"
-            />
+            android:rotation="360" />
 
         <TextView
             android:id="@+id/pomodoro_text_time"
@@ -255,9 +254,10 @@
                 android:id="@+id/pomodoro_button_music"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
+
+                android:layout_centerHorizontal="true"
                 android:background="@drawable/icons8_musical_notes_96"
-                app:backgroundTint="#FFFFFF"
-                android:layout_centerHorizontal="true"/>
+                app:backgroundTint="#FFFFFF" />
 
             <TextView
                 android:id="@+id/pomodoro_text_music"
