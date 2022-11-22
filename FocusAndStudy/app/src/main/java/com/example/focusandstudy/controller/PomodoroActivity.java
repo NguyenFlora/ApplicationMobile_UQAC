@@ -120,7 +120,7 @@ public class PomodoroActivity extends AppCompatActivity {
     }
 
     public void newCycle(){
-        timerStart(1500000,1500000, "work"); //25min => 1500000
+        timerStart(15000,15000, "work"); //25min => 1500000
         onBreak = false;
         System.out.println("nouveau cycle");
         i++;
@@ -132,13 +132,13 @@ public class PomodoroActivity extends AppCompatActivity {
     }
 
     public void cycleBreak(int i){
-        if(i==3) {
+        if(i==4) {
             Intent finishedTaskActivity = new Intent(PomodoroActivity.this, FinishedTaskActivity.class);
             startActivity(finishedTaskActivity);
             System.out.println("pomodoro finished");
             finish();
         }
-        else timerStart(300000,300000, "break"); //10min => 300000
+        else timerStart(15000,15000, "break"); //10min => 300000
     }
 
     public void timerStart(long timeLengthMilli, long fullTimeMilli, String counterReason){
@@ -186,22 +186,28 @@ public class PomodoroActivity extends AppCompatActivity {
                 System.out.println("timer end");
                 if(onBreak){
                     newCycle();
+
+                }
+                else {
                     switch(i) {
                         case 1:
+                            System.out.println(i);
+                            m_pomodoro_image_dropblue1.setVisibility(View.VISIBLE);
+                            m_pomodoro_image_dropwhite1.setVisibility(View.INVISIBLE);
+                            break;
+                        case 2:
                             m_pomodoro_image_dropblue2.setVisibility(View.VISIBLE);
                             m_pomodoro_image_dropwhite2.setVisibility(View.INVISIBLE);
                             break;
-                        case 2:
+                        case 3:
                             m_pomodoro_image_dropblue3.setVisibility(View.VISIBLE);
                             m_pomodoro_image_dropwhite3.setVisibility(View.INVISIBLE);
                             break;
-                        case 3:
+                        case 4:
                             m_pomodoro_image_dropblue4.setVisibility(View.VISIBLE);
                             m_pomodoro_image_dropwhite4.setVisibility(View.INVISIBLE);
                             break;
                     }
-                }
-                else {
                     cycleBreak(i);
                     onBreak = true;
                     System.out.println("en pause");
