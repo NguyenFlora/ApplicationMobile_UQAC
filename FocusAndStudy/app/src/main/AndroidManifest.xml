@@ -32,7 +32,7 @@
             android:name=".controller.PomodoroActivity"
             android:exported="false" />
         <activity
-            android:name=".controller.CycleExplainationActivity"
+            android:name=".controller.PresentationActivity"
             android:exported="false" />
         <activity android:name=".controller.SignUpActivity" />
         <activity android:name=".controller.MainActivity" />
