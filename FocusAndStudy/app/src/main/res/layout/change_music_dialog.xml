@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="350dp"
-    android:layout_height="400dp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:gravity="center"
-    android:background="@color/white">
+    android:background="@drawable/box6"
+    android:padding="15dp"
+    android:gravity="center">
 
     <TextView
         android:id="@+id/changemusicdialog_text_sounds"
@@ -13,115 +14,108 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:fontFamily="@font/inter"
-        android:textFontWeight="600"
         android:paddingBottom="20dp"
         android:text="@string/title_sounds"
         android:textColor="#000000"
-        android:textSize="38dp"
+        android:textFontWeight="600"
+        android:textSize="25dp"
         android:textStyle="bold"></TextView>
 
 
     <RadioGroup
         android:id="@+id/changemusicdialog_radiogroup"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="wrap_content"
         android:paddingBottom="20dp">
 
         <RadioButton
             android:id="@+id/changemusicdialog_radiobutton_whitenoise"
+            android:tag="whitenoise"
             android:layout_width="200dp"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:layout_gravity="center"
             android:fontFamily="@font/montserrat"
             android:textFontWeight="400"
             android:layoutDirection="rtl"
+            android:background="@drawable/border"
             android:text="@string/white_noise"
-            android:textColor="#5DB075" />
-
-        <ImageView
-            android:id="@+id/changemusicdialog_image_greyline1"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            app:srcCompat="@drawable/trait_separation" />
+            android:textColor="#5DB075"
+            android:textSize="13sp"
+            android:button="@drawable/custom_checkbox2" />
 
         <RadioButton
             android:id="@+id/changemusicdialog_radiobutton_water"
+            android:tag="water"
             android:layout_width="200dp"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:text="@string/water"
             android:fontFamily="@font/montserrat"
             android:textFontWeight="400"
             android:layoutDirection="rtl"
+            android:background="@drawable/border"
             android:textColor="#5DB075"
-            android:layout_gravity="center"/>
-
-        <ImageView
-            android:id="@+id/changemusicdialog_image_greyline2"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            app:srcCompat="@drawable/trait_separation" />
+            android:layout_gravity="center"
+            android:textSize="13sp"
+            android:button="@drawable/custom_checkbox2"/>
 
         <RadioButton
             android:id="@+id/changemusicdialog_radiobutton_rain"
+            android:tag="rain"
             android:layout_width="200dp"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:text="@string/rain"
             android:fontFamily="@font/montserrat"
             android:textFontWeight="400"
             android:layoutDirection="rtl"
+            android:background="@drawable/border"
             android:textColor="#5DB075"
-            android:layout_gravity="center"/>
-
-        <ImageView
-            android:id="@+id/changemusicdialog_image_greyline3"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            app:srcCompat="@drawable/trait_separation" />
+            android:layout_gravity="center"
+            android:textSize="13sp"
+            android:button="@drawable/custom_checkbox2"/>
 
         <RadioButton
             android:id="@+id/changemusicdialog_radiobutton_waves"
+            android:tag="waves"
             android:layout_width="200dp"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:text="@string/wave"
             android:fontFamily="@font/montserrat"
             android:textFontWeight="400"
             android:layoutDirection="rtl"
+            android:background="@drawable/border"
             android:textColor="#5DB075"
-            android:layout_gravity="center"/>
-
-        <ImageView
-            android:id="@+id/changemusicdialog_image_greyline4"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            app:srcCompat="@drawable/trait_separation" />
+            android:layout_gravity="center"
+            android:textSize="13sp"
+            android:button="@drawable/custom_checkbox2"/>
 
         <RadioButton
             android:id="@+id/changemusicdialog_radiobutton_none"
+            android:tag="none"
             android:layout_width="200dp"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:text="@string/none"
             android:fontFamily="@font/montserrat"
             android:textFontWeight="400"
             android:layoutDirection="rtl"
+            android:background="@drawable/border"
             android:textColor="#5DB075"
-            android:layout_gravity="center"/>
+            android:layout_gravity="center"
+            android:textSize="13sp"
+            android:button="@drawable/custom_checkbox2"/>
 
     </RadioGroup>
 
     <Button
-        android:id="@+id/chnagemusicdialog_button_confirm"
-        android:layout_width="300dp"
-        android:layout_height="60dp"
+        android:id="@+id/changemusicdialog_button_confirm"
+        android:layout_width="280dp"
+        android:layout_height="40dp"
         android:fontFamily="@font/montserrat"
         android:text="@string/confirm"
         android:textAllCaps="false"
+        android:layout_marginTop="30dp"
         android:textColor="#FFFFFF"
         app:backgroundTint="#5DB075"
-        app:cornerRadius="32dp"></Button>
+        android:background="@drawable/box3"></Button>
 
 
 </LinearLayout>
