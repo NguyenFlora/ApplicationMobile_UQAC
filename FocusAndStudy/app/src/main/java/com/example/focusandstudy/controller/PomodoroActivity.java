@@ -48,7 +48,7 @@ public class PomodoroActivity extends AppCompatActivity {
     int i = 0;
     DBHandler dbHandler;
     User currentUser;
-
+    public static PomodoroActivity instance = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -83,7 +83,7 @@ public class PomodoroActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
             newCycle();
-
+        instance = this;
         m_pomodoro_button_break.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -106,7 +106,8 @@ public class PomodoroActivity extends AppCompatActivity {
 
         m_pomodoro_button_exit.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                ViewExitDialog vmd = new ViewExitDialog(PomodoroActivity.this);
+                ViewExitDialog vmd = new ViewExitDialog(instance);
+                System.out.println(instance);
                 vmd.show();
             }
         });
@@ -132,7 +133,7 @@ public class PomodoroActivity extends AppCompatActivity {
     }
 
     public void cycleBreak(int i){
-        if(i==4) {
+        if(i==2) {
             Intent finishedTaskActivity = new Intent(PomodoroActivity.this, FinishedTaskActivity.class);
             startActivity(finishedTaskActivity);
             System.out.println("pomodoro finished");
