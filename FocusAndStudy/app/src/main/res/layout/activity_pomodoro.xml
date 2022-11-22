@@ -37,7 +37,7 @@
                 app:srcCompat="@drawable/goutte_bleu"
                 android:layout_gravity="center_vertical"
                 android:padding="5dp"
-                android:visibility="visible"/>
+                android:visibility="invisible"/>
 
             <ImageView
                 android:id="@+id/pomodoro_image_dropwhite1"
@@ -45,7 +45,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:padding="5dp"
-                android:visibility="invisible"
+                android:visibility="visible"
                 app:srcCompat="@drawable/goutte_blanche" />
 
         </RelativeLayout>
