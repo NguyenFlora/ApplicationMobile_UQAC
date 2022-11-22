@@ -263,6 +263,16 @@
             android:background="@drawable/icons8_pause_96"
             app:backgroundTint="#FFFFFF" />
 
+        <Button
+            android:id="@+id/pomodoro_button_play"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:background="@drawable/play"
+            android:layout_centerHorizontal="true"
+            app:backgroundTint="#FFFFFF"
+            android:layout_marginTop="200dp"
+            android:visibility="invisible"/>
+
     </RelativeLayout>
 
 
@@ -282,6 +292,8 @@
                 android:id="@+id/pomodoro_button_music"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
+
+                android:layout_centerHorizontal="true"
                 android:background="@drawable/icons8_musical_notes_96"
                 app:backgroundTint="#FFFFFF" />
 
