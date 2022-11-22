@@ -9,6 +9,7 @@
     android:background="@drawable/box6"
     android:gravity="center">
 
+
     <TextView
         android:id="@+id/exitsessiondialog_text_exit"
         android:layout_width="300dp"

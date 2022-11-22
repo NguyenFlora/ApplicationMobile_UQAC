@@ -8,6 +8,7 @@
     android:padding="15dp"
     android:gravity="center">
 
+
     <TextView
         android:id="@+id/changemusicdialog_text_sounds"
         android:layout_width="wrap_content"

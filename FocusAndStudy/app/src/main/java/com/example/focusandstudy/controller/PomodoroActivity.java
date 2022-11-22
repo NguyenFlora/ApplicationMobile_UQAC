@@ -20,7 +20,7 @@ import android.widget.TextView;
 import com.example.focusandstudy.R;
 import com.example.focusandstudy.model.User;
 import com.example.focusandstudy.model.database.DBHandler;
-import com.example.focusandstudy.ui.ViewMusicDialog;
+import com.example.focusandstudy.ui.ViewExitDialog;
 
 public class PomodoroActivity extends AppCompatActivity {
     private ImageView m_pomodoro_image_dropblue1;
@@ -43,8 +43,7 @@ public class PomodoroActivity extends AppCompatActivity {
     private TextView m_pomodoro_text_break;
     private Button m_pomodoro_button_music;
     private Button m_pomodoro_button_exit;
-    private RadioGroup m_changemusicdialog_radiogroup;
-    private Button m_changemusicdialog_button_confirm;
+    private Button m_pomodoro_button_end_break_time;
     CountDownTimer timer;
     long milliLeft;
     long fullTime;
@@ -82,7 +81,8 @@ public class PomodoroActivity extends AppCompatActivity {
         m_pomodoro_text_break = (TextView) findViewById(R.id.pomodoro_text_break);
         m_pomodoro_button_music = (Button) findViewById(R.id.pomodoro_button_music);
         m_pomodoro_button_exit = (Button) findViewById(R.id.pomodoro_button_exit);
-        m_changemusicdialog_button_confirm = (Button) findViewById(R.id.changemusicdialog_button_confirm);
+        m_pomodoro_button_end_break_time = (Button) findViewById(R.id.pomodoro_button_end_break_time);
+
         isPaused = false;
         dbHandler = new DBHandler(PomodoroActivity.this);
         builder = new AlertDialog.Builder(this);
@@ -151,23 +151,40 @@ public class PomodoroActivity extends AppCompatActivity {
 
         m_pomodoro_button_exit.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                ViewExitDialog vmd = new ViewExitDialog(PomodoroActivity.this);
+                vmd.show();
+            }
+        });
 
+        m_pomodoro_button_end_break_time.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                timer.cancel();
+                newCycle();
             }
         });
 
     }
 
     public void newCycle(){
-        timerStart(15000,15000, "work"); //25min => 1500000
+        timerStart(1500000,1500000, "work"); //25min => 1500000
+        onBreak = false;
+        System.out.println("nouveau cycle");
+        i++;
+        System.out.println("i : " + i);
+        m_pomodoro_image_tree1.setVisibility(View.VISIBLE);
+        m_pomodoro_image_treebreak.setVisibility(View.INVISIBLE);
+        m_pomodoro_text_break.setVisibility(View.INVISIBLE);
+        m_pomodoro_button_end_break_time.setVisibility(View.INVISIBLE);
     }
 
     public void cycleBreak(int i){
         if(i==3) {
-            Intent finishedSessionActivity = new Intent(PomodoroActivity.this, FinishedSessionActivity.class);
-            startActivity(finishedSessionActivity);
+            Intent finishedTaskActivity = new Intent(PomodoroActivity.this, FinishedTaskActivity.class);
+            startActivity(finishedTaskActivity);
+            System.out.println("pomodoro finished");
             finish();
         }
-        else timerStart(15000,15000, "break"); //10min => 300000
+        else timerStart(300000,300000, "break"); //10min => 300000
     }
 
     public void timerStart(long timeLengthMilli, long fullTimeMilli, String counterReason){
@@ -188,9 +205,6 @@ public class PomodoroActivity extends AppCompatActivity {
                     m_pomodoro_progressbar_time.setProgress(0);
                 }
                 if(counterReason.equals("work")) {
-                    m_pomodoro_image_tree1.setVisibility(View.VISIBLE);
-                    m_pomodoro_image_treebreak.setVisibility(View.INVISIBLE);
-                    m_pomodoro_text_break.setVisibility(View.INVISIBLE);
 
                     if(milliTillFinish<(fullTime*0.75) && milliTillFinish>(fullTime*0.5)) {
                         m_pomodoro_image_tree1.setVisibility(View.INVISIBLE);
@@ -209,19 +223,15 @@ public class PomodoroActivity extends AppCompatActivity {
                     m_pomodoro_image_tree4.setVisibility(View.INVISIBLE);
                     m_pomodoro_image_treebreak.setVisibility(View.VISIBLE);
                     m_pomodoro_text_break.setVisibility(View.VISIBLE);
+                    m_pomodoro_button_end_break_time.setVisibility(View.VISIBLE);
                 }
             }
 
             @Override
             public void onFinish() {
                 System.out.println("timer end");
-
                 if(onBreak){
                     newCycle();
-                    onBreak = false;
-                    System.out.println("nouveau cycle");
-                    i++;
-                    System.out.println("i : " + i);
                     switch(i) {
                         case 1:
                             m_pomodoro_image_dropblue2.setVisibility(View.VISIBLE);
@@ -259,4 +269,5 @@ public class PomodoroActivity extends AppCompatActivity {
         timerStart(milliLeft, fullTime, typeCounter);
         System.out.println("timer restart");
     }
+
 }
