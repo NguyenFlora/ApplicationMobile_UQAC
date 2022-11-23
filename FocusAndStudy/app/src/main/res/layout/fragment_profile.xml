@@ -51,282 +51,539 @@
                 android:layout_below="@id/name"
                 android:padding="20dp">
 
-            <TextView
-                android:id="@+id/level"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/gray"
-                android:text="Niveau 2"/>
-            <ProgressBar
-                android:id="@+id/progress_bar"
-                style="?android:attr/progressBarStyleHorizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:indeterminate="false"
-                android:max="1000"
-                android:background="@color/gray2"
-                android:layout_below="@id/level"
-                android:progress="250" />
+                <TextView
+                    android:id="@+id/level"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Niveau 2"
+                    android:textColor="@color/gray" />
 
-            <TextView
-                android:id="@+id/XP"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/gray"
-                android:layout_alignParentEnd="true"
-                android:text="125/1000 XP"
-                android:layout_below="@id/progress_bar"
-                android:textSize="12sp"/>
+                <ProgressBar
+                    android:id="@+id/progress_bar"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/level"
+                    android:background="@color/gray2"
+                    android:indeterminate="false"
+                    android:max="1000"
+                    android:progress="250" />
 
-            <TextView
-                android:id="@+id/work"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/XP"
-                android:text="@string/work_time_this_week"
-                android:textColor="@color/gray"/>
+                <TextView
+                    android:id="@+id/XP"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/progress_bar"
+                    android:layout_alignParentEnd="true"
+                    android:text="125/1000 XP"
+                    android:textColor="@color/gray"
+                    android:textSize="12sp" />
 
-            <TextView
-                android:id="@+id/badge"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/gray"
-                android:text="@string/badges"
-                android:layout_below="@id/work"/>
+                <TextView
+                    android:id="@+id/work"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/XP"
+                    android:text="@string/work_time_this_week"
+                    android:textColor="@color/gray" />
 
-            <TableLayout
-                android:id="@+id/badges"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/badge">
+                <LinearLayout
+                    android:id="@+id/graphic"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/work"
+                    android:orientation="vertical">
 
-                <TableRow>
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="100dp"
-                        android:src="@drawable/badge1"
-                        android:layout_weight="1"
-                        android:padding="10dp"
-                        />
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="100dp"
-                        android:src="@drawable/badge2"
-                        android:layout_weight="1"
-                        android:padding="10dp"
-                        />
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="100dp"
-                        android:src="@drawable/badge3"
-                        android:layout_weight="1"
-                        android:padding="10dp"
-
-                        />
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="100dp"
-                        android:src="@drawable/badge4"
-                        android:layout_weight="1"
-                        android:padding="10dp"
-                        />
-                </TableRow>
-
-                <TableRow>
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="100dp"
-                        android:src="@drawable/badge5"
-                        android:layout_weight="1"
-                        android:padding="10dp"
-                        />
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="100dp"
-                        android:src="@drawable/badge6"
-                        android:layout_weight="1"
-                        android:padding="10dp"
-                        />
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="100dp"
-                        android:src="@drawable/badge7"
-                        android:layout_weight="1"
-                        android:padding="10dp"
-
-                        />
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="100dp"
-                        android:src="@drawable/badge8"
-                        android:layout_weight="1"
-                        android:padding="10dp"
-                        />
-                </TableRow>
-            </TableLayout>
-
-            <TextView
-                android:id="@+id/statistics"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/badges"
-                android:text="@string/statistics"
-                android:textColor="@color/gray"/>
-
-            <TableLayout
-                android:id="@+id/statistics_table"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/statistics">
-
-                <TableRow>
                     <LinearLayout
-                        android:id="@+id/today"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/box5"
-                        android:orientation="vertical"
-                        android:gravity="center"
-                        android:layout_weight="1"
-                        android:layout_margin="5dp"
-                        android:padding="10dp">
+                        android:orientation="horizontal"
+                        android:gravity="center">
+
+                        <TextView
+                            android:id="@+id/hours8"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:drawablePadding="6dp"
+                            android:fontFamily="@font/montserrat_medium"
+                            android:padding="15dp"
+                            android:text="8h"
+                            android:textSize="11sp"
+                            android:textColor="@color/gray" />
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/border2" />
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:drawablePadding="6dp"
+                            android:fontFamily="@font/montserrat_medium"
+                            android:padding="15dp"
+                            android:text="6h"
+                            android:textSize="11sp"
+                            android:textColor="@color/gray" />
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/border2" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:drawablePadding="6dp"
+                            android:fontFamily="@font/montserrat_medium"
+                            android:padding="15dp"
+                            android:text="4h"
+                            android:textSize="11sp"
+                            android:textColor="@color/gray" />
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/border2" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:drawablePadding="6dp"
+                            android:fontFamily="@font/montserrat_medium"
+                            android:padding="15dp"
+                            android:text="2h"
+                            android:textSize="11sp"
+                            android:textColor="@color/gray" />
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/border2" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/border"
+                        android:layout_marginStart="30dp"
+                        android:padding="15dp"/>
+
+                </LinearLayout>
+
+                <TableLayout
+                    android:id="@+id/data_graphic"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/work"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginStart="50dp"
+                    android:stretchColumns="*"
+                    android:orientation="horizontal">
+
+                    <TableRow android:layout_width="0dp"
+                        >
+                        <ProgressBar
+                            android:id="@+id/vertical_progress_bar"
+                            android:layout_width="10dp"
+                            android:layout_height="180dp"
+                            android:layout_margin="10dp"
+                            style="@style/Widget.ProgressBar.Vertical2"
+                            android:progress="50"
+                            android:max="100"
+                            />
+
+                        <ProgressBar
+                            android:id="@+id/vertical_progress_bar2"
+                            android:layout_width="10dp"
+                            android:layout_height="180dp"
+                            android:layout_margin="10dp"
+                            style="@style/Widget.ProgressBar.Vertical"
+                            android:progress="20"
+                            android:max="100"
+                            />
+                        <ProgressBar
+                            android:id="@+id/vertical_progress_bar3"
+                            android:layout_width="10dp"
+                            android:layout_height="180dp"
+                            android:layout_margin="10dp"
+                            style="@style/Widget.ProgressBar.Vertical2"
+                            android:progress="100"
+                            android:max="100"
+                            />
+
+                        <ProgressBar
+                            android:id="@+id/vertical_progress_bar4"
+                            android:layout_width="10dp"
+                            android:layout_height="180dp"
+                            android:layout_margin="10dp"
+                            style="@style/Widget.ProgressBar.Vertical"
+                            android:progress="90"
+                            android:max="100"
+                            />
+                        <ProgressBar
+                            android:id="@+id/vertical_progress_bar5"
+                            android:layout_width="10dp"
+                            android:layout_height="180dp"
+                            android:layout_margin="10dp"
+                            style="@style/Widget.ProgressBar.Vertical2"
+                            android:progress="30"
+                            android:max="100"
+                            />
+                        <ProgressBar
+                            android:id="@+id/vertical_progress_bar6"
+                            android:layout_width="10dp"
+                            android:layout_height="180dp"
+                            android:layout_margin="10dp"
+                            style="@style/Widget.ProgressBar.Vertical"
+                            android:progress="80"
+                            android:max="100"
+                            />
+                        <ProgressBar
+                            android:id="@+id/vertical_progress_bar7"
+                            android:layout_width="10dp"
+                            android:layout_height="180dp"
+                            android:layout_margin="10dp"
+                            style="@style/Widget.ProgressBar.Vertical2"
+                            android:progress="10"
+                            android:max="100"
+                            />
+
+                    </TableRow>
+                    <TableRow android:layout_width="0dp" android:layout_marginTop="-10dp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/montserrat"
+                            android:text="L"
+                            android:rotation="-20"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:textColor="@color/gray"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/montserrat"
+                            android:text="M"
+                            android:rotation="-20"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:textColor="@color/gray"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/montserrat"
+                            android:text="M"
+                            android:rotation="-20"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:textColor="@color/gray"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/montserrat"
+                            android:text="J"
+                            android:rotation="-20"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:textColor="@color/gray"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/montserrat"
+                            android:text="V"
+                            android:rotation="-20"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:textColor="@color/gray"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/montserrat"
+                            android:text="S"
+                            android:rotation="-20"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:textColor="@color/gray"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/montserrat"
+                            android:text="D"
+                            android:rotation="-20"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:textColor="@color/gray"/>
+                    </TableRow>
+                </TableLayout>
+
+                <TextView
+                    android:id="@+id/badge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/data_graphic"
+                    android:text="@string/badges"
+                    android:textColor="@color/gray" />
+
+                <TableLayout
+                    android:id="@+id/badges"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/badge">
+
+                    <TableRow>
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="100dp"
+                            android:layout_weight="1"
+                            android:padding="10dp"
+                            android:src="@drawable/badge1" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="100dp"
+                            android:layout_weight="1"
+                            android:padding="10dp"
+                            android:src="@drawable/badge2" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="100dp"
+                            android:layout_weight="1"
+                            android:padding="10dp"
+                            android:src="@drawable/badge3"
+
+                            />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="100dp"
+                            android:layout_weight="1"
+                            android:padding="10dp"
+                            android:src="@drawable/badge4" />
+                    </TableRow>
+
+                    <TableRow>
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="100dp"
+                            android:layout_weight="1"
+                            android:padding="10dp"
+                            android:src="@drawable/badge5" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="100dp"
+                            android:layout_weight="1"
+                            android:padding="10dp"
+                            android:src="@drawable/badge6" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="100dp"
+                            android:layout_weight="1"
+                            android:padding="10dp"
+                            android:src="@drawable/badge7"
+
+                            />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="100dp"
+                            android:layout_weight="1"
+                            android:padding="10dp"
+                            android:src="@drawable/badge8" />
+                    </TableRow>
+                </TableLayout>
+
+                <TextView
+                    android:id="@+id/statistics"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/badges"
+                    android:text="@string/statistics"
+                    android:textColor="@color/gray" />
+
+                <TableLayout
+                    android:id="@+id/statistics_table"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/statistics">
+
+                    <TableRow>
+
+                        <LinearLayout
+                            android:id="@+id/today"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/box5"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:padding="10dp">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                tools:ignore="UseCompoundDrawables">
+
+                                <TextView
+                                    android:id="@+id/number_of_hours_today"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:drawablePadding="6dp"
+                                    android:fontFamily="@font/montserrat_bold"
+                                    android:text="6h"
+                                    android:textColor="@color/green1"
+                                    android:textSize="24sp"
+                                    app:drawableStartCompat="@drawable/day" />
+
+                            </LinearLayout>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/montserrat"
+                                android:text="@string/de_travail_aujourd_hui"
+                                android:textColor="@color/gray"
+                                android:textSize="11sp" />
+
+                        </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            tools:ignore="UseCompoundDrawables">
+                            android:layout_margin="5dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/box5"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:padding="10dp">
 
                             <TextView
-                                android:id="@+id/number_of_hours_today"
+                                android:id="@+id/day_streak"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:drawablePadding="6dp"
                                 android:fontFamily="@font/montserrat_bold"
-                                android:text="6h"
+                                android:text="7"
                                 android:textColor="@color/green1"
                                 android:textSize="24sp"
-                                app:drawableStartCompat="@drawable/day" />
+                                app:drawableStartCompat="@drawable/flame" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/montserrat"
+                                android:text="@string/consecutive_days"
+                                android:textColor="@color/gray"
+                                android:textSize="11sp" />
 
                         </LinearLayout>
 
-                        <TextView
+                    </TableRow>
+
+                    <TableRow>
+
+                        <LinearLayout
+                            android:id="@+id/today2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:fontFamily="@font/montserrat"
-                            android:text="@string/de_travail_aujourd_hui"
-                            android:textColor="@color/gray"
-                            android:textSize="11sp" />
+                            android:layout_margin="5dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/box5"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:padding="10dp">
 
-                    </LinearLayout>
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                tools:ignore="UseCompoundDrawables">
 
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/box5"
-                        android:orientation="vertical"
-                        android:gravity="center"
-                        android:layout_weight="1"
-                        android:layout_margin="5dp"
-                        android:padding="10dp">
+                                <TextView
+                                    android:id="@+id/number_of_badges"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:drawablePadding="6dp"
+                                    android:fontFamily="@font/montserrat_bold"
+                                    android:text="2"
+                                    android:textColor="@color/green1"
+                                    android:textSize="24sp"
+                                    app:drawableStartCompat="@drawable/medal" />
 
-                        <TextView
-                            android:id="@+id/day_streak"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:drawablePadding="6dp"
-                            android:fontFamily="@font/montserrat_bold"
-                            android:text="7"
-                            android:textSize="24sp"
-                            android:textColor="@color/green1"
-                            app:drawableStartCompat="@drawable/flame" />
+                            </LinearLayout>
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/montserrat"
-                            android:text="@string/consecutive_days"
-                            android:textColor="@color/gray"
-                            android:textSize="11sp" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/montserrat"
+                                android:text="@string/accomplished_badges"
+                                android:textColor="@color/gray"
+                                android:textSize="11sp" />
 
-                    </LinearLayout>
-
-                </TableRow>
-
-                <TableRow>
-                    <LinearLayout
-                        android:id="@+id/today2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/box5"
-                        android:orientation="vertical"
-                        android:gravity="center"
-                        android:layout_weight="1"
-                        android:layout_margin="5dp"
-                        android:padding="10dp">
+                        </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            tools:ignore="UseCompoundDrawables">
+                            android:layout_margin="5dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/box5"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:padding="10dp">
 
                             <TextView
-                                android:id="@+id/number_of_badges"
+                                android:id="@+id/number_of_hours_per_week"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:drawablePadding="6dp"
                                 android:fontFamily="@font/montserrat_bold"
-                                android:text="2"
+                                android:text="13h"
                                 android:textColor="@color/green1"
                                 android:textSize="24sp"
-                                app:drawableStartCompat="@drawable/medal" />
+                                app:drawableStartCompat="@drawable/days" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/montserrat"
+                                android:text="@string/semaine"
+                                android:textColor="@color/gray"
+                                android:textSize="11sp" />
 
                         </LinearLayout>
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/montserrat"
-                            android:text="@string/accomplished_badges"
-                            android:textColor="@color/gray"
-                            android:textSize="11sp" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/box5"
-                        android:orientation="vertical"
-                        android:gravity="center"
-                        android:layout_weight="1"
-                        android:layout_margin="5dp"
-                        android:padding="10dp">
-
-                        <TextView
-                            android:id="@+id/number_of_hours_per_week"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:drawablePadding="6dp"
-                            android:fontFamily="@font/montserrat_bold"
-                            android:text="13h"
-                            android:textSize="24sp"
-                            android:textColor="@color/green1"
-                            app:drawableStartCompat="@drawable/days" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/montserrat"
-                            android:text="@string/semaine"
-                            android:textColor="@color/gray"
-                            android:textSize="11sp" />
-
-                    </LinearLayout>
-
-                </TableRow>
-            </TableLayout>
+                    </TableRow>
+                </TableLayout>
             </RelativeLayout>
 
         </RelativeLayout>
