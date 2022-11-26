@@ -16,13 +16,13 @@ import com.example.focusandstudy.databinding.FragmentCalendarMonthlyItemBinding;
 public class CalendarMonthlyItemFragment extends Fragment {
 
     private FragmentCalendarMonthlyItemBinding binding;
-    private int id;
+    private String date;
     TextView task_text, to_do_text;
     ImageView task_image, round_validated_image;
 
 
-    public CalendarMonthlyItemFragment(int i) {
-        this.id = i;
+    public CalendarMonthlyItemFragment(String date) {
+        this.date = date;
     }
 
     @Override
@@ -44,7 +44,7 @@ public class CalendarMonthlyItemFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        task_text.setText("Devoir d'anglais");
+        task_text.setText(date);
         task_image.setImageResource(R.drawable.purple_round);
         to_do_text.setVisibility(View.INVISIBLE);
         round_validated_image.setVisibility(View.VISIBLE);
