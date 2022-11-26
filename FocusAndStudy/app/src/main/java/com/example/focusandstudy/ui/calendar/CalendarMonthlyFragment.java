@@ -8,8 +8,10 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.focusandstudy.R;
 import com.example.focusandstudy.databinding.FragmentCalendarMonthlyBinding;
 
 public class CalendarMonthlyFragment extends Fragment{
@@ -19,14 +21,19 @@ public class CalendarMonthlyFragment extends Fragment{
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
-        CalendarWeeklyViewModel calendarWeeklyViewModel =
-                new ViewModelProvider(this).get(CalendarWeeklyViewModel.class);
-
         binding = FragmentCalendarMonthlyBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
 
-        
+        FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
+
+        for(int i = 0; i < 10; i++){
+            Fragment newFragment = new CalendarMonthlyItemFragment(i);
+            ft.add(R.id.tasks, newFragment);
+
+        }
+        ft.commit();
+
         return root;
     }
 
