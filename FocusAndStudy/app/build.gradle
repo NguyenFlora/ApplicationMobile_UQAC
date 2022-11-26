@@ -50,5 +50,6 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1'
     implementation 'net.zetetic:sqlcipher-android:4.5.2@aar'
     implementation 'androidx.sqlite:sqlite:2.2.0'
+    implementation 'com.github.sundeepk:compact-calendar-view:3.0.0'
 
 }

@@ -7,27 +7,48 @@
     tools:context=".ui.calendar.CalendarMonthlyFragment">
 
     <LinearLayout
-        android:id="@+id/title_bar"
+        android:id="@+id/calendar"
         android:layout_width="match_parent"
-        android:background="@color/green1"
-        android:orientation="horizontal"
-        android:layout_height="55dp"/>
+        android:layout_height="300dp"
+        android:orientation="vertical"
+        android:background="@drawable/calendar_box">
 
-    <CalendarView
-        android:id="@+id/simpleCalendarView"
-        android:layout_width="match_parent"
-        android:layout_height="320dp"
-        android:background="@drawable/calendar_box"
-        android:dateTextAppearance="@style/CalenderViewDateCustomText"
-        android:theme="@style/CalenderViewCustom"
-        android:weekDayTextAppearance="@style/CalenderViewWeekCustomText" />
+        <TextView
+            android:id="@+id/month_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:background="@color/green1"
+            android:text="Décembre 2022" />
+
+        <com.github.sundeepk.compactcalendarview.CompactCalendarView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/compact_calendar_view"
+            android:layout_width="fill_parent"
+            android:layout_marginTop="10dp"
+            android:paddingRight="10dp"
+            android:paddingLeft="10dp"
+            android:layout_height="230dp"
+            app:compactCalendarTargetHeight="250dp"
+            app:compactCalendarTextSize="12sp"
+            app:compactCalendarTextColor="@color/gray"
+            app:compactCalendarCurrentSelectedDayBackgroundColor="@color/green1"
+            app:compactCalendarCurrentDayBackgroundColor="@color/gray2"
+            app:compactCalendarMultiEventIndicatorColor="#fff"
+            android:layout_below="@id/title_bar"
+            />
+    </LinearLayout>
+
+
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:scrollbars="vertical"
         android:layout_margin="15dp"
-        android:layout_below="@id/simpleCalendarView"
+        android:layout_below="@id/calendar"
         android:fillViewport="true">
         <LinearLayout
             android:id="@+id/tasks"
