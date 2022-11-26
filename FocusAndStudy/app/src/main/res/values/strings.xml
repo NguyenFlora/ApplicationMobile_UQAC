@@ -84,4 +84,5 @@
     <string name="break_time">Temps de pause</string>
     <string name="change_music">Changer la musique</string>
     <string name="end_break_time">Finir la pause</string>
+    <string name="to_do">A faire</string>
 </resources>
