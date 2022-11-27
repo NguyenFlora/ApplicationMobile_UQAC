@@ -1,7 +1,6 @@
 package com.example.focusandstudy.ui.home;
 
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,7 +14,6 @@ import com.example.focusandstudy.R;
 import com.example.focusandstudy.controller.PomodoroActivity;
 import com.example.focusandstudy.controller.PresentationActivity;
 import com.example.focusandstudy.databinding.FragmentHomeBinding;
-import com.example.focusandstudy.ui.PresentationFragment;
 
 public class HomeFragment extends Fragment  implements View.OnClickListener{
 
@@ -60,10 +58,6 @@ public class HomeFragment extends Fragment  implements View.OnClickListener{
         binding = null;
     }
 
-    public static PresentationFragment newInstance() {
-        PresentationFragment fragment = new PresentationFragment();
-        return fragment;
-    }
 
     @Override
     public void onClick(View view) {

@@ -1,6 +1,9 @@
 package com.example.focusandstudy.model.database;
 
+import android.app.Activity;
+import android.app.Notification;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteOpenHelper;
 
         import android.content.ContentValues;
@@ -11,7 +14,8 @@ import android.database.Cursor;
 
 import androidx.annotation.Nullable;
 
-        import com.example.focusandstudy.model.User;
+import com.example.focusandstudy.model.Task;
+import com.example.focusandstudy.model.User;
 
         import java.io.IOException;
         import java.util.ArrayList;
@@ -81,7 +85,17 @@ public class DBHandler extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public boolean addNewUser(String username,String email , String password){
+    public String getSharedPrefUsername(Activity mActivity){
+        SharedPreferences sharedPref = mActivity.getSharedPreferences("UserManagement", Context.MODE_PRIVATE);
+        return sharedPref.getString("logged_username", "hello");
+    }
+
+    public int getSharedPrefUserId(Activity mActivity){
+        SharedPreferences sharedPref = mActivity.getSharedPreferences("UserManagement", Context.MODE_PRIVATE);
+        return sharedPref.getInt("logged_user_id", 1);
+    }
+
+    public boolean addNewUser(String username, String email, String password){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
 
@@ -151,4 +165,61 @@ public class DBHandler extends SQLiteOpenHelper {
         vCursor.close();
         return user;
     }
+
+    public boolean updateSessionStats(User mUser){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put(COLUMN_DAILY_TIME,mUser.getDailyTime() + 100);
+        cv.put(COLUMN_WEEKLY_TIME,mUser.getWeeklyTime() + 100);
+        cv.put(COLUMN_XP, mUser.getXP() + 15);
+        String id = String.valueOf(mUser.getId());
+        long insert = db.update(USER_TABLE, cv, COLUMN_USER_ID+" = ?", new String[]{id});
+        db.close();
+        return insert != -1;
+    }
+
+    public boolean addNewTask(Task mTask){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put(COLUMN_TYPE,mTask.getType());
+        cv.put(COLUMN_NAME,mTask.getName());
+        cv.put(COLUMN_DESCRIPTION, mTask.getDescription());
+        cv.put(COLUMN_DATE,mTask.getDate().toString());
+        cv.put(COLUMN_STATUS, mTask.getStatus());
+        long insert = db.insert(TASK_TABLE, null, cv);
+        db.close();
+        return insert != -1;
+    }
+
+    public boolean updateTaskDone(int mTaskId){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put(COLUMN_STATUS,"FINISHED");
+        String id = String.valueOf(mTaskId);
+        long insert = db.update(TASK_TABLE, cv, COLUMN_TASK_ID+" = ?", new String[]{id});
+        db.close();
+        return insert != -1;
+    }
+
+    public boolean updateNewWeek(int userId){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put(COLUMN_WEEKLY_TIME, 0);
+        String id = String.valueOf(userId);
+        long insert = db.update(USER_TABLE, cv, COLUMN_USER_ID+" = ?", new String[]{id});
+        db.close();
+        return insert != -1;
+    }
+
+    public boolean updateNewDay(int userId, int dayStreak){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put(COLUMN_DAILY_TIME, 0);
+        cv.put(COLUMN_DAY_STREAK, dayStreak);
+        String id = String.valueOf(userId);
+        long insert = db.update(USER_TABLE, cv, COLUMN_USER_ID+" = ?", new String[]{id});
+        db.close();
+        return insert != -1;
+    }
+
 }

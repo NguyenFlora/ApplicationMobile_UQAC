@@ -3,6 +3,7 @@ package com.example.focusandstudy.ui.profile;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.format.DateUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -62,32 +63,29 @@ public class ProfileFragment extends Fragment {
         binding = null;
     }
 
-    private String getSharedPrefUsername(){
-        SharedPreferences sharedPref = this.getActivity().getSharedPreferences("UserManagement", Context.MODE_PRIVATE);
-        return sharedPref.getString("logged_username", "hello");
-    }
-
-    private int getSharedPrefUserId(){
-        SharedPreferences sharedPref = this.getActivity().getSharedPreferences("UserManagement", Context.MODE_PRIVATE);
-        return sharedPref.getInt("logged_user_id", 1);
-    }
 
     private void setStatisticsOnView(){
-        user_id =  getSharedPrefUserId();
+        user_id =  mDBHandler.getSharedPrefUserId(this.getActivity());
         mUser = mDBHandler.getUserFromId(user_id);
-        int XP = 550;//mUser.getXP();
+        int XP = mUser.getXP();
         int level = 0;
         if(XP>0) {
             level = (int) Math.floor(XP / 1000);
         }
         m_progress_bar.setMax(1000);
         m_progress_bar.setProgress(XP);
-        m_name.setText(getSharedPrefUsername());
+        m_name.setText(mDBHandler.getSharedPrefUsername(this.getActivity()));
         m_level.setText(String.valueOf(level));
         m_XP.setText(String.valueOf(mUser.getXP()));
-        m_number_of_hours_today.setText(String.valueOf(mUser.getDailyTime()));
+        m_number_of_hours_today.setText(getTimeFormatWithMin(mUser.getDailyTime()));
         m_day_streak.setText(String.valueOf(mUser.getDayStreak()));
         m_number_of_badges.setText(String.valueOf(mUser.getNbBadges()));
-        m_number_of_hours_per_week.setText(String.valueOf(mUser.getWeeklyTime()));
+        m_number_of_hours_per_week.setText(getTimeFormatWithMin(mUser.getWeeklyTime()));
+    }
+
+    public String getTimeFormatWithMin(int min){
+        int hours = min / 60;
+        int minutes = min % 60;
+        return (hours +" h " +minutes);
     }
 }
