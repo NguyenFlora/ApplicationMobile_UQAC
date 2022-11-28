@@ -22,16 +22,13 @@ public class CalendarMonthlyItemFragment extends Fragment {
     TextView task_text, to_do_text;
     ImageView task_image, round_validated_image;
 
-
     public CalendarMonthlyItemFragment(String date) {
         this.date = date;
     }
 
     @Override
-    public View onCreateView(
-            LayoutInflater inflater, ViewGroup container,
-            Bundle savedInstanceState
-    ) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+            Bundle savedInstanceState) {
 
         binding = FragmentCalendarMonthlyItemBinding.inflate(inflater, container, false);
         task_text = binding.taskText;
@@ -41,7 +38,6 @@ public class CalendarMonthlyItemFragment extends Fragment {
         item = binding.item;
 
         return binding.getRoot();
-
     }
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {

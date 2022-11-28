@@ -1,0 +1,8 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:tint="@color/gray2"> <!-- specify your tint color -->
+    <corners android:bottomRightRadius="10dp"
+        android:bottomLeftRadius="10dp"
+        android:topRightRadius="10dp"
+        android:topLeftRadius="10dp"/>
+    <solid android:color="#44000000" /> <!-- instead of `AA` specify your alpha level -->
+</shape>

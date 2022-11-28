@@ -50,24 +50,23 @@ public class CalendarMonthlyFragment extends Fragment{
         tasks = binding.tasks;
 
         String date = dateFormatMonth.format(Calendar.getInstance().getTime());
-
         monthTitle.setText(date);
+        compactCalendarView.setUseThreeLetterAbbreviation(false);
+
+        String dateToString = df.format(Calendar.getInstance().getTime());
+        updateTasks(dateToString);
 
         compactCalendarView.setUseThreeLetterAbbreviation(false);
 
         //Set an event for Teachers' Professional Day 2016 which is 21st of October
 
-        Event ev1 = new Event(Color.RED, 1669445948, "Teachers' Professional Day");
+        Event ev1 = new Event(getResources().getColor(R.color.green1), 1669838086000L);
         compactCalendarView.addEvent(ev1);
 
-        // Added event 2 GMT: Sun, 07 Jun 2015 19:10:51 GMT
-        Event ev2 = new Event(Color.GREEN, 1669445948);
+        Event ev2 = new Event(getResources().getColor(R.color.purple_500), 1669838086000L);
         compactCalendarView.addEvent(ev2);
 
-        // Query for events on Sun, 07 Jun 2015 GMT.
-        // Time is not relevant when querying for events, since events are returned by day.
-        // So you can pass in any arbitary DateTime and you will receive all events for that day.
-        List<Event> events = compactCalendarView.getEvents(1669445948); // can also take a Date object
+        //List<Event> events = compactCalendarView.getEvents(1669445948); // can also take a Date object
 
         compactCalendarView.setListener(new CompactCalendarView.CompactCalendarViewListener() {
             @Override
@@ -81,29 +80,7 @@ public class CalendarMonthlyFragment extends Fragment{
                 monthTitle.setText(dateFormatMonth.format(firstDayOfNewMonth));
             }
         });
-/*
-        calendarView = binding.simpleCalendarView;
-        tasks = binding.tasks;
-        calendarView.setDate(Calendar.getInstance().getTimeInMillis(),false,true);
-        calendarView.setFirstDayOfWeek(1);
 
-        //Event event = new Event(Color.BLUE, 1669702652, "Event");
-
-        String date = Calendar.getInstance().get(Calendar.DAY_OF_MONTH) + "-" + (Calendar.getInstance().get(Calendar.MONTH) + 1) + "-" + Calendar.getInstance().get(Calendar.YEAR);
-        updateTasks(date);
-
-
-        calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
-
-            @Override
-            public void onSelectedDayChange(CalendarView view, int year, int month,
-                                            int dayOfMonth) {
-
-                String date = dayOfMonth + "-" + (month + 1) + "-" + year;
-                updateTasks(date);
-            }
-        });
-*/
         return root;
     }
 

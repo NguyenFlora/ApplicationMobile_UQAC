@@ -29,6 +29,9 @@
             android:name=".controller.SessionActivity"
             android:exported="false" />
         <activity
+            android:name=".controller.StartSessionActivity"
+            android:exported="false" />
+        <activity
             android:name=".controller.PomodoroActivity"
             android:exported="false" />
         <activity

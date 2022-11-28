@@ -85,4 +85,7 @@
     <string name="change_music">Changer la musique</string>
     <string name="end_break_time">Finir la pause</string>
     <string name="to_do">A faire</string>
+    <string name="new_session">Nouvelle session</string>
+    <string name="launch_session">Lancer la session</string>
+    <string name="back">Retour</string>
 </resources>

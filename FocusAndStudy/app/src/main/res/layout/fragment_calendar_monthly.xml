@@ -18,9 +18,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/montserrat"
-            android:padding="10dp"
+            android:paddingTop="20dp"
+            android:paddingBottom="10dp"
+            android:layout_marginTop="-10dp"
             android:textAlignment="center"
-            android:background="@color/green1"
+            android:background="@drawable/box"
             android:text="Décembre 2022" />
 
         <com.github.sundeepk.compactcalendarview.CompactCalendarView
@@ -36,7 +38,6 @@
             app:compactCalendarTextColor="@color/gray"
             app:compactCalendarCurrentSelectedDayBackgroundColor="@color/green1"
             app:compactCalendarCurrentDayBackgroundColor="@color/gray2"
-            app:compactCalendarMultiEventIndicatorColor="#fff"
             android:layout_below="@id/title_bar"
             />
     </LinearLayout>
@@ -59,12 +60,13 @@
         </LinearLayout>
 
     </ScrollView>
+
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/plus"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="10dp"/>
+        android:layout_marginBottom="15dp"
+        android:src="@drawable/plus" />
 
 </RelativeLayout>
