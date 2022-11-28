@@ -61,7 +61,26 @@ public class LogInActivity extends AppCompatActivity {
                 String password = m_log_in_edit_text_password.getText().toString();
 
                 if (email.isEmpty() || password.isEmpty()) {
+                    Toast.makeText(LogInActivity.this, getString(R.string.ensureInput), Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                /*if (!checkMailRequirements(email)) {
+                    Toast.makeText(LoginActivity.this, getString(R.string.ensureMailRequirements), Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (!checkPassWordRequirements(password)) {
+                    Toast.makeText(LoginActivity.this, getString(R.string.ensurePasswordRequirements), Toast.LENGTH_SHORT).show();
+                    return;
+                }*/
+                else {
+                    currentUser = dbHandler.login(email, password);
+                    if(currentUser == null){
+                        Toast.makeText(getApplicationContext(), R.string.invalidCredentials,Toast.LENGTH_SHORT).show();
+                    }else {
+                        addLogInToSharedPreferences();
+                        System.out.println("connexion");
                         goToMainActivity();
+                    }
                 }
             }
         });
