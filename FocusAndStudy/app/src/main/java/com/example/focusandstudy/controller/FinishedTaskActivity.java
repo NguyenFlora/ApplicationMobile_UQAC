@@ -25,8 +25,6 @@ public class FinishedTaskActivity extends AppCompatActivity {
 
         m_end_the_session = (Button) findViewById(R.id.end_the_session);
         m_relaunch_the_session = (Button) findViewById(R.id.relaunch_the_session);
-
-        dbHandler = new DBHandler(FinishedTaskActivity.this);
     }
 
     @Override

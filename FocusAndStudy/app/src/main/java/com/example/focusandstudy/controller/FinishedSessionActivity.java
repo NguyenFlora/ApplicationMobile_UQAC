@@ -45,7 +45,8 @@ public class FinishedSessionActivity extends AppCompatActivity {
         m_finished_session_yes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                System.out.println("session finished");
+                System.out.println("task finished");
+                //dbHandler.updateTaskDone(1);
                 goToMainActivity();
             }
         });
@@ -53,7 +54,7 @@ public class FinishedSessionActivity extends AppCompatActivity {
         m_finished_session_no.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                System.out.println("session not finished");
+                System.out.println("task not finished");
                 goToMainActivity();
             }
         });
