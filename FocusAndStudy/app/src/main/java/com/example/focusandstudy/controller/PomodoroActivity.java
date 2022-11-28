@@ -46,7 +46,8 @@ public class PomodoroActivity extends AppCompatActivity {
     boolean onBreak = false;
     boolean isPaused;
     int i = 0;
-    DBHandler dbHandler;
+    DBHandler mDBHandler;
+    int user_id;
     User currentUser;
     public static PomodoroActivity instance = null;
     @Override
@@ -76,7 +77,9 @@ public class PomodoroActivity extends AppCompatActivity {
         m_pomodoro_button_end_break_time = (Button) findViewById(R.id.pomodoro_button_end_break_time);
 
         isPaused = false;
-        dbHandler = new DBHandler(PomodoroActivity.this);
+        mDBHandler = new DBHandler(PomodoroActivity.this);
+        user_id =  mDBHandler.getSharedPrefUserId(PomodoroActivity.this);
+
     }
 
     @Override
@@ -133,7 +136,10 @@ public class PomodoroActivity extends AppCompatActivity {
     }
 
     public void cycleBreak(int i){
-        if(i==2) {
+        if(i==1) {
+            currentUser = mDBHandler.getUserFromId(user_id);
+            mDBHandler.updateSessionStats(currentUser);
+
             Intent finishedTaskActivity = new Intent(PomodoroActivity.this, FinishedTaskActivity.class);
             startActivity(finishedTaskActivity);
             System.out.println("pomodoro finished");
@@ -192,7 +198,6 @@ public class PomodoroActivity extends AppCompatActivity {
                 else {
                     switch(i) {
                         case 1:
-                            System.out.println(i);
                             m_pomodoro_image_dropblue1.setVisibility(View.VISIBLE);
                             m_pomodoro_image_dropwhite1.setVisibility(View.INVISIBLE);
                             break;
