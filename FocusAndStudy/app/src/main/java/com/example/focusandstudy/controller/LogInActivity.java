@@ -76,7 +76,7 @@ public class LogInActivity extends AppCompatActivity {
                     currentUser = dbHandler.login(email, password);
                     if(currentUser == null){
                         Toast.makeText(getApplicationContext(), R.string.invalidCredentials,Toast.LENGTH_SHORT).show();
-                    }else{
+                    }else {
                         addLogInToSharedPreferences();
                         System.out.println("connexion");
                         goToMainActivity();

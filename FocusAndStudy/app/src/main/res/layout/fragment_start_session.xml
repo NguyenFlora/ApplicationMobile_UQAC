@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="50dp"
+        android:background="@color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_above="@id/start_the_session"
+            android:padding="20dp">
+
+            <RelativeLayout
+                android:id="@+id/pomodoro_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp">
+
+                <ImageView
+                    android:id="@+id/back"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:clickable="true"
+                    android:contentDescription="@string/back"
+                    android:src="@drawable/back"
+                    android:visibility="visible" />
+
+                <TextView
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:fontFamily="@font/montserrat"
+                    android:text="@string/new_session"
+                    android:textAlignment="center"
+                    android:textColor="@color/green2"
+                    android:textSize="22sp" />
+
+            </RelativeLayout>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:contentDescription="@string/new_session"
+                android:src="@drawable/transparent2"
+                android:visibility="visible" />
+
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="vertical"
+            android:layout_marginTop="100dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginBottom="50dp"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:id="@+id/task_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="15dp"
+                android:orientation="vertical">
+                <RadioGroup
+                    android:id="@+id/time_selector_radio_group"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:orientation="vertical"
+                    android:checkedButton="@+id/time_selector_first_radio"
+                    >
+                </RadioGroup>
+            </LinearLayout>
+
+        </ScrollView>
+
+        <Button
+            android:id="@+id/start_the_session"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/box2"
+            android:fontFamily="@font/montserrat"
+            android:text="@string/launch_session"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="14sp"></Button>
+
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

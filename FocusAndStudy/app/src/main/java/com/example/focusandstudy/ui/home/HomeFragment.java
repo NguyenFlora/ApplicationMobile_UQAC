@@ -14,6 +14,7 @@ import androidx.fragment.app.Fragment;
 import com.example.focusandstudy.R;
 import com.example.focusandstudy.controller.PomodoroActivity;
 import com.example.focusandstudy.controller.PresentationActivity;
+import com.example.focusandstudy.controller.StartSessionActivity;
 import com.example.focusandstudy.databinding.FragmentHomeBinding;
 import com.example.focusandstudy.model.User;
 import com.example.focusandstudy.model.database.DBHandler;
@@ -52,7 +53,7 @@ public class HomeFragment extends Fragment  implements View.OnClickListener{
         m_start_a_new_session.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent newSessionActivity = new Intent(getActivity(), PomodoroActivity.class);
+                Intent newSessionActivity = new Intent(getActivity(), StartSessionActivity.class);
                 startActivity(newSessionActivity);
                 System.out.println("new session");
             }

@@ -2,7 +2,9 @@ package com.example.focusandstudy.controller;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -20,6 +22,8 @@ public class FinishedSessionActivity extends AppCompatActivity {
     DBHandler dbHandler;
     User currentUser;
 
+    TextView finished_session_task;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,6 +31,9 @@ public class FinishedSessionActivity extends AppCompatActivity {
 
         m_finished_session_yes = (Button) findViewById(R.id.finished_session_yes);
         m_finished_session_no = (Button) findViewById(R.id.finished_session_no);
+        finished_session_task = (TextView) findViewById(R.id.finished_session_task);
+        SharedPreferences sharedPref = getSharedPreferences("CurrentTask", Context.MODE_PRIVATE);
+        finished_session_task.setText(sharedPref.getString("name", ""));
 
         dbHandler = new DBHandler(FinishedSessionActivity.this);
     }
