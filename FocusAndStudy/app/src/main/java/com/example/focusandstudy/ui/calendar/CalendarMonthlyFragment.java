@@ -1,8 +1,8 @@
 package com.example.focusandstudy.ui.calendar;
 
-import android.app.ActionBar;
+import android.app.Activity;
 import android.content.Context;
-import android.graphics.Color;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,17 +15,22 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.lifecycle.ViewModelProvider;
 
 import com.example.focusandstudy.R;
 import com.example.focusandstudy.databinding.FragmentCalendarMonthlyBinding;
+import com.example.focusandstudy.model.Task;
+import com.example.focusandstudy.model.User;
+import com.example.focusandstudy.model.database.DBHandler;
 import com.github.sundeepk.compactcalendarview.CompactCalendarView;
 import com.github.sundeepk.compactcalendarview.domain.Event;
 
+import org.jetbrains.annotations.TestOnly;
+
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
+import java.sql.Date;
 import java.util.List;
 import java.util.Locale;
 
@@ -38,12 +43,14 @@ public class CalendarMonthlyFragment extends Fragment{
     TextView monthTitle;
     SimpleDateFormat dateFormatMonth = new SimpleDateFormat("MMMM yyyy", Locale.getDefault());
     DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+    private DBHandler mDBHandler;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
         binding = FragmentCalendarMonthlyBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
+        mDBHandler = new DBHandler(this.getActivity());
 
         compactCalendarView = binding.compactCalendarView;
         monthTitle = binding.monthTitle;
@@ -53,33 +60,40 @@ public class CalendarMonthlyFragment extends Fragment{
         monthTitle.setText(date);
         compactCalendarView.setUseThreeLetterAbbreviation(false);
 
-        String dateToString = df.format(Calendar.getInstance().getTime());
-        updateTasks(dateToString);
+        List<Task> tasks =  mDBHandler.getTaskFromUser(mDBHandler.getSharedPrefUserId(this.getActivity()));
+
+        //Event ev1 = new Event(getResources().getColor(R.color.green1), 1669838086000L);
+        //compactCalendarView.addEvent(ev1);
+
+        for (int i=0; i<tasks.size(); i++){
+            long dateInMillis = tasks.get(i).getDate().getTime();
+            Event ev = new Event(getResources().getColor(R.color.purple_500), dateInMillis);
+            compactCalendarView.addEvent(ev);
+        }
+
+        java.util.Date utilDate = Calendar.getInstance().getTime();
+        java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
+        updateTasks(sqlDate);
 
         compactCalendarView.setUseThreeLetterAbbreviation(false);
 
-        //Set an event for Teachers' Professional Day 2016 which is 21st of October
 
-        Event ev1 = new Event(getResources().getColor(R.color.green1), 1669838086000L);
-        compactCalendarView.addEvent(ev1);
-
-        Event ev2 = new Event(getResources().getColor(R.color.purple_500), 1669838086000L);
-        compactCalendarView.addEvent(ev2);
-
-        //List<Event> events = compactCalendarView.getEvents(1669445948); // can also take a Date object
+        mDBHandler.addNewTask(new Task(1, "examen", "toto", "hello", sqlDate, "0", mDBHandler.getUserFromId(mDBHandler.getSharedPrefUserId(this.getActivity()))));
+        mDBHandler.addNewTask(new Task(2, "devoir", "Devoir d'anglais", "hello", sqlDate, "1", mDBHandler.getUserFromId(mDBHandler.getSharedPrefUserId(this.getActivity()))));
 
         compactCalendarView.setListener(new CompactCalendarView.CompactCalendarViewListener() {
             @Override
-            public void onDayClick(Date dateClicked) {
-                String dateToString = df.format(dateClicked);
-                updateTasks(dateToString);
+            public void onDayClick(java.util.Date dateClicked) {
+                java.sql.Date sqlDate = new java.sql.Date(dateClicked.getTime());
+                updateTasks(sqlDate);
             }
 
             @Override
-            public void onMonthScroll(Date firstDayOfNewMonth) {
+            public void onMonthScroll(java.util.Date firstDayOfNewMonth) {
                 monthTitle.setText(dateFormatMonth.format(firstDayOfNewMonth));
             }
         });
+        //Toast. makeText(this.getActivity(),"Hello Javatpoint2",Toast. LENGTH_SHORT).show();
 
         return root;
     }
@@ -90,16 +104,18 @@ public class CalendarMonthlyFragment extends Fragment{
         binding = null;
     }
 
-    private void updateTasks(String date){
+    private void updateTasks(Date date){
         FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
-        if(((LinearLayout)tasks).getChildCount() > 0)
-            ((LinearLayout)tasks).removeAllViews();
+        if (tasks.getChildCount() > 0)
+            tasks.removeAllViews();
 
-        for(int i = 0; i < 10; i++){
-            Fragment newFragment = new CalendarMonthlyItemFragment(date);
+        List<Task> tasks =  mDBHandler.getTaskFromDateFromUser(date, mDBHandler.getSharedPrefUserId(this.getActivity()));
+
+        for(int i = 0; i < tasks.size(); i++){
+            Fragment newFragment = new CalendarMonthlyItemFragment(tasks.get(i));
             ft.add(R.id.tasks, newFragment);
-
         }
         ft.commit();
     }
+
 }

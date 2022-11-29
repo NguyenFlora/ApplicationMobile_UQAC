@@ -13,17 +13,18 @@ import androidx.fragment.app.Fragment;
 
 import com.example.focusandstudy.R;
 import com.example.focusandstudy.databinding.FragmentCalendarMonthlyItemBinding;
+import com.example.focusandstudy.model.Task;
 
 public class CalendarMonthlyItemFragment extends Fragment {
 
     private FragmentCalendarMonthlyItemBinding binding;
-    private String date;
+    private Task task;
     RelativeLayout item;
     TextView task_text, to_do_text;
     ImageView task_image, round_validated_image;
 
-    public CalendarMonthlyItemFragment(String date) {
-        this.date = date;
+    public CalendarMonthlyItemFragment(Task task) {
+        this.task = task;
     }
 
     @Override
@@ -42,12 +43,25 @@ public class CalendarMonthlyItemFragment extends Fragment {
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        task_text.setText(task.getName());
 
-        item.setBackgroundResource(R.drawable.box8);
-        task_text.setText(date);
-        task_image.setImageResource(R.drawable.purple_round);
-        to_do_text.setVisibility(View.INVISIBLE);
-        round_validated_image.setVisibility(View.VISIBLE);
+        if (task.getStatus().equals("1")){
+            item.setBackgroundResource(R.drawable.box8);
+            to_do_text.setVisibility(View.INVISIBLE);
+            round_validated_image.setVisibility(View.VISIBLE);
+        }
+        else {
+            item.setBackgroundResource(R.drawable.box7);
+            to_do_text.setVisibility(View.VISIBLE);
+            round_validated_image.setVisibility(View.INVISIBLE);
+        }
+
+        if (task.getType().equals("examen")){
+            task_image.setImageResource(R.drawable.purple_round);
+        }
+        else{
+            task_image.setImageResource(R.drawable.green_round);
+        }
 
     }
 
