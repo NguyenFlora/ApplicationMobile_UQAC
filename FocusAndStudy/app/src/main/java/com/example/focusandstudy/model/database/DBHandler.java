@@ -18,7 +18,9 @@ import com.example.focusandstudy.model.Task;
 import com.example.focusandstudy.model.User;
 
         import java.io.IOException;
-        import java.util.ArrayList;
+import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DBHandler extends SQLiteOpenHelper {
     public static final String USER_TABLE = "USER_TABLE";
@@ -215,9 +217,76 @@ public class DBHandler extends SQLiteOpenHelper {
         cv.put(COLUMN_DESCRIPTION, mTask.getDescription());
         cv.put(COLUMN_DATE,mTask.getDate().toString());
         cv.put(COLUMN_STATUS, mTask.getStatus());
+        cv.put(COLUMN_USER_ID, mTask.getUser().getId());
         long insert = db.insert(TASK_TABLE, null, cv);
         db.close();
         return insert != -1;
+    }
+
+    public ArrayList<Task> getTaskFromUser(int user_id){
+        try{
+            SQLiteDatabase db = this.getReadableDatabase();
+
+            Cursor cursorUsers = db.rawQuery(
+                    "SELECT * FROM " + TASK_TABLE + " WHERE " +
+                            COLUMN_USER_ID + " = \'" + user_id + "\'", null);
+
+            ArrayList<Task> userArrayList = new ArrayList<>();
+
+            if (cursorUsers.moveToFirst()) {
+                do {
+                    java.sql.Date sqlDate = new java.sql.Date(cursorUsers.getLong(4));
+                    userArrayList.add(new Task(
+                            cursorUsers.getInt(0),
+                            cursorUsers.getString(1),
+                            cursorUsers.getString(2),
+                            cursorUsers.getString(3),
+                            sqlDate,
+                            cursorUsers.getString(5),
+                            getUserFromId(user_id)
+                    ));
+                } while (cursorUsers.moveToNext());
+            }
+
+            cursorUsers.close();
+            return userArrayList;
+        }catch(SQLiteException | IndexOutOfBoundsException exception){
+            System.out.println(exception.getMessage());
+        }
+        return null;
+    }
+
+    public ArrayList<Task> getTaskFromDateFromUser(Date date, int user_id){
+        try{
+            SQLiteDatabase db = this.getReadableDatabase();
+
+            Cursor cursorUsers = db.rawQuery(
+                    "SELECT * FROM " + TASK_TABLE + " WHERE " +
+                            COLUMN_USER_ID + " = \'" + user_id + "\' AND " +
+                            COLUMN_DATE + " = \'" + date + "\'", null);
+
+            ArrayList<Task> userArrayList = new ArrayList<>();
+
+            if (cursorUsers.moveToFirst()) {
+                do {
+                    userArrayList.add(new Task(
+                            cursorUsers.getInt(0),
+                            cursorUsers.getString(1),
+                            cursorUsers.getString(2),
+                            cursorUsers.getString(3),
+                            date,
+                            cursorUsers.getString(5),
+                            getUserFromId(user_id)
+                    ));
+                } while (cursorUsers.moveToNext());
+            }
+
+            cursorUsers.close();
+            return userArrayList;
+        }catch(SQLiteException | IndexOutOfBoundsException exception){
+            System.out.println(exception.getMessage());
+        }
+        return null;
     }
 
     public boolean updateTaskDone(int mTaskId){

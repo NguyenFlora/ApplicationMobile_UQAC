@@ -1,6 +1,6 @@
 package com.example.focusandstudy.model;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class Task {
     private int mId;

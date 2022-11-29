@@ -125,6 +125,26 @@
                     android:textColor="@color/green1"
                     android:textSize="16sp" />
 
+                <LinearLayout
+                    android:id="@+id/language"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+                    <TextView
+                        android:id="@+id/language_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="FR"
+                        android:textColor="@color/gray"/>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/resized_down"/>
+                </LinearLayout>
+
+
             </TableRow>
 
         </TableLayout>
