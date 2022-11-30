@@ -54,4 +54,19 @@
         <item name="android:minWidth">1dip</item>
         <item name="android:maxWidth">12dip</item>
     </style>
+
+    <style name="SpinnerThemeLight" >
+        <item name="android:colorBackground">@color/gray3</item>
+        <item name="android:textColorPrimary">@color/gray</item>
+        <item name="android:textColorSecondary">@color/black</item>
+        <item name="android:textColorTertiary">@color/black</item>
+        <item name="android:textColorPrimaryDisableOnly">@color/gray</item>
+    </style>
+
+    <style name="MyCheckBox" parent="Theme.AppCompat.NoActionBar">
+        <item name="colorControlNormal">@color/gray</item>   <!-- normal border color change as you wish -->
+        <item name="colorControlActivated">@color/gray</item> <!-- activated color change as you wish -->
+        <item name="android:textColor">#FFFF3F3C</item> <!-- checkbox text color -->
+    </style>
+
 </resources>

@@ -1,5 +1,6 @@
 package com.example.focusandstudy.ui.calendar;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +13,8 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.example.focusandstudy.R;
+import com.example.focusandstudy.controller.NewTaskActivity;
+import com.example.focusandstudy.controller.TaskDetailsActivity;
 import com.example.focusandstudy.databinding.FragmentCalendarMonthlyItemBinding;
 import com.example.focusandstudy.model.Task;
 
@@ -22,6 +25,9 @@ public class CalendarMonthlyItemFragment extends Fragment {
     RelativeLayout item;
     TextView task_text, to_do_text;
     ImageView task_image, round_validated_image;
+    public CalendarMonthlyItemFragment(){
+
+    }
 
     public CalendarMonthlyItemFragment(Task task) {
         this.task = task;
@@ -37,6 +43,14 @@ public class CalendarMonthlyItemFragment extends Fragment {
         task_image = binding.taskImage;
         round_validated_image = binding.roundValidated;
         item = binding.item;
+
+        item.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent taskDetailsActivity = new Intent(getActivity(), TaskDetailsActivity.class);
+                startActivity(taskDetailsActivity);
+            }
+        });
 
         return binding.getRoot();
     }

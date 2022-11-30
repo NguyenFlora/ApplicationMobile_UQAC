@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="left"
+    android:padding="30dp"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/close"
+        android:layout_width="30dp"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/close"
+        app:srcCompat="@android:drawable/ic_menu_close_clear_cancel"
+        android:layout_gravity="start"/>
+
+    <TextView
+        android:id="@+id/newtask_text_nouvelletache"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_medium"
+        android:layout_centerHorizontal="true"
+        android:text="@string/new_task"
+        android:textColor="#000000"
+        android:textSize="28dp"
+        android:layout_marginTop="20dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerInParent="true">
+
+        <TextView
+            android:id="@+id/newtask_text_typetache"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat"
+            android:text="@string/task_type"
+            android:textColor="#232323"
+            android:textFontWeight="500"
+            android:textSize="15dp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp">
+
+            <Spinner
+                android:id="@+id/newtask_spinner_menuderoulant"
+                android:layout_width="176dp"
+                android:layout_height="30dp"
+                android:background="@drawable/background_typetache"
+                android:theme="@style/SpinnerThemeLight"/>
+
+            <TextView
+                android:id="@+id/newtask_spinner_menuderoulant_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:drawableTint="@color/purple_500"
+                android:text="   Examen"
+                android:textColor="@color/gray"
+                app:drawableStartCompat="@drawable/purple_round" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/newtask_text_intitule"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat"
+            android:text="@string/task_title"
+            android:textColor="#232323"
+            android:textFontWeight="500"
+            android:textSize="15dp"
+            android:layout_marginTop="20dp"/>
+
+        <EditText
+            android:id="@+id/newtask_edittext_intitule"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_marginTop="5dp"
+            android:inputType="text"
+            android:background="@drawable/background_intitule"
+            android:hint="@string/task_title_edittext"
+            android:padding="5dp"
+            android:textSize="15dp"
+            android:textColor="@color/gray" />
+
+        <TextView
+            android:id="@+id/newtask_text_datelimite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat"
+            android:text="@string/limite_date"
+            android:textColor="#232323"
+            android:textFontWeight="500"
+            android:textSize="15dp"
+            android:layout_marginTop="20dp"/>
+
+        <TextView
+            android:id="@+id/newtask_edittext_datelimite"
+            android:layout_width="131dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/background_datelimite"
+            android:fontFamily="@font/montserrat"
+            android:hint="@string/date_select"
+            android:textColorHint="@color/gray4"
+            android:padding="5dp"
+            android:textColor="#232323"
+            android:textFontWeight="500"
+            android:textSize="15dp" />
+
+        <TextView
+            android:id="@+id/newtask_text_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat"
+            android:text="@string/description"
+            android:textColor="#232323"
+            android:textFontWeight="500"
+            android:textSize="15dp"
+            android:layout_marginTop="20dp"/>
+
+        <EditText
+            android:id="@+id/newtask_edittext_description"
+            android:layout_width="match_parent"
+            android:layout_height="112dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/background_description"
+            android:fontFamily="@font/montserrat"
+            android:gravity="top"
+            android:hint="@string/description_edittext"
+            android:padding="5dp"
+            android:inputType="text"
+            android:textColor="@color/gray"
+            android:textFontWeight="500"
+            android:textSize="15dp" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/chnagemusicdialog_button_confirm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/box2"
+        android:fontFamily="@font/montserrat_medium"
+        android:padding="10dp"
+        android:text="@string/create_task"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="15dp"
+        android:textSize="17dp"></Button>
+
+</RelativeLayout>

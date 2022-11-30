@@ -37,6 +37,8 @@
         <activity
             android:name=".controller.PresentationActivity"
             android:exported="false" />
+        <activity android:name=".controller.TaskDetailsActivity"
+            android:exported="false"/>
         <activity android:name=".controller.SignUpActivity" />
         <activity android:name=".controller.MainActivity" />
         <activity
