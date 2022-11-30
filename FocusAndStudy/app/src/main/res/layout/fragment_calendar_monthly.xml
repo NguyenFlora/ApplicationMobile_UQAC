@@ -62,6 +62,7 @@
     </ScrollView>
 
     <ImageView
+        android:id="@+id/create_task"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

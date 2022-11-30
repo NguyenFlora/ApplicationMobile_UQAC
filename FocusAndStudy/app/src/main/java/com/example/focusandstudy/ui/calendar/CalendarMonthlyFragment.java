@@ -2,12 +2,15 @@ package com.example.focusandstudy.ui.calendar;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CalendarView;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -17,6 +20,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.focusandstudy.R;
+import com.example.focusandstudy.controller.NewTaskActivity;
+import com.example.focusandstudy.controller.StartSessionActivity;
 import com.example.focusandstudy.databinding.FragmentCalendarMonthlyBinding;
 import com.example.focusandstudy.model.Task;
 import com.example.focusandstudy.model.User;
@@ -44,6 +49,7 @@ public class CalendarMonthlyFragment extends Fragment{
     SimpleDateFormat dateFormatMonth = new SimpleDateFormat("MMMM yyyy", Locale.getDefault());
     DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
     private DBHandler mDBHandler;
+    ImageView create_task_button;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -55,6 +61,7 @@ public class CalendarMonthlyFragment extends Fragment{
         compactCalendarView = binding.compactCalendarView;
         monthTitle = binding.monthTitle;
         tasks = binding.tasks;
+        create_task_button = binding.createTask;
 
         String date = dateFormatMonth.format(Calendar.getInstance().getTime());
         monthTitle.setText(date);
@@ -62,8 +69,11 @@ public class CalendarMonthlyFragment extends Fragment{
 
         List<Task> tasks =  mDBHandler.getTaskFromUser(mDBHandler.getSharedPrefUserId(this.getActivity()));
 
-        //Event ev1 = new Event(getResources().getColor(R.color.green1), 1669838086000L);
-        //compactCalendarView.addEvent(ev1);
+        Calendar calendar = Calendar.getInstance();
+        //Returns current time in millis
+        long timeMilli2 = calendar.getTimeInMillis();
+        Event ev1 = new Event(getResources().getColor(R.color.green1), timeMilli2);
+        compactCalendarView.addEvent(ev1);
 
         for (int i=0; i<tasks.size(); i++){
             long dateInMillis = tasks.get(i).getDate().getTime();
@@ -93,7 +103,14 @@ public class CalendarMonthlyFragment extends Fragment{
                 monthTitle.setText(dateFormatMonth.format(firstDayOfNewMonth));
             }
         });
-        //Toast. makeText(this.getActivity(),"Hello Javatpoint2",Toast. LENGTH_SHORT).show();
+
+        create_task_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent newTaskActivity = new Intent(getActivity(), NewTaskActivity.class);
+                startActivity(newTaskActivity);
+            }
+        });
 
         return root;
     }
