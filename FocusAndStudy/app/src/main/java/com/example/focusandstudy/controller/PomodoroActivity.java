@@ -2,16 +2,22 @@ package com.example.focusandstudy.controller;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
 import android.text.format.DateUtils;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.focusandstudy.R;
 import com.example.focusandstudy.model.User;
@@ -50,6 +56,8 @@ public class PomodoroActivity extends AppCompatActivity {
     int user_id;
     User currentUser;
     public static PomodoroActivity instance = null;
+    Context context = this;
+    RadioButton radioButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -80,6 +88,20 @@ public class PomodoroActivity extends AppCompatActivity {
         mDBHandler = new DBHandler(PomodoroActivity.this);
         user_id =  mDBHandler.getSharedPrefUserId(PomodoroActivity.this);
 
+        m_pomodoro_button_exit.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                showCustomDialogExit();
+            }
+        });
+
+        m_pomodoro_button_music.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showCustomDialogMusic();
+            }
+        });
+
     }
 
     @Override
@@ -98,20 +120,6 @@ public class PomodoroActivity extends AppCompatActivity {
                     timerResume();
                     isPaused = false;
                 }
-            }
-        });
-
-        m_pomodoro_button_music.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-
-            }
-        });
-
-        m_pomodoro_button_exit.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                ViewExitDialog vmd = new ViewExitDialog(instance);
-                System.out.println(instance);
-                vmd.show();
             }
         });
 
@@ -231,5 +239,54 @@ public class PomodoroActivity extends AppCompatActivity {
         timerStart(milliLeft, fullTime, typeCounter);
         System.out.println("timer restart");
     }
+
+
+    void showCustomDialogExit() {
+        final Dialog dialog = new Dialog(PomodoroActivity.this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setCancelable(true);
+        dialog.setContentView(R.layout.exit_session_dialog);
+        dialog.show();
+
+        Button undo = dialog.findViewById(R.id.exitsessiondialog_button_cancel);
+        Button exit = dialog.findViewById(R.id.exitsessiondialog_button_exit);
+
+        undo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
+
+        exit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+
+    }
+
+    void showCustomDialogMusic(){
+        final Dialog dialog = new Dialog(PomodoroActivity.this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setCancelable(true);
+        dialog.setContentView(R.layout.change_music_dialog);
+        dialog.show();
+
+        Button confirm = (Button) dialog.findViewById(R.id.changemusicdialog_button_confirm);
+        RadioGroup radioGroup = (RadioGroup) dialog.findViewById(R.id.changemusicdialog_radiogroup);
+
+        confirm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int selectedMusic = radioGroup.getCheckedRadioButtonId();
+                radioButton = (RadioButton) dialog.findViewById(selectedMusic);
+                Toast.makeText(context,radioButton.getText(),Toast.LENGTH_SHORT).show();
+                dialog.dismiss();
+            }
+        });
+    }
+
 
 }
