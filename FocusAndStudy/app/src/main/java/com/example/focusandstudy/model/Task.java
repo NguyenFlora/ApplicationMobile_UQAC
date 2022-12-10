@@ -1,6 +1,7 @@
 package com.example.focusandstudy.model;
 
-import java.sql.Date;
+import java.time.LocalDate;
+import java.util.Date;
 
 public class Task {
     private int mId;
@@ -9,19 +10,19 @@ public class Task {
     private String mDescription;
     private Date mDate;
     private String mStatus;
-    private User mUser;
+    private int mUserID;
 
     public Task() {
     }
 
-    public Task(int id, String type, String name, String description, Date date, String status, User user) {
+    public Task(int id, String type, String name, String description, Date date, String status, int userId) {
         mId = id;
         mType = type;
         mName = name;
         mDescription = description;
         mDate = date;
         mStatus = status;
-        mUser = user;
+        mUserID = userId;
     }
 
     public int getId() {
@@ -72,13 +73,11 @@ public class Task {
         mStatus = status;
     }
 
-    public User getUser() {
-        return mUser;
+    public int getUserID() {
+        return mUserID;
     }
 
-    public void setUser(User user) {
-        mUser = user;
+    public void setUserID(int userID) {
+        mUserID = userID;
     }
-
-
 }

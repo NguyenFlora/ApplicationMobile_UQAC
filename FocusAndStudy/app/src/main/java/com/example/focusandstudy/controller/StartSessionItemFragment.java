@@ -1,4 +1,4 @@
-package com.example.focusandstudy;
+package com.example.focusandstudy.controller;
 
 import android.content.Intent;
 import android.graphics.Typeface;
@@ -13,9 +13,11 @@ import androidx.annotation.NonNull;
 import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.Fragment;
 
+import com.example.focusandstudy.R;
 import com.example.focusandstudy.controller.StartSessionActivity;
 import com.example.focusandstudy.databinding.FragmentCalendarMonthlyItemBinding;
 import com.example.focusandstudy.databinding.FragmentStartSessionItemBinding;
+import com.example.focusandstudy.model.Task;
 
 public class StartSessionItemFragment extends Fragment {
 
@@ -23,10 +25,11 @@ public class StartSessionItemFragment extends Fragment {
     LinearLayout task;
     TextView task_text, task_date;
     int id;
+    Task mTask;
     boolean clicked = false;
 
-    public StartSessionItemFragment(int i) {
-        this.id = i;
+    public StartSessionItemFragment(Task task) {
+        this.mTask = task;
     }
 
     public void setClicked(boolean clicked){
@@ -60,13 +63,13 @@ public class StartSessionItemFragment extends Fragment {
         task_text = binding.taskText;
         task_date = binding.taskDate;
 
-        task.setId(R.id.task + id);
-        task_text.setText("Devoir d'anglais");
-        task_date.setText("7 décembre 2022");
+        task.setId(mTask.getId());
+        task_text.setText(mTask.getName());
+        task_date.setText(mTask.getDate().toString());
 
         if (id==0){
             setClicked(true);
-            task.setBackgroundResource(R.drawable.box);
+            task.setBackgroundResource(R.drawable.box_transparent);
             task_text.setTextColor(getResources().getColor(R.color.green2));
             Typeface typeface = ResourcesCompat.getFont(getContext(), R.font.montserrat_medium);
             task_text.setTypeface(typeface);

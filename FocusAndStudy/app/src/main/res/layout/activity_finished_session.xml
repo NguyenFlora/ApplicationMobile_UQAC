@@ -36,12 +36,12 @@
             android:id="@+id/finished_session_task"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/finished_session_text1"
             android:layout_centerHorizontal="true"
             android:fontFamily="@font/montserrat"
             android:text="Devoir de mathématiques"
             android:textAlignment="center"
             android:textColor="@color/gray"
-            android:layout_below="@+id/finished_session_text1"
             android:textSize="16sp" />
 
         <TextView

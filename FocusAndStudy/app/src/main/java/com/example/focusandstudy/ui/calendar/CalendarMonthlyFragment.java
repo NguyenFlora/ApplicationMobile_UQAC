@@ -67,7 +67,7 @@ public class CalendarMonthlyFragment extends Fragment{
         monthTitle.setText(date);
         compactCalendarView.setUseThreeLetterAbbreviation(false);
 
-        List<Task> tasks =  mDBHandler.getTaskFromUser(mDBHandler.getSharedPrefUserId(this.getActivity()));
+        List<Task> tasks =  mDBHandler.getTasksFromUser(mDBHandler.getSharedPrefUserId(this.getActivity()));
 
         Calendar calendar = Calendar.getInstance();
         //Returns current time in millis
@@ -86,10 +86,6 @@ public class CalendarMonthlyFragment extends Fragment{
         updateTasks(sqlDate);
 
         compactCalendarView.setUseThreeLetterAbbreviation(false);
-
-
-        mDBHandler.addNewTask(new Task(1, "examen", "toto", "hello", sqlDate, "0", mDBHandler.getUserFromId(mDBHandler.getSharedPrefUserId(this.getActivity()))));
-        mDBHandler.addNewTask(new Task(2, "devoir", "Devoir d'anglais", "hello", sqlDate, "1", mDBHandler.getUserFromId(mDBHandler.getSharedPrefUserId(this.getActivity()))));
 
         compactCalendarView.setListener(new CompactCalendarView.CompactCalendarViewListener() {
             @Override
