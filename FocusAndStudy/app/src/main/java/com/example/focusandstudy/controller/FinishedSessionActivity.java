@@ -20,8 +20,8 @@ public class FinishedSessionActivity extends AppCompatActivity {
     private Button m_finished_session_no;
 
     DBHandler dbHandler;
-    User currentUser;
-
+    int task_id;
+    String task_name;
     TextView finished_session_task;
 
     @Override
@@ -32,21 +32,21 @@ public class FinishedSessionActivity extends AppCompatActivity {
         m_finished_session_yes = (Button) findViewById(R.id.finished_session_yes);
         m_finished_session_no = (Button) findViewById(R.id.finished_session_no);
         finished_session_task = (TextView) findViewById(R.id.finished_session_task);
-        SharedPreferences sharedPref = getSharedPreferences("CurrentTask", Context.MODE_PRIVATE);
-        finished_session_task.setText(sharedPref.getString("name", ""));
-
         dbHandler = new DBHandler(FinishedSessionActivity.this);
+        dbHandler.getSharedPrefTaskName(FinishedSessionActivity.this);
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-
+        task_id =  dbHandler.getSharedPrefTaskId(FinishedSessionActivity.this);
+        task_name = dbHandler.getSharedPrefTaskName(FinishedSessionActivity.this);
+        finished_session_task.setText(task_name);
         m_finished_session_yes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 System.out.println("task finished");
-                //dbHandler.updateTaskDone(1);
+                dbHandler.updateTaskDone(task_id);
                 goToMainActivity();
             }
         });

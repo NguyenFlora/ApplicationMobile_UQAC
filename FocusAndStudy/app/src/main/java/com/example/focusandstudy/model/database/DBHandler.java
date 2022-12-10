@@ -16,9 +16,8 @@ import androidx.annotation.Nullable;
 
 import com.example.focusandstudy.model.Task;
 import com.example.focusandstudy.model.User;
-
-        import java.io.IOException;
-import java.sql.Date;
+import java.io.IOException;
+import java.util.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -111,6 +110,15 @@ public class DBHandler extends SQLiteOpenHelper {
         return sharedPref.getInt("logged_user_id", 1);
     }
 
+    public int getSharedPrefTaskId(Activity mActivity){
+        SharedPreferences sharedPref = mActivity.getSharedPreferences("CurrentTask", Context.MODE_PRIVATE);
+        return sharedPref.getInt("id", 1);
+    }
+
+    public String getSharedPrefTaskName(Activity mActivity){
+        SharedPreferences sharedPref = mActivity.getSharedPreferences("CurrentTask", Context.MODE_PRIVATE);
+        return sharedPref.getString("name", "");
+    }
     public boolean addNewUser(String username, String email, String password){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
@@ -209,21 +217,21 @@ public class DBHandler extends SQLiteOpenHelper {
         return insert != -1;
     }
 
-    public boolean addNewTask(Task mTask){
+    public boolean addNewTask(String type, String name, String description, Date date, int userId){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
-        cv.put(COLUMN_TYPE,mTask.getType());
-        cv.put(COLUMN_NAME,mTask.getName());
-        cv.put(COLUMN_DESCRIPTION, mTask.getDescription());
-        cv.put(COLUMN_DATE,mTask.getDate().toString());
-        cv.put(COLUMN_STATUS, mTask.getStatus());
-        cv.put(COLUMN_USER_ID, mTask.getUser().getId());
+        cv.put(COLUMN_TYPE,type);
+        cv.put(COLUMN_NAME,name);
+        cv.put(COLUMN_DESCRIPTION, description);
+        cv.put(COLUMN_DATE, String.valueOf(date));
+        cv.put(COLUMN_STATUS, "UNFINISHED");
+        cv.put(COLUMN_USER_ID, userId);
         long insert = db.insert(TASK_TABLE, null, cv);
         db.close();
         return insert != -1;
     }
 
-    public ArrayList<Task> getTaskFromUser(int user_id){
+    public ArrayList<Task> getTasksFromUser(int user_id){
         try{
             SQLiteDatabase db = this.getReadableDatabase();
 
@@ -243,7 +251,41 @@ public class DBHandler extends SQLiteOpenHelper {
                             cursorUsers.getString(3),
                             sqlDate,
                             cursorUsers.getString(5),
-                            getUserFromId(user_id)
+                            user_id
+                    ));
+                } while (cursorUsers.moveToNext());
+            }
+
+            cursorUsers.close();
+            return userArrayList;
+        }catch(SQLiteException | IndexOutOfBoundsException exception){
+            System.out.println(exception.getMessage());
+        }
+        return null;
+    }
+
+    public ArrayList<Task> getUnfinishedTasksFromUser(int user_id){
+        try{
+            SQLiteDatabase db = this.getReadableDatabase();
+
+            Cursor cursorUsers = db.rawQuery(
+                    "SELECT * FROM " + TASK_TABLE + " WHERE " +
+                            COLUMN_USER_ID + " = \'" + user_id + "\' AND " +
+                            COLUMN_STATUS + " = \'" + "UNFINISHED" + "\'", null);
+
+            ArrayList<Task> userArrayList = new ArrayList<>();
+
+            if (cursorUsers.moveToFirst()) {
+                do {
+                    java.sql.Date sqlDate = new java.sql.Date(cursorUsers.getLong(4));
+                    userArrayList.add(new Task(
+                            cursorUsers.getInt(0),
+                            cursorUsers.getString(1),
+                            cursorUsers.getString(2),
+                            cursorUsers.getString(3),
+                            sqlDate,
+                            cursorUsers.getString(5),
+                            user_id
                     ));
                 } while (cursorUsers.moveToNext());
             }
@@ -276,7 +318,7 @@ public class DBHandler extends SQLiteOpenHelper {
                             cursorUsers.getString(3),
                             date,
                             cursorUsers.getString(5),
-                            getUserFromId(user_id)
+                            user_id
                     ));
                 } while (cursorUsers.moveToNext());
             }
@@ -290,6 +332,7 @@ public class DBHandler extends SQLiteOpenHelper {
     }
 
     public boolean updateTaskDone(int mTaskId){
+        System.out.println(mTaskId);
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
         cv.put(COLUMN_STATUS,"FINISHED");

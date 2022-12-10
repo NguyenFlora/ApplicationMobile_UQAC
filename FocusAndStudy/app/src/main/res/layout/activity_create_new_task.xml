@@ -52,7 +52,7 @@
                 android:layout_width="176dp"
                 android:layout_height="30dp"
                 android:background="@drawable/background_typetache"
-                android:theme="@style/SpinnerThemeLight"/>
+                android:theme="@style/SpinnerThemeLight" />
 
             <TextView
                 android:id="@+id/newtask_spinner_menuderoulant_text"
@@ -143,7 +143,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/chnagemusicdialog_button_confirm"
+        android:id="@+id/new_task_button_confirm"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/box2"
