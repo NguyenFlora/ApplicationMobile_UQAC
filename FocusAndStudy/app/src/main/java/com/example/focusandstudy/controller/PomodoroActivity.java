@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
@@ -58,6 +59,7 @@ public class PomodoroActivity extends AppCompatActivity {
     public static PomodoroActivity instance = null;
     Context context = this;
     RadioButton radioButton;
+    MediaPlayer mediaPlayer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -151,6 +153,7 @@ public class PomodoroActivity extends AppCompatActivity {
             Intent finishedTaskActivity = new Intent(PomodoroActivity.this, FinishedTaskActivity.class);
             startActivity(finishedTaskActivity);
             System.out.println("pomodoro finished");
+            stop();
             finish();
         }
         else timerStart(15000,15000, "break"); //10min => 300000
@@ -189,6 +192,7 @@ public class PomodoroActivity extends AppCompatActivity {
                     }
                 }
                 if(counterReason.equals("break")) {
+                    stop();
                     m_pomodoro_image_tree4.setVisibility(View.INVISIBLE);
                     m_pomodoro_image_treebreak.setVisibility(View.VISIBLE);
                     m_pomodoro_text_break.setVisibility(View.VISIBLE);
@@ -261,6 +265,9 @@ public class PomodoroActivity extends AppCompatActivity {
         exit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                dialog.dismiss();
+                timer.cancel();
+                timer = null;
                 finish();
             }
         });
@@ -282,10 +289,48 @@ public class PomodoroActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int selectedMusic = radioGroup.getCheckedRadioButtonId();
                 radioButton = (RadioButton) dialog.findViewById(selectedMusic);
+                String musicValue = radioButton.getTag().toString();
+                playMusic(musicValue);
                 Toast.makeText(context,radioButton.getText(),Toast.LENGTH_SHORT).show();
                 dialog.dismiss();
             }
         });
+    }
+    private void playMusic(String title) {
+        stop();
+        float volume = (float) (1 - (Math.log(50) / Math.log(100)));
+        int rawSoundId = 0;
+        switch(title){
+            case "none":
+                stop();
+                break;
+            case "whitenoise":
+                volume = (float) (1 - (Math.log(20) / Math.log(100)));
+                rawSoundId = R.raw.whitenoise;
+                break;
+            case "water":
+                rawSoundId = R.raw.water;
+                break;
+            case "rain":
+                rawSoundId = R.raw.rain;
+                break;
+            case "waves":
+                rawSoundId = R.raw.waves;
+                break;
+        }
+        mediaPlayer = MediaPlayer.create(PomodoroActivity.this, rawSoundId);
+        mediaPlayer.setVolume(volume, volume);
+        mediaPlayer.start();
+    }
+
+    public void stop() {
+        if (mediaPlayer != null) {
+            if (mediaPlayer.isPlaying()) {
+                mediaPlayer.stop();
+            }
+            mediaPlayer.release();
+            mediaPlayer = null;
+        }
     }
 
 
