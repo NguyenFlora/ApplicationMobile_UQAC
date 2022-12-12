@@ -35,6 +35,13 @@ public class ProfileFragment extends Fragment {
     private int user_id;
     private User mUser;
     private int progressBarLevel;
+    private ProgressBar m_vertical_progress_bar;
+    private ProgressBar m_vertical_progress_bar2;
+    private ProgressBar m_vertical_progress_bar3;
+    private ProgressBar m_vertical_progress_bar4;
+    private ProgressBar m_vertical_progress_bar5;
+    private ProgressBar m_vertical_progress_bar6;
+    private ProgressBar m_vertical_progress_bar7;
 
     private DBHandler mDBHandler;
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -53,6 +60,14 @@ public class ProfileFragment extends Fragment {
         m_number_of_badges = (TextView) view.findViewById(R.id.number_of_badges);
         m_number_of_hours_per_week = (TextView) view.findViewById(R.id.number_of_hours_per_week);
         m_progress_bar = (ProgressBar) view.findViewById(R.id.progress_bar);
+        m_vertical_progress_bar = (ProgressBar) view.findViewById(R.id.vertical_progress_bar);
+        m_vertical_progress_bar2 = (ProgressBar) view.findViewById(R.id.vertical_progress_bar2);
+        m_vertical_progress_bar3 = (ProgressBar) view.findViewById(R.id.vertical_progress_bar3);
+        m_vertical_progress_bar4 = (ProgressBar) view.findViewById(R.id.vertical_progress_bar4);
+        m_vertical_progress_bar5 = (ProgressBar) view.findViewById(R.id.vertical_progress_bar5);
+        m_vertical_progress_bar6 = (ProgressBar) view.findViewById(R.id.vertical_progress_bar6);
+        m_vertical_progress_bar7 = (ProgressBar) view.findViewById(R.id.vertical_progress_bar7);
+
         setStatisticsOnView();
         return view;
     }
@@ -69,9 +84,7 @@ public class ProfileFragment extends Fragment {
         mUser = mDBHandler.getUserFromId(user_id);
         int XP = mUser.getXP();
         int level = 0;
-        if(XP>0) {
-            level = (int) Math.floor(XP / 1000);
-        }
+        level = (int) Math.floor(XP / 1000);
         m_progress_bar.setMax(1000);
         m_progress_bar.setProgress(XP);
         m_name.setText(mDBHandler.getSharedPrefUsername(this.getActivity()));
@@ -81,6 +94,22 @@ public class ProfileFragment extends Fragment {
         m_day_streak.setText(String.valueOf(mUser.getDayStreak()));
         m_number_of_badges.setText(String.valueOf(mUser.getNbBadges()));
         m_number_of_hours_per_week.setText(getTimeFormatWithMin(mUser.getWeeklyTime()));
+
+        m_vertical_progress_bar.setMax(480);
+        m_vertical_progress_bar.setProgress(mUser.getMonTime());
+        m_vertical_progress_bar2.setMax(480);
+        m_vertical_progress_bar2.setProgress(mUser.getTuesTime());
+        m_vertical_progress_bar3.setMax(480);
+        m_vertical_progress_bar3.setProgress(mUser.getWedTime());
+        m_vertical_progress_bar4.setMax(480);
+        m_vertical_progress_bar4.setProgress(mUser.getThursTime());
+        m_vertical_progress_bar5.setMax(480);
+        m_vertical_progress_bar5.setProgress(mUser.getFriTime());
+        m_vertical_progress_bar6.setMax(480);
+        m_vertical_progress_bar6.setProgress(mUser.getSaturTime());
+        m_vertical_progress_bar7.setMax(480);
+        m_vertical_progress_bar7.setProgress(mUser.getSunTime());
+
     }
 
     public String getTimeFormatWithMin(int min){
