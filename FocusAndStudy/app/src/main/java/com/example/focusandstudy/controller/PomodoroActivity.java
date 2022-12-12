@@ -23,7 +23,6 @@ import android.widget.Toast;
 import com.example.focusandstudy.R;
 import com.example.focusandstudy.model.User;
 import com.example.focusandstudy.model.database.DBHandler;
-import com.example.focusandstudy.ui.ViewExitDialog;
 
 public class PomodoroActivity extends AppCompatActivity {
     private ImageView m_pomodoro_image_dropblue1;

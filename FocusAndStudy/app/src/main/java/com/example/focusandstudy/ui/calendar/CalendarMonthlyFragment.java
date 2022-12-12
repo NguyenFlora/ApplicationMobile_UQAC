@@ -35,7 +35,7 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.sql.Date;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
@@ -76,9 +76,18 @@ public class CalendarMonthlyFragment extends Fragment{
         compactCalendarView.addEvent(ev1);
 
         for (int i=0; i<tasks.size(); i++){
-            long dateInMillis = tasks.get(i).getDate().getTime();
-            Event ev = new Event(getResources().getColor(R.color.purple_500), dateInMillis);
-            compactCalendarView.addEvent(ev);
+            String myDate = tasks.get(i).getDate();
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            Date temp_date = null;
+            try {
+                temp_date = sdf.parse(myDate);
+                long dateInMillis = temp_date.getTime();
+                Event ev = new Event(getResources().getColor(R.color.purple_500), dateInMillis);
+                compactCalendarView.addEvent(ev);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+
         }
 
         java.util.Date utilDate = Calendar.getInstance().getTime();

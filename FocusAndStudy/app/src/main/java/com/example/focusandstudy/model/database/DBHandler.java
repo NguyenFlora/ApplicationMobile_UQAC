@@ -78,7 +78,7 @@ public class DBHandler extends SQLiteOpenHelper {
                 + COLUMN_TYPE + " TEXT, "
                 + COLUMN_NAME + " TEXT,"
                 + COLUMN_DESCRIPTION + " TEXT,"
-                + COLUMN_DATE + " DATE, "
+                + COLUMN_DATE + " TEXT, "
                 + COLUMN_STATUS + " TEXT,"
                 + COLUMN_USER_ID + " INTEGER );";
         try {
@@ -217,16 +217,37 @@ public class DBHandler extends SQLiteOpenHelper {
         return insert != -1;
     }
 
-    public boolean addNewTask(String type, String name, String description, Date date, int userId){
+    public boolean addNewTask(String type, String name, String description, String date, int userId){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
         cv.put(COLUMN_TYPE,type);
         cv.put(COLUMN_NAME,name);
         cv.put(COLUMN_DESCRIPTION, description);
-        cv.put(COLUMN_DATE, String.valueOf(date));
+        cv.put(COLUMN_DATE, date);
         cv.put(COLUMN_STATUS, "UNFINISHED");
         cv.put(COLUMN_USER_ID, userId);
         long insert = db.insert(TASK_TABLE, null, cv);
+        db.close();
+        return insert != -1;
+    }
+
+    public boolean deleteTask(int taskId){
+        SQLiteDatabase db = this.getWritableDatabase();
+        String id = String.valueOf(taskId);
+        long insert = db.delete(TASK_TABLE, COLUMN_TASK_ID+" = ?", new String[]{id});
+        db.close();
+        return insert != -1;
+    }
+
+    public boolean updateTask(Task task){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put(COLUMN_NAME,task.getName());
+        cv.put(COLUMN_TYPE, task.getType());
+        cv.put(COLUMN_DATE,task.getDate());
+        cv.put(COLUMN_DESCRIPTION, task.getDescription());
+        String id = String.valueOf(task.getId());
+        long insert = db.update(TASK_TABLE, cv, COLUMN_TASK_ID+" = ?", new String[]{id});
         db.close();
         return insert != -1;
     }
@@ -243,13 +264,12 @@ public class DBHandler extends SQLiteOpenHelper {
 
             if (cursorUsers.moveToFirst()) {
                 do {
-                    java.sql.Date sqlDate = new java.sql.Date(cursorUsers.getLong(4));
                     userArrayList.add(new Task(
                             cursorUsers.getInt(0),
                             cursorUsers.getString(1),
                             cursorUsers.getString(2),
                             cursorUsers.getString(3),
-                            sqlDate,
+                            cursorUsers.getString(4),
                             cursorUsers.getString(5),
                             user_id
                     ));
@@ -258,6 +278,37 @@ public class DBHandler extends SQLiteOpenHelper {
 
             cursorUsers.close();
             return userArrayList;
+        }catch(SQLiteException | IndexOutOfBoundsException exception){
+            System.out.println(exception.getMessage());
+        }
+        return null;
+    }
+
+    public Task getTaskFromId(int task_id){
+        try{
+            SQLiteDatabase db = this.getReadableDatabase();
+
+            Cursor cursorUsers = db.rawQuery(
+                    "SELECT * FROM " + TASK_TABLE + " WHERE " +
+                            COLUMN_TASK_ID + " = \'" + task_id + "\'", null);
+
+            Task task = null;
+            if (cursorUsers.moveToFirst()) {
+                do {
+                    task = new Task(
+                            cursorUsers.getInt(0),
+                            cursorUsers.getString(1),
+                            cursorUsers.getString(2),
+                            cursorUsers.getString(3),
+                            cursorUsers.getString(4),
+                            cursorUsers.getString(5),
+                            cursorUsers.getInt(6)
+                    );
+                } while (cursorUsers.moveToNext());
+            }
+
+            cursorUsers.close();
+            return task;
         }catch(SQLiteException | IndexOutOfBoundsException exception){
             System.out.println(exception.getMessage());
         }
@@ -283,7 +334,7 @@ public class DBHandler extends SQLiteOpenHelper {
                             cursorUsers.getString(1),
                             cursorUsers.getString(2),
                             cursorUsers.getString(3),
-                            sqlDate,
+                            cursorUsers.getString(4),
                             cursorUsers.getString(5),
                             user_id
                     ));
@@ -316,7 +367,7 @@ public class DBHandler extends SQLiteOpenHelper {
                             cursorUsers.getString(1),
                             cursorUsers.getString(2),
                             cursorUsers.getString(3),
-                            date,
+                            cursorUsers.getString(4),
                             cursorUsers.getString(5),
                             user_id
                     ));
