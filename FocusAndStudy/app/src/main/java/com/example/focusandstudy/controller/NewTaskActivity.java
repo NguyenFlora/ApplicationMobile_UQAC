@@ -2,6 +2,9 @@ package com.example.focusandstudy.controller;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.navigation.Navigation;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
@@ -119,19 +122,20 @@ public class NewTaskActivity extends AppCompatActivity {
                         new DatePickerDialog.OnDateSetListener() {
                             @Override
                             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                                sDate = dayOfMonth + "/" + (monthOfYear + 1) + "/" + year;
-                                eTextDate.setText(sDate);
+                                sDate =  year + "-" + (monthOfYear + 1) + "-" + dayOfMonth;
+                                eTextDate.setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
                             }
                         }, year, month, day);
                 picker.show();
-                date = new GregorianCalendar(year, month - 1, day).getTime();
+                //date = new GregorianCalendar(year, month - 1, day).getTime();
             }
         });
 
         new_task_button_confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mDBHandler.addNewTask(type, newtask_edittext_intitule.getText().toString(), newtask_edittext_description.getText().toString(), date, userId);
+                System.out.println(sDate);
+                mDBHandler.addNewTask(type, newtask_edittext_intitule.getText().toString(), newtask_edittext_description.getText().toString(), sDate, userId);
                 finish();
             }
         });

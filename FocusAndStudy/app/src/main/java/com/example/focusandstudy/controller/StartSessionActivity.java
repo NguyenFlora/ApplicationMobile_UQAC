@@ -120,14 +120,12 @@ public class StartSessionActivity extends AppCompatActivity {
 
         startTheSession.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {SharedPreferences sharedPref = getSharedPreferences("CurrentTask", Context.MODE_PRIVATE);
+            public void onClick(View view) {
+                SharedPreferences sharedPref = getSharedPreferences("CurrentTask", Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedPref.edit();
-                System.out.println("hello"+task_id);
                 editor.putString("name", currentTask);
                 editor.putInt("id", task_id);
-
                 editor.apply();
-
                 Intent pomodoroActivity = new Intent(StartSessionActivity.this, PomodoroActivity.class);
                 startActivity(pomodoroActivity);
                 finish();

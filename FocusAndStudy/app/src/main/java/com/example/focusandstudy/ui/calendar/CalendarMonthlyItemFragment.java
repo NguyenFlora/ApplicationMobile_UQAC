@@ -1,6 +1,8 @@
 package com.example.focusandstudy.ui.calendar;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -47,6 +49,12 @@ public class CalendarMonthlyItemFragment extends Fragment {
         item.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                SharedPreferences sharedPref = getActivity().getSharedPreferences("CurrentTask", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPref.edit();
+                editor.putString("name", task.getName());
+                editor.putInt("id", task.getId());
+                editor.apply();
+
                 Intent taskDetailsActivity = new Intent(getActivity(), TaskDetailsActivity.class);
                 startActivity(taskDetailsActivity);
             }

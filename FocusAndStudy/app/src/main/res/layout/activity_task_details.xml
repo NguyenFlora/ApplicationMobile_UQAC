@@ -48,17 +48,17 @@
 
             <Button
                 android:id="@+id/taskdetail_button_effacer"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
+                android:layout_width="28dp"
+                android:layout_height="30dp"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:layout_marginRight="40dp"
+                android:layout_marginRight="37dp"
                 android:background="@drawable/trash_icon"
                 android:gravity="right"
                 app:backgroundTint="#000000" />
 
             <Button
-                android:id="@+id/taskdetail_botton_modifier"
+                android:id="@+id/taskdetail_button_modifier"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:layout_alignParentRight="true"

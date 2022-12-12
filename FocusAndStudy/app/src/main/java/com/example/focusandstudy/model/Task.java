@@ -8,14 +8,14 @@ public class Task {
     private String mType;
     private String mName;
     private String mDescription;
-    private Date mDate;
+    private String mDate;
     private String mStatus;
     private int mUserID;
 
     public Task() {
     }
 
-    public Task(int id, String type, String name, String description, Date date, String status, int userId) {
+    public Task(int id, String type, String name, String description, String date, String status, int userId) {
         mId = id;
         mType = type;
         mName = name;
@@ -57,11 +57,11 @@ public class Task {
         mDescription = description;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return mDate;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         mDate = date;
     }
 
