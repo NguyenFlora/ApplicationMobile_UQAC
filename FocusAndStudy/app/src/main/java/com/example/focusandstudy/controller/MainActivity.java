@@ -60,10 +60,12 @@ public class MainActivity extends AppCompatActivity {
             int sharedPrefDay = getDayFromSharedPreferences(MainActivity.this);
             int currentStreak = getStreakFromSharedPreferences(MainActivity.this)+1;
             System.out.println("shred"+sharedPrefDay);
+            System.out.println(currentStreak);
             if (sharedPrefDay == Calendar.SUNDAY && currentDay == Calendar.MONDAY) {
+                addDayToSharedPreferences(currentDay, currentStreak);
                 mDBHandler.updateNewWeek(user_id);
                 mDBHandler.updateNewDay(user_id, currentStreak);
-                addDayToSharedPreferences(currentDay, currentStreak);
+
             }
 
             else if (sharedPrefDay != currentDay) {
@@ -88,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
 
     public int getStreakFromSharedPreferences(Activity mActivity){
         SharedPreferences sharedPref = mActivity.getSharedPreferences("DayManagement", Context.MODE_PRIVATE);
-        return sharedPref.getInt("streak", 0);
+        return sharedPref.getInt("dayStreak", 0);
     }
 
     public boolean checkIfDayExists(Activity mActivity){

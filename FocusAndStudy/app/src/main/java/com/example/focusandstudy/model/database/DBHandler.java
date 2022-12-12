@@ -126,6 +126,18 @@ public class DBHandler extends SQLiteOpenHelper {
         cv.put(COLUMN_USERNAME,username);
         cv.put(COLUMN_EMAIL,email);
         cv.put(COLUMN_PASSWORD, password);
+        cv.put(COLUMN_DAILY_TIME,0);
+        cv.put(COLUMN_WEEKLY_TIME, 0);
+        cv.put(COLUMN_DAY_STREAK,0);
+        cv.put(COLUMN_NB_BADGES, 0);
+        cv.put(COLUMN_XP,0);
+        cv.put(COLUMN_MON, 0);
+        cv.put(COLUMN_TUE,0);
+        cv.put(COLUMN_WED, 0);
+        cv.put(COLUMN_THURS,0);
+        cv.put(COLUMN_FRI, 0);
+        cv.put(COLUMN_SATUR,0);
+        cv.put(COLUMN_SUN, 0);
         long insert = db.insert(USER_TABLE, null, cv);
         db.close();
         return insert != -1;
