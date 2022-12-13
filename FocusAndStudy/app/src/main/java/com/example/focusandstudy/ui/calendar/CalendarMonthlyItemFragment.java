@@ -27,9 +27,6 @@ public class CalendarMonthlyItemFragment extends Fragment {
     RelativeLayout item;
     TextView task_text, to_do_text;
     ImageView task_image, round_validated_image;
-    public CalendarMonthlyItemFragment(){
-
-    }
 
     public CalendarMonthlyItemFragment(Task task) {
         this.task = task;
@@ -57,6 +54,7 @@ public class CalendarMonthlyItemFragment extends Fragment {
 
                 Intent taskDetailsActivity = new Intent(getActivity(), TaskDetailsActivity.class);
                 startActivity(taskDetailsActivity);
+
             }
         });
 
@@ -67,7 +65,7 @@ public class CalendarMonthlyItemFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         task_text.setText(task.getName());
 
-        if (task.getStatus().equals("1")){
+        if (task.getStatus().equals("FINISHED")){
             item.setBackgroundResource(R.drawable.box8);
             to_do_text.setVisibility(View.INVISIBLE);
             round_validated_image.setVisibility(View.VISIBLE);
@@ -78,7 +76,7 @@ public class CalendarMonthlyItemFragment extends Fragment {
             round_validated_image.setVisibility(View.INVISIBLE);
         }
 
-        if (task.getType().equals("examen")){
+        if (task.getType().equals("Examen")){
             task_image.setImageResource(R.drawable.purple_round);
         }
         else{

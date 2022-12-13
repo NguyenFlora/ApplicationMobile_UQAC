@@ -258,11 +258,14 @@ public class DBHandler extends SQLiteOpenHelper {
         cv.put(COLUMN_TYPE, task.getType());
         cv.put(COLUMN_DATE,task.getDate());
         cv.put(COLUMN_DESCRIPTION, task.getDescription());
+        cv.put(COLUMN_STATUS, task.getStatus());
         String id = String.valueOf(task.getId());
         long insert = db.update(TASK_TABLE, cv, COLUMN_TASK_ID+" = ?", new String[]{id});
         db.close();
+
         return insert != -1;
     }
+
 
     public ArrayList<Task> getTasksFromUser(int user_id){
         try{

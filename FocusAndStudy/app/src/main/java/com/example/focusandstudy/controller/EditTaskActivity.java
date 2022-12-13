@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffColorFilter;
 import android.graphics.drawable.Drawable;
@@ -22,44 +23,57 @@ import android.widget.TextView;
 import com.example.focusandstudy.R;
 import com.example.focusandstudy.model.Task;
 import com.example.focusandstudy.model.database.DBHandler;
+import com.example.focusandstudy.ui.calendar.CalendarMonthlyFragment;
 
 import java.util.Calendar;
 import java.util.Date;
 
-public class NewTaskActivity extends AppCompatActivity {
+public class EditTaskActivity extends AppCompatActivity {
 
     DatePickerDialog picker;
-    Spinner typesTache;
-    EditText newtask_edittext_intitule;
-    EditText newtask_edittext_description;
-    TextView newtask_spinner_menuderoulant_text, eTextDate;
+    Spinner edit_task_type_spinner;
+    EditText edit_task_entitled_input;
+    EditText edit_task_description_input;
+    TextView edit_task_type_spinner_text, eTextDate;
     ImageView close_button;
-    Button new_task_button_confirm;
+    Button edit_task_button_confirm;
     DBHandler mDBHandler;
-    Date date;
     String sDate;
-    int userId;
-    Task mTask;
+    int taskId;
+    Task task;
 
     String type;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_create_new_task);
+        setContentView(R.layout.activity_edit_task);
 
-        typesTache = (Spinner) findViewById(R.id.newtask_spinner_menuderoulant);
-        newtask_edittext_intitule = (EditText) findViewById(R.id.newtask_edittext_intitule);
-        newtask_edittext_description = (EditText) findViewById(R.id.newtask_edittext_description);
+        mDBHandler = new DBHandler(EditTaskActivity.this);
 
-        ArrayAdapter<String> myAdapter = new ArrayAdapter<String>(NewTaskActivity.this,
+        edit_task_type_spinner = (Spinner) findViewById(R.id.edit_task_type_spinner);
+        edit_task_entitled_input = (EditText) findViewById(R.id.edit_task_entitled_input);
+        edit_task_description_input = (EditText) findViewById(R.id.edit_task_description_input);
+        eTextDate=(TextView) findViewById(R.id.edit_task_date_input);
+
+        ArrayAdapter<String> myAdapter = new ArrayAdapter<String>(EditTaskActivity.this,
                 android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.types_tache));
         myAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        typesTache.setAdapter(myAdapter);
+        edit_task_type_spinner.setAdapter(myAdapter);
 
-        mDBHandler = new DBHandler(NewTaskActivity.this);
-        userId = mDBHandler.getSharedPrefUserId(NewTaskActivity.this);
-        newtask_spinner_menuderoulant_text = findViewById(R.id.newtask_spinner_menuderoulant_text);
-        newtask_spinner_menuderoulant_text.setText("  " + getResources().getStringArray(R.array.types_tache)[0]);
+        taskId = mDBHandler.getSharedPrefTaskId(EditTaskActivity.this);
+        task = mDBHandler.getTaskFromId(taskId);
+
+        if (task.getType().equals("Examen"))
+            edit_task_type_spinner.setSelection(0);
+        else
+            edit_task_type_spinner.setSelection(1);
+
+
+        edit_task_type_spinner_text = findViewById(R.id.edit_task_type_spinner_text);
+        edit_task_entitled_input.setText(task.getName());
+        edit_task_description_input.setText(task.getDescription());
+        eTextDate.setText(task.getDate());
 
         close_button = findViewById(R.id.close);
         close_button.setOnClickListener(new View.OnClickListener() {
@@ -69,26 +83,26 @@ public class NewTaskActivity extends AppCompatActivity {
             }
         });
 
-        new_task_button_confirm = findViewById(R.id.new_task_button_confirm);
+        edit_task_button_confirm = findViewById(R.id.edit_task_button_confirm);
 
 
-        typesTache.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
+        edit_task_type_spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
         {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id)
             {
-                type = typesTache.getSelectedItem().toString();
-                newtask_spinner_menuderoulant_text.setText("  " + type);
-                if (typesTache.getSelectedItem().toString().equals(getResources().getStringArray(R.array.types_tache)[0])){
-                    for (Drawable drawable : newtask_spinner_menuderoulant_text.getCompoundDrawables()) {
+                type = edit_task_type_spinner.getSelectedItem().toString();
+                edit_task_type_spinner_text.setText("  " + type);
+                if (edit_task_type_spinner.getSelectedItem().toString().equals(getResources().getStringArray(R.array.types_tache)[0])){
+                    for (Drawable drawable : edit_task_type_spinner_text.getCompoundDrawables()) {
                         if (drawable != null) {
-                            drawable.setColorFilter(new PorterDuffColorFilter(ContextCompat.getColor(newtask_spinner_menuderoulant_text.getContext(), R.color.purple_500), PorterDuff.Mode.SRC_IN));
+                            drawable.setColorFilter(new PorterDuffColorFilter(ContextCompat.getColor(edit_task_type_spinner_text.getContext(), R.color.purple_500), PorterDuff.Mode.SRC_IN));
                         }
                     }
                 }
                 else {
-                    for (Drawable drawable : newtask_spinner_menuderoulant_text.getCompoundDrawables()) {
+                    for (Drawable drawable : edit_task_type_spinner_text.getCompoundDrawables()) {
                         if (drawable != null) {
-                            drawable.setColorFilter(new PorterDuffColorFilter(ContextCompat.getColor(newtask_spinner_menuderoulant_text.getContext(), R.color.green1), PorterDuff.Mode.SRC_IN));
+                            drawable.setColorFilter(new PorterDuffColorFilter(ContextCompat.getColor(edit_task_type_spinner_text.getContext(), R.color.green1), PorterDuff.Mode.SRC_IN));
                         }
                     }                }
             } // to close the onItemSelected
@@ -98,7 +112,6 @@ public class NewTaskActivity extends AppCompatActivity {
             }
         });
 
-        eTextDate=(TextView) findViewById(R.id.newtask_edittext_datelimite);
         eTextDate.setInputType(InputType.TYPE_NULL);
         eTextDate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -107,7 +120,7 @@ public class NewTaskActivity extends AppCompatActivity {
                 int day = cldr.get(Calendar.DAY_OF_MONTH);
                 int month = cldr.get(Calendar.MONTH);
                 int year = cldr.get(Calendar.YEAR);
-                picker = new DatePickerDialog(NewTaskActivity.this,
+                picker = new DatePickerDialog(EditTaskActivity.this,
                         new DatePickerDialog.OnDateSetListener() {
                             @Override
                             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
@@ -120,18 +133,25 @@ public class NewTaskActivity extends AppCompatActivity {
             }
         });
 
-        new_task_button_confirm.setOnClickListener(new View.OnClickListener() {
+        edit_task_button_confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                System.out.println(sDate);
-                mDBHandler.addNewTask(type, newtask_edittext_intitule.getText().toString(), newtask_edittext_description.getText().toString(), sDate, userId);
+                task.setType(edit_task_type_spinner_text.getText().toString());
+                task.setName(edit_task_entitled_input.getText().toString());
+                task.setDate(sDate);
+                task.setDescription(edit_task_description_input.getText().toString());
+                mDBHandler.updateTask(task);
+                Intent taskDetailsActivity = new Intent(EditTaskActivity.this, TaskDetailsActivity.class);
+                startActivity(taskDetailsActivity);
                 finish();
             }
         });
     }
 
-    @Override
+
+        @Override
     protected void onStart() {
         super.onStart();
     }
 }
+

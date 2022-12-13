@@ -39,6 +39,7 @@
             android:exported="false" />
         <activity android:name=".controller.TaskDetailsActivity"
             android:exported="false"/>
+        <activity android:name=".controller.EditTaskActivity"/>
         <activity android:name=".controller.SignUpActivity" />
         <activity android:name=".controller.MainActivity" />
         <activity
