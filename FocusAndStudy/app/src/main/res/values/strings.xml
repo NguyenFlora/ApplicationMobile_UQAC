@@ -1,5 +1,5 @@
 <resources>
-    <string name="language">fr</string>
+    <string name="language">FR</string>
     <string name="app_name" translatable="false">Focus &amp; Study</string>
     <string name="title_home">Accueil</string>
     <string name="title_calendar">Calendrier</string>

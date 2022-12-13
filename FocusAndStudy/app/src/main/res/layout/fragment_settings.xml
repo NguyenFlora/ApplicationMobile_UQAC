@@ -41,86 +41,6 @@
                     android:layout_height="25dp"
                     android:layout_margin="8dp"
                     android:layout_weight="3"
-                    android:text="@string/turn_off_notifications"
-                    android:textColor="@color/green1"
-                    android:textSize="16sp" />
-
-                <CheckBox
-                    android:id="@+id/turn_off_notifications_check_box"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:button="@drawable/custom_checkbox" />
-            </TableRow>
-
-            <TableRow
-                android:background="@drawable/border"
-                android:gravity="center_vertical">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="25dp"
-                    android:layout_margin="8dp"
-                    android:layout_weight="3"
-                    android:text="@string/turn_off_sound"
-                    android:textColor="@color/green1"
-                    android:textSize="16sp" />
-
-                <CheckBox
-                    android:id="@+id/turn_off_sound_check_box"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:button="@drawable/custom_checkbox" />
-            </TableRow>
-
-            <TableRow
-                android:background="@drawable/border"
-                android:gravity="center_vertical">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="25dp"
-                    android:layout_margin="8dp"
-                    android:layout_weight="3"
-                    android:text="@string/block_apps"
-                    android:textColor="@color/green1"
-                    android:textSize="16sp" />
-
-                <CheckBox
-                    android:id="@+id/block_apps_check_box"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:button="@drawable/custom_checkbox" />
-            </TableRow>
-
-            <TableRow
-                android:background="@drawable/border"
-                android:gravity="center_vertical">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="25dp"
-                    android:layout_margin="8dp"
-                    android:layout_weight="3"
-                    android:text="@string/sleep_mode"
-                    android:textColor="@color/green1"
-                    android:textSize="16sp" />
-
-                <CheckBox
-                    android:id="@+id/sleep_mode_check_box"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:button="@drawable/custom_checkbox" />
-            </TableRow>
-
-            <TableRow
-                android:background="@drawable/border"
-                android:gravity="center_vertical">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="25dp"
-                    android:layout_margin="8dp"
-                    android:layout_weight="3"
                     android:text="@string/change_language"
                     android:textColor="@color/green1"
                     android:textSize="16sp" />
@@ -135,7 +55,7 @@
                         android:id="@+id/language_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="FR"
+                        android:text="@string/language"
                         android:textColor="@color/gray"/>
 
                     <ImageView
@@ -149,31 +69,6 @@
 
         </TableLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/terms_of_use"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:gravity="center_horizontal"
-                android:text="@string/terms_of_use"
-                android:textColor="@color/gray" />
-
-            <TextView
-                android:id="@+id/sign_out"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:gravity="center_horizontal"
-                android:text="@string/sign_out"
-                android:textColor="@color/gray" />
-
-        </LinearLayout>
 
 
     </RelativeLayout>

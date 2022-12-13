@@ -1,5 +1,5 @@
 <resources>
-    <string name="language">fr</string>
+    <string name="language">FR</string>
     <string name="title_home">Accueil</string>
     <string name="title_calendar">Calendrier</string>
     <string name="title_profile">Profil</string>
@@ -88,4 +88,26 @@
     <string name="new_session">Nouvelle session</string>
     <string name="launch_session">Lancer la session</string>
     <string name="back">Retour</string>
+    <string name="new_task">Nouvelle Tâche</string>
+    <string name="task_type">Type de tâche</string>
+    <string name="task_title">Intitulé</string>
+    <string name="task_title_edittext"> Intitulé</string>
+    <string name="limite_date">Date limite</string>
+    <string name="description">Description</string>
+    <string name="description_edittext"> Description</string>
+    <string name="create_task">Créer la tâche</string>
+    <string name="date_select"> jj/mm/aaaa</string>
+    <string-array name="types_tache">
+        <item>Examen</item>
+        <item>Devoir</item>
+    </string-array>
+    <string name="tasktitle_taskdetail">Examen mobile</string>
+    <string name="tasktype_taskdetail"> Type :</string>
+    <string name="date">Date</string>
+    <string name="nb_session">Nombre de sessions réalisées : </string>
+    <string name="task_over">Tâche terminée</string>
+    <string name="task_not_over">Tâche non terminée</string>
+    <string name="begin_session">Commencer la session</string>
+    <string name="edit_task">Modification de tâche</string>
+    <string name="edit">Modifier</string>
 </resources>
