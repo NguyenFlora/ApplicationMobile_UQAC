@@ -1,5 +1,6 @@
 package com.example.focusandstudy.ui.settings;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -15,6 +16,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.PopupMenu;
 import android.widget.TextView;
@@ -35,9 +37,11 @@ import java.util.Locale;
 
 public class SettingsFragment extends Fragment {
 
+    Button btnFr, btnEn;
     private FragmentSettingsBinding binding;
     LinearLayout language;
     TextView language_text;
+
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -47,7 +51,6 @@ public class SettingsFragment extends Fragment {
 
         language = binding.language;
         language_text = binding.languageText;
-
 
         // handle changing the "from" type
         language.setOnClickListener(new View.OnClickListener() {
@@ -63,12 +66,15 @@ public class SettingsFragment extends Fragment {
 
                         int i = menuItem.getOrder();
                         if (i == 0) { // hexadecimal
-                            context = LocaleHelper.setLocale(getActivity(), "fr");
-                            resources = context.getResources();
-                            language_text.setText(resources.getString(R.string.language));
+                            String language = "fr";
+                            setLocale(language);
+                            Intent intent = new Intent(getActivity(), MainActivity.class);
+                            startActivity(intent);
                         } else {
-                            language_text.setText("EN");
-
+                            String language = "en";
+                            setLocale(language);
+                            Intent intent = new Intent(getActivity(), MainActivity.class);
+                            startActivity(intent);
                         }
                         return true;
                     }
@@ -82,22 +88,19 @@ public class SettingsFragment extends Fragment {
     }
 
 
+    private void setLocale(String language) {
+        Resources resources = getResources();
+        DisplayMetrics metrics = resources.getDisplayMetrics();
+        Configuration configuration = resources.getConfiguration();
+        configuration.locale = new Locale(language);
+        resources.updateConfiguration(configuration, metrics);
+        onConfigurationChanged(configuration);
+    }
+
     @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        binding = null;
+    public void onConfigurationChanged(@NonNull Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+
     }
-/*
-    public void setLocale(String lang) {
-        Locale myLocale = new Locale(lang);
-        Resources res = getResources();
-        DisplayMetrics dm = res.getDisplayMetrics();
-        Configuration conf = res.getConfiguration();
-        conf.locale = myLocale;
-        res.updateConfiguration(conf, dm);
-        Intent refresh = new Intent(this, MainActivity.class);
-        finish();
-        startActivity(refresh);
-    }
- */
+
 }
