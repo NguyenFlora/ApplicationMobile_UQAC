@@ -111,5 +111,7 @@
     <string name="task_over">Tâche terminée</string>
     <string name="task_not_over">Tâche non terminée</string>
     <string name="begin_session">Commencer la session</string>
+    <string name="edit_task">Modification de tâche</string>
+    <string name="edit">Modifier</string>
 
 </resources>

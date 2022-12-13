@@ -9,6 +9,8 @@ import android.view.Window;
 import com.example.focusandstudy.R;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
@@ -18,6 +20,7 @@ import com.example.focusandstudy.model.User;
 import com.example.focusandstudy.model.database.DBHandler;
 
 import java.util.Calendar;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -97,6 +100,4 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences sharedPref = mActivity.getSharedPreferences("DayManagement", Context.MODE_PRIVATE);
         return sharedPref.contains("day");
     }
-
-
 }

@@ -77,12 +77,19 @@ public class CalendarMonthlyFragment extends Fragment{
 
         for (int i=0; i<tasks.size(); i++){
             String myDate = tasks.get(i).getDate();
+            String type = tasks.get(i).getType();
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
             Date temp_date = null;
             try {
                 temp_date = sdf.parse(myDate);
                 long dateInMillis = temp_date.getTime();
-                Event ev = new Event(getResources().getColor(R.color.purple_500), dateInMillis);
+                Event ev;
+                if (type.equals("Examen")){
+                    ev = new Event(getResources().getColor(R.color.purple_500), dateInMillis);
+                }
+                else {
+                    ev = new Event(getResources().getColor(R.color.green1), dateInMillis);
+                }
                 compactCalendarView.addEvent(ev);
             } catch (ParseException e) {
                 e.printStackTrace();
@@ -121,6 +128,14 @@ public class CalendarMonthlyFragment extends Fragment{
     }
 
     @Override
+    public void onStart() {
+        super.onStart();
+        java.util.Date utilDate = Calendar.getInstance().getTime();
+        java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
+        updateTasks(sqlDate);
+    }
+
+    @Override
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
@@ -138,6 +153,7 @@ public class CalendarMonthlyFragment extends Fragment{
             ft.add(R.id.tasks, newFragment);
         }
         ft.commit();
+
     }
 
 }

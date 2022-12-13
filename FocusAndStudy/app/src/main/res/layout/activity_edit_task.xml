@@ -16,15 +16,15 @@
         app:srcCompat="@android:drawable/ic_menu_close_clear_cancel" />
 
     <TextView
-        android:id="@+id/newtask_text_nouvelletache"
+        android:id="@+id/edit_task_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/montserrat_medium"
         android:layout_centerHorizontal="true"
-        android:text="@string/new_task"
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/montserrat_medium"
+        android:text="@string/edit_task"
         android:textColor="#000000"
-        android:textSize="28dp"
-        android:layout_marginTop="20dp"/>
+        android:textSize="25dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -33,7 +33,7 @@
         android:layout_centerInParent="true">
 
         <TextView
-            android:id="@+id/newtask_text_typetache"
+            android:id="@+id/edit_task_type"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/montserrat"
@@ -48,26 +48,26 @@
             android:layout_marginTop="5dp">
 
             <Spinner
-                android:id="@+id/newtask_spinner_menuderoulant"
+                android:id="@+id/edit_task_type_spinner"
                 android:layout_width="176dp"
                 android:layout_height="30dp"
                 android:background="@drawable/background_typetache"
                 android:theme="@style/SpinnerThemeLight" />
 
             <TextView
-                android:id="@+id/newtask_spinner_menuderoulant_text"
+                android:id="@+id/edit_task_type_spinner_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="5dp"
                 android:drawableTint="@color/purple_500"
-                android:text="   Examen"
+                android:text=""
                 android:textColor="@color/gray"
                 app:drawableStartCompat="@drawable/purple_round" />
 
         </RelativeLayout>
 
         <TextView
-            android:id="@+id/newtask_text_intitule"
+            android:id="@+id/edit_task_entitled"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/montserrat"
@@ -78,7 +78,7 @@
             android:layout_marginTop="20dp"/>
 
         <EditText
-            android:id="@+id/newtask_edittext_intitule"
+            android:id="@+id/edit_task_entitled_input"
             android:layout_width="match_parent"
             android:layout_height="35dp"
             android:layout_marginTop="5dp"
@@ -90,7 +90,7 @@
             android:textColor="@color/gray" />
 
         <TextView
-            android:id="@+id/newtask_text_datelimite"
+            android:id="@+id/edit_task_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/montserrat"
@@ -101,7 +101,7 @@
             android:layout_marginTop="20dp"/>
 
         <TextView
-            android:id="@+id/newtask_edittext_datelimite"
+            android:id="@+id/edit_task_date_input"
             android:layout_width="131dp"
             android:layout_height="30dp"
             android:layout_marginTop="5dp"
@@ -115,7 +115,7 @@
             android:textSize="15dp" />
 
         <TextView
-            android:id="@+id/newtask_text_description"
+            android:id="@+id/edit_task_description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/montserrat"
@@ -126,7 +126,7 @@
             android:layout_marginTop="20dp"/>
 
         <EditText
-            android:id="@+id/newtask_edittext_description"
+            android:id="@+id/edit_task_description_input"
             android:layout_width="match_parent"
             android:layout_height="112dp"
             android:layout_marginTop="5dp"
@@ -143,7 +143,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/new_task_button_confirm"
+        android:id="@+id/edit_task_button_confirm"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -152,7 +152,7 @@
         android:background="@drawable/box2"
         android:fontFamily="@font/montserrat_medium"
         android:padding="10dp"
-        android:text="@string/create_task"
+        android:text="@string/edit"
         android:textAllCaps="false"
         android:textColor="#FFFFFF"
         android:textSize="17dp"></Button>
